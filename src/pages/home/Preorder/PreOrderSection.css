@@ -1,0 +1,148 @@
+/* Pre-Order Section Styling */
+.pre-order-section {
+    padding: 6rem 2rem; /* Generous padding */
+    background-color: #ffffff; /* Clean white background */
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh; /* Ensure it takes up a good portion of the viewport */
+    position: relative; /* For any potential future absolute elements */
+    overflow: hidden; /* Prevent overflow */
+    border-top: 1px solid #eee; /* Subtle separator from previous section */
+  }
+  
+  .pre-order-content {
+    max-width: 900px; /* Wider content area for central focus */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem; /* Space between elements */
+    animation: fadeInFromBottom 1s ease-out forwards; /* Entry animation */
+    opacity: 0; /* Start hidden */
+    transform: translateY(30px);
+  }
+  
+  /* Keyframe for content entry animation */
+  @keyframes fadeInFromBottom {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .pre-order-title {
+    font-size: clamp(2.5rem, 5vw, 3.8rem); /* Responsive title size */
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: #212529; /* Dark heading color */
+    line-height: 1.2;
+  }
+  
+  .highlight-text {
+    color: #007bff; /* Brand blue for emphasis */
+    font-weight: 800; /* Extra bold for highlight */
+    /* Optional: Add a subtle text shadow for a glow if desired, but keep it light on white background */
+    /* text-shadow: 0 0 5px rgba(0, 123, 255, 0.3); */
+  }
+  
+  .pre-order-description {
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    line-height: 1.7;
+    color: #555; /* Softer dark color for body text */
+    margin-bottom: 2rem;
+    max-width: 700px; /* Limit description width */
+  }
+  
+  /* Buttons Container */
+  .pre-order-buttons-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow buttons to wrap */
+    justify-content: center;
+    gap: 1.5rem; /* Space between buttons */
+    margin-top: 1.5rem;
+    animation: fadeInFromBottom 1s ease-out forwards; /* Animation for buttons */
+    animation-delay: 0.3s; /* Delay after description */
+    opacity: 0; /* Start hidden */
+  }
+  
+  /* Base style for pre-order buttons */
+  .pre-order-button {
+    display: inline-block;
+    text-decoration: none;
+    padding: 1.2rem 2.8rem; /* Generous padding */
+    border: none;
+    border-radius: 50px; /* Pill-shaped */
+    font-size: 1.15rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  /* Primary Pre-order Button */
+  .primary-pre-order-button {
+    background-color: #007bff; /* Brand blue */
+    color: #ffffff;
+  }
+  
+  .primary-pre-order-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-4px); /* More pronounced lift */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+  }
+  
+  /* Secondary Pre-order Button */
+  .secondary-pre-order-button {
+    background-color: #6c757d; /* Neutral gray */
+    color: #ffffff;
+  }
+  
+  .secondary-pre-order-button:hover {
+    background-color: #5a6268; /* Darker gray on hover */
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .pre-order-section {
+      padding: 4rem 1.5rem;
+      min-height: auto; /* Allow height to adjust */
+    }
+  
+    .pre-order-title {
+      font-size: clamp(2rem, 8vw, 3rem);
+    }
+  
+    .pre-order-description {
+      font-size: clamp(1rem, 3vw, 1.15rem);
+    }
+  
+    .pre-order-buttons-container {
+      flex-direction: column; /* Stack buttons vertically on mobile */
+      gap: 1rem;
+    }
+  
+    .pre-order-button {
+      width: 100%; /* Make buttons full width on mobile */
+      max-width: 300px; /* Limit max width for stacked buttons */
+      padding: 1rem 2rem;
+      font-size: 1.05rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .pre-order-section {
+      padding: 3rem 1rem;
+    }
+  
+    .pre-order-title {
+      font-size: clamp(1.8rem, 9vw, 2.5rem);
+    }
+  
+    .pre-order-description {
+      font-size: 0.95rem;
+    }
+  }

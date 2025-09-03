@@ -1,0 +1,86 @@
+:root {
+    --color-bg: #ffffff;
+    --color-text: #1a1a1a;
+    --color-primary: #1e88e5;
+    --font-main: 'Segoe UI', sans-serif;
+    --font-size-base: 16px;
+    --font-size-heading: 24px;
+    --navbar-height: 64px;
+  }
+  
+  /* Root scroll behavior */
+  html {
+    scroll-behavior: smooth;
+    height: 100%;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: var(--font-main);
+    font-size: var(--font-size-base);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  
+    /* Enable vertical scroll snapping */
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: var(--navbar-height);
+  }
+  
+  /* Each section fills the screen minus navbar */
+  section {
+    min-height: calc(100vh - var(--navbar-height));
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  
+    box-sizing: border-box;
+  }
+  
+  /* Responsive typography */
+  h2 {
+    font-size: var(--font-size-heading);
+    margin: 0.5rem 0;
+  }
+  
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  /* Buttons (optional improvement) */
+  button {
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  /* Mobile tweaks */
+  @media (max-width: 600px) {
+    section {
+      padding: 2rem 1rem;
+    }
+  
+    h2 {
+      font-size: 20px;
+    }
+  
+    p {
+      font-size: 14px;
+    }
+  
+    button {
+      font-size: 14px;
+      padding: 0.6rem 1.2rem;
+    }
+  }
+  

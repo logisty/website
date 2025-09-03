@@ -1,0 +1,147 @@
+/* Investor Section Styling */
+.investor-section {
+    position: relative;
+    padding: 6rem 2rem;
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+  }
+  
+  .investor-content {
+    max-width: 800px;
+    margin: 0 auto;
+    z-index: 10;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .investor-title {
+    font-size: clamp(2.8rem, 5vw, 4rem);
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+  }
+  
+  .investor-description {
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    line-height: 1.7;
+    color: #e0e0e0;
+    margin-bottom: 2rem;
+  }
+  
+  /* Container for CTA Buttons */
+  .investor-cta-container {
+    margin-top: 1.5rem;
+    display: flex; /* Make it a flex container */
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    justify-content: center; /* Center buttons horizontally */
+    gap: 1.5rem; /* Space between buttons */
+  }
+  
+  /* Base style for investor buttons */
+  .investor-button {
+    display: inline-block;
+    text-decoration: none;
+    padding: 1rem 2.5rem;
+    border-radius: 50px; /* Pill-shaped button */
+    font-size: 1.15rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Primary Button (Schedule Meeting) */
+  .primary-investor-button {
+    background-color: #007bff; /* Primary blue color */
+    color: #ffffff;
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4); /* Initial blue shadow */
+  }
+  
+  .primary-investor-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.6); /* More intense shadow on hover */
+  }
+  
+  /* Secondary Button (Back Us Directly) - New Green Button */
+  .secondary-investor-button {
+    background-color: #28a745; /* A vibrant green color */
+    color: #ffffff;
+    box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4); /* Initial green shadow */
+  }
+  
+  .secondary-investor-button:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(40, 167, 69, 0.6); /* More intense shadow on hover */
+  }
+  
+  /* Blue Glowing Effect at the End of the Section */
+  .section-glow-effect {
+    position: absolute;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 200px;
+    background: radial-gradient(circle at center, rgba(0, 123, 255, 0.4) 0%, transparent 70%);
+    filter: blur(80px);
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .investor-section {
+      padding: 4rem 1.5rem;
+      min-height: 60vh;
+    }
+  
+    .investor-title {
+      font-size: clamp(2.2rem, 8vw, 3rem);
+    }
+  
+    .investor-description {
+      font-size: clamp(1rem, 3vw, 1.15rem);
+    }
+  
+    .investor-cta-container {
+      flex-direction: column; /* Stack buttons vertically on mobile */
+      gap: 1rem; /* Adjust gap for stacked buttons */
+    }
+  
+    .investor-button {
+      width: 100%; /* Make buttons full width on mobile */
+      max-width: 300px; /* Limit max width for stacked buttons */
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+    }
+  
+    .section-glow-effect {
+      height: 150px;
+      bottom: -75px;
+      filter: blur(60px);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .investor-section {
+      padding: 3rem 1rem;
+    }
+  
+    .investor-title {
+      font-size: clamp(1.8rem, 9vw, 2.5rem);
+    }
+  
+    .investor-description {
+      font-size: 0.95rem;
+    }
+  }

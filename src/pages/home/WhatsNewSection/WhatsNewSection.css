@@ -1,0 +1,220 @@
+/* General Body Font (assuming you have a global style for this) */
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+}
+
+/* Section Styling */
+.whats-new-section {
+  position: relative; /* Needed for absolute positioning of the glow effect */
+  padding: 6rem 2rem; /* Generous padding */
+  background-color: #000000; /* Solid black background */
+  color: #ffffff; /* White text for contrast */
+  text-align: center;
+  overflow: hidden; /* Ensures the glow effect doesn't spill out */
+}
+
+/* Yellow Glowing Effect at the Top of the Section */
+.section-top-glow-effect {
+  position: absolute;
+  top: -120px; /* Adjusted slightly higher for more spread */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1600px; /* Increased max-width for a wider glow */
+  height: 300px; /* Increased height for a more intense glow */
+  background: radial-gradient(circle at center, rgba(255, 223, 0, 0.6) 0%, transparent 70%); /* Increased opacity to 0.6 for intensity */
+  filter: blur(120px); /* Increased blur for a softer, more diffused glow */
+  z-index: 1;
+  pointer-events: none;
+}
+
+.section-title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: 3.5rem;
+  font-weight: 700;
+  color: #ffffff; /* White title for contrast on black background */
+  text-shadow: 0 0 15px rgba(255, 223, 0, 0.5); /* More intense yellow glow for title */
+  position: relative;
+  z-index: 2;
+  animation: slideInFromTop 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+/* Keyframes for animations */
+@keyframes slideInFromTop {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInCard {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Features Grid Container - Now for 4 columns */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Explicitly 4 equal columns */
+  gap: 2rem;
+  max-width: 1400px; /* Increased max-width to accommodate 4 cards better */
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Feature Card Styling */
+.feature-card {
+  background: #1a1a1a; /* Darker background for cards on black section */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* More pronounced shadow for depth on dark background */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  animation: fadeInCard 0.8s ease-out forwards;
+  opacity: 0;
+  cursor: pointer; /* Add pointer cursor on hover */
+}
+
+/* Individual card animation delays */
+.features-grid .feature-card:nth-child(1) { animation-delay: 0.1s; }
+.features-grid .feature-card:nth-child(2) { animation-delay: 0.2s; }
+.features-grid .feature-card:nth-child(3) { animation-delay: 0.3s; }
+.features-grid .feature-card:nth-child(4) { animation-delay: 0.4s; }
+
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
+  background-color: #2a2a2a; /* Slightly lighter on hover */
+}
+
+/* Card Image Styling */
+.card-image-wrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  border-bottom: 1px solid #333; /* Darker separator for dark cards */
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover .card-image {
+  transform: scale(1.05);
+}
+
+/* Card Content Styling */
+.card-content {
+  padding: 1.8rem;
+  text-align: left;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  font-size: 1.6rem;
+  margin: 0 0 1rem;
+  font-weight: 600;
+  color: #ffffff; /* White title on dark card */
+}
+
+/* Bullet Points Styling */
+.bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bullet-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.8rem;
+  font-size: 1.05rem;
+  color: #c0c0c0; /* Lighter grey for bullet text on dark background */
+}
+
+.bullet-icon {
+  font-size: 1.2rem;
+  margin-right: 0.7rem;
+  color: #ffd700; /* Use a vibrant yellow for icons on dark background */
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) { /* Adjust grid for medium screens */
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+    gap: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .whats-new-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 8vw, 3rem);
+    margin-bottom: 2.5rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr; /* Stack cards on mobile */
+    gap: 1.5rem;
+  }
+
+  .card-image-wrapper {
+    height: 180px;
+  }
+
+  .card-content {
+    padding: 1.5rem;
+  }
+
+  .card-title {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .bullet-item {
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .section-top-glow-effect {
+    height: 180px;
+    filter: blur(80px);
+  }
+}
+
+@media (max-width: 480px) {
+  .whats-new-section {
+    padding: 3rem 1rem;
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+  }
+
+  .bullet-icon {
+    font-size: 1.1rem;
+  }
+}
