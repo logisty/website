@@ -1,0 +1,235 @@
+/* Keyframes for content entry animation */
+@keyframes fadeInSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .explore-platform-section {
+    padding: 4rem 2rem;
+    background-color: #FFCF00; /* Specified background color */
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .section-title {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    font-weight: 800;
+    color: #212529;
+    margin-bottom: 2rem;
+    animation: fadeInSlideUp 1s ease-out forwards;
+  }
+  
+  .section-content {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .apps-content {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 800px;
+  }
+  
+  .app-card {
+    flex: 1;
+    max-width: 400px;
+    padding: 2rem;
+    background-color: white;
+    border: 2px solid #000000; /* Black border */
+    border-radius: 0; /* Sharp corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeInSlideUp 1s ease-out forwards;
+    animation-delay: 0.3s;
+  }
+  
+  .app-logo {
+    width: 150px;
+    height: 150px;
+    background-color: #ffffff; /* White background */
+    border: 2px solid #000000; /* Black border */
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    object-fit: contain;
+  }
+  
+  .app-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #000000; /* Black text */
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+  
+  .app-description {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #495057;
+    margin-bottom: 1rem;
+    text-align: center;
+    max-width: 80%;
+  }
+  
+  .download-badge {
+    background-color: #000000; /* Black background */
+    border: 2px solid #808080; /* Grey border */
+    border-radius: 8px;
+    padding: 0.8rem 1.2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+  }
+  
+  .download-badge:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .android-logo {
+    width: 40px; /* Larger logo size */
+    height: 40px;
+    margin-right: 0.5rem;
+    object-fit: contain;
+  }
+  
+  .badge-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .badge-text-thin {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: #ffffff;
+    line-height: 1.2;
+  }
+  
+  .badge-text-bold {
+    font-size: 1.4rem; /* Larger text size */
+    font-weight: 700;
+    color: #39DD85; /* Specified green color */
+    line-height: 1.2;
+  }
+  
+  .how-it-works {
+    flex: 1;
+    max-width: 400px;
+    padding: 2rem;
+    background-color: #ffffff; /* White background */
+    border: 2px solid #000000; /* Black border */
+    border-radius: 0; /* Sharp corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeInSlideUp 1s ease-out forwards;
+    animation-delay: 0.6s;
+  }
+  
+  .info-icon {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1rem;
+    object-fit: contain;
+  }
+  
+  .how-it-works-title {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 800;
+    color: #212529;
+    margin-bottom: 1rem;
+  }
+  
+  .how-it-works-list {
+    list-style-type: decimal;
+    text-align: left;
+    padding-left: 1.5rem;
+    width: 100%;
+  }
+  
+  .how-it-works-list li {
+    font-size: clamp(1rem, 2vw, 1.1rem);
+    color: #495057;
+    margin-bottom: 0.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    .explore-platform-section {
+      padding: 2rem 1rem;
+    }
+  
+    .section-content {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+  
+    .apps-content {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      max-width: 100%;
+    }
+  
+    .app-card {
+      max-width: 100%;
+    }
+  
+    .how-it-works {
+      max-width: 100%;
+    }
+  }
+  
+  /* RTL support for Arabic */
+  [dir="rtl"] .how-it-works-list {
+    text-align: right;
+    padding-right: 1.5rem;
+    padding-left: 0;
+  }
+  
+  [dir="rtl"] .download-badge {
+    flex-direction: row-reverse;
+  }
+  
+  [dir="rtl"] .android-logo {
+    margin-right: 0;
+    margin-left: 0.5rem;
+  }
+  
+  [dir="rtl"] .badge-text-container {
+    align-items: flex-end;
+  }
+  
+  [dir="rtl"] .app-description {
+    text-align: right;
+  }
+  
+  [dir="rtl"] .section-content {
+    flex-direction: row-reverse;
+  }
+  
+  [dir="rtl"] .how-it-works {
+    align-items: center;
+  }
+  
+  [dir="rtl"] .app-title {
+    text-align: right;
+  }

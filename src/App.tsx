@@ -2,8 +2,6 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './pages/home/home';
 import Footer from './components/footer/Footer';
 import NavigationBar from './components/navigation/NavigationBar';
-import BlogListingPage from './pages/Blog/BlogListingPage';
-import ArticleDetailPage from './pages/Blog/ArticleDetailPage/ArticleDetailPage';
 
 function App() {
   return (

@@ -11,7 +11,7 @@ export default function ScrollIndicator({ sectionIds }: ScrollIndicatorProps) {
     function onScroll() {
       const scrollPosition = window.scrollY + window.innerHeight / 2;
 
-      const currentIndex = sectionIds.findIndex((id, i) => {
+      const currentIndex = sectionIds.findIndex((id) => {
         const el = document.getElementById(id);
         if (!el) return false;
         const rect = el.getBoundingClientRect();

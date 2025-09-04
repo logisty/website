@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import './BlogListingPage.css'; // This CSS file will be modified
 
