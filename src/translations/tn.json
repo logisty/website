@@ -1,10 +1,10 @@
-{
+﻿{
     "investorProgram": "برنامج المستثمر",
     "preOrderProgram": "برنامج الطلب المسبق",
     "getEarlyAccess": "الدخول المبكر",
-    "introHeadlinePrefix": "هل أنت مستعد لثورة في صناعة الخدمات اللوجستية؟",
+    "introHeadlinePrefix": "هل أنت مستعد لثورة في صناعة الخدمات اللوجستية",
     "introHeadlineAction": "اكتشف لوجيستي",
-    "introDescription": "لوجيستي هو تطبيق من نظير إلى نظير من الباب إلى الباب مصمم لتبسيط إرسال واستقبال الطرود بين الأشخاص، سواء لمسافات قصيرة أو طويلة.",
+    "introDescription": "لوجيستي هو تطبيق من نظير إلى نظير من الباب إلى الباب مصمم لتبسيط إرسال واستقبال الطرود بين الأشخاص سواء لمسافات قصيرة أو طويلة.",
     "learnMore": "تعرف على المزيد",
     "explorePlatform": "استكشف المنصة",
     "downloadItOn": "قم بتنزيله على",
@@ -12,17 +12,18 @@
     "howItWorks": "كيف يعمل",
     "step1": "قم بتنزيل APK",
     "step2": "انقر على التطبيق",
-    "step3": "قم بالتثبيت حتى لو ظهر تحذير، إنه تطبيق آمن",
+    "step3": "قم بالتثبيت حتى لو ظهر تحذير إنه تطبيق آمن",
     "logisityAppDescription": "احجز وتتبع التوصيلات بسهولة.",
     "logisityPartnerDescription": "انضم إلى شبكتنا لتقديم خدمات لوجستية.",
     "logisityAppTitle": "تطبيق لوجيستي",
     "logisityPartnerTitle": "شريك لوجيستي",
     "contactTitle": "تواصل معنا في أي وقت",
-    "contactDescription": "هل لديك أسئلة أو تعليقات؟ تواصل معنا!",
+    "contactDescription": "هل لديك أسئلة أو تعليقات تواصل معنا!",
     "contactNamePlaceholder": "اسمك",
     "contactEmailPlaceholder": "بريدك الإلكتروني",
     "contactMessagePlaceholder": "رسالتك",
     "contactSubmitButton": "إرسال الرسالة",
+    "contactSendingMessage": "جاري إرسال الرسالة...",
     "contactSuccessMessage": "تم إرسال الرسالة بنجاح!",
     "contactErrorMessage": "فشل إرسال الرسالة. حاول مرة أخرى."
-  }
+}
