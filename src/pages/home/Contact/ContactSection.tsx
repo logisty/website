@@ -14,43 +14,56 @@ export default function ContactSection() {
     setEmail,
     setMessage,
     sendEmail,
+    setStatus,
   } = useContactStore();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    e.stopPropagation();
-    await sendEmail(t);
+    e.stopPropagation(); // Prevent event bubbling
+    try {
+      await sendEmail(t);
+    } catch (error: unknown) {
+      console.error('Form submission error:', error);
+      if (error instanceof Error) {
+        setStatus(t('contactErrorMessage') + ': ' + error.message);
+      } else {
+        setStatus(t('contactErrorMessage') + ': Unknown error');
+      }
+    }
   };
 
   return (
-    <section id="contact"  className="contact-section">
+    <section id="contact" className="contact-section">
       <h2 className="contact-title">{t('contactTitle')}</h2>
       <p className="contact-description">{t('contactDescription')}</p>
       <form onSubmit={handleSubmit} action="" className="contact-form">
         <input
           type="text"
+          id="name"
           name="name"
           placeholder={t('contactNamePlaceholder')}
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
           className="form-input"
           required
           minLength={2}
         />
         <input
           type="email"
+          id="email"
           name="email"
           placeholder={t('contactEmailPlaceholder')}
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
           className="form-input"
           required
         />
         <textarea
+          id="message"
           name="message"
           placeholder={t('contactMessagePlaceholder')}
           value={message}
-          onChange={(e) => setMessage(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setMessage(e.target.value)}
           rows={5}
           className="form-textarea"
           required
