@@ -23,6 +23,7 @@ export const useContactStore = create<ContactFormState>((set, get) => {
     emailjs.init(publicKey);
   } else {
     console.error('EmailJS public key is missing');
+    set({ status: 'Configuration error: Missing EmailJS public key' });
   }
 
   return {
@@ -75,13 +76,17 @@ export const useContactStore = create<ContactFormState>((set, get) => {
           email,
           message,
         });
-        console.log('Email sent successfully:', result.text);
         setStatus(t('contactSuccessMessage'));
         set({ name: '', email: '', message: '' });
       } catch (error: unknown) {
-        console.error('Email sending failed:', error);
-        if (error instanceof Error && error.message.includes('535 5.7.8')) {
-          setStatus(t('contactErrorMessage') + ': Authentication failed');
+        if (error instanceof Error) {
+          if (error.message.includes('535 5.7.8')) {
+            setStatus(t('contactErrorMessage') + ': Authentication failed');
+          } else if (error.message.includes('Content Security Policy')) {
+            setStatus(t('contactErrorMessage') + ': Blocked by CSP');
+          } else {
+            setStatus(t('contactErrorMessage') + ': ' + error.message);
+          }
         } else {
           setStatus(t('contactErrorMessage'));
         }
