@@ -36,8 +36,8 @@ export default function ContactSection() {
     <section id="contact" className="contact-section">
       <h2 className="contact-title">{t('contactTitle')}</h2>
       <p className="contact-description">{t('contactDescription')}</p>
-      <form onSubmit={handleSubmit} action="javascript:void(0);" noValidate className="contact-form">
-        <input
+      <div className="contact-form" onSubmit={handleSubmit as any}>
+      <input
           type="text"
           id="name"
           name="name"
@@ -77,7 +77,7 @@ export default function ContactSection() {
           {t('contactSubmitButton')}
         </button>
         {status && <p className="status">{status}</p>}
-      </form>
+      </div>
     </section>
   );
 }
