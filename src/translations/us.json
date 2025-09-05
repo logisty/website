@@ -22,5 +22,7 @@
     "contactNamePlaceholder": "Your Name",
     "contactEmailPlaceholder": "Your Email",
     "contactMessagePlaceholder": "Your Message",
-    "contactSubmitButton": "Send Message"
+    "contactSubmitButton": "Send Message",
+    "contactSuccessMessage": "Message sent successfully!",
+    "contactErrorMessage": "Failed to send message. Try again."
   }

@@ -18,9 +18,11 @@
     "logisityAppTitle": "تطبيق لوجيستي",
     "logisityPartnerTitle": "شريك لوجيستي",
     "contactTitle": "تواصل معنا في أي وقت",
-    "contactDescription": "هل لديك أسئلة أو تعليقات ؟ تواصل معنا!",
+    "contactDescription": "هل لديك أسئلة أو تعليقات؟ تواصل معنا!",
     "contactNamePlaceholder": "اسمك",
     "contactEmailPlaceholder": "بريدك الإلكتروني",
     "contactMessagePlaceholder": "رسالتك",
-    "contactSubmitButton": "إرسال الرسالة"
+    "contactSubmitButton": "إرسال الرسالة",
+    "contactSuccessMessage": "تم إرسال الرسالة بنجاح!",
+    "contactErrorMessage": "فشل إرسال الرسالة. حاول مرة أخرى."
   }
