@@ -71,7 +71,7 @@ export const useContactStore = create<ContactFormState>((set, get) => {
       }
 
       try {
-        const result = await emailjs.send(serviceId, templateId, {
+        await emailjs.send(serviceId, templateId, {
           name,
           email,
           message,
