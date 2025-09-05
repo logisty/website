@@ -18,6 +18,7 @@ export default function ContactSection() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    e.stopPropagation();
     await sendEmail(t);
   };
 
