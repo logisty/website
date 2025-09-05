@@ -1,4 +1,4 @@
-import { useTranslation } from '@hooks/useTranslations';
+﻿import { useTranslation } from '@hooks/useTranslations';
 import { useContactStore } from '@store/contactStore';
 import './ContactSection.css';
 
@@ -19,7 +19,7 @@ export default function ContactSection() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    e.stopPropagation(); // Prevent event bubbling
+    e.stopPropagation();
     try {
       await sendEmail(t);
     } catch (error: unknown) {
@@ -36,7 +36,7 @@ export default function ContactSection() {
     <section id="contact" className="contact-section">
       <h2 className="contact-title">{t('contactTitle')}</h2>
       <p className="contact-description">{t('contactDescription')}</p>
-      <form onSubmit={handleSubmit} action="" className="contact-form">
+      <form onSubmit={handleSubmit} className="contact-form">
         <input
           type="text"
           id="name"
@@ -72,7 +72,7 @@ export default function ContactSection() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className={`submit-button ${isSubmitting ? 'disabled' : ''}`}
+          className="submit-button"
         >
           {t('contactSubmitButton')}
         </button>
