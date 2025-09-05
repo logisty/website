@@ -42,7 +42,12 @@ export default function NavigationBar() {
   }, []);
 
   const currentLanguage = languages.find((l) => l.code === language);
-
+  const handleScroll = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <nav className="navigation-bar">
       {/* Logo */}
@@ -60,7 +65,7 @@ export default function NavigationBar() {
 
       {/* CTA + Language Selector */}
       <div className="navigation-bar__cta">
-        <button className="cta-button">{t("getEarlyAccess")}</button>
+        <button className="cta-button" onClick={() => handleScroll('explore')}>{t("getEarlyAccess")}</button>
 
         <div className="language-dropdown" ref={dropdownRef}>
           <button

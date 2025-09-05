@@ -1,7 +1,7 @@
 {
     "investorProgram": "برنامج المستثمر",
     "preOrderProgram": "برنامج الطلب المسبق",
-    "getEarlyAccess": "الوصول المبكر",
+    "getEarlyAccess": "الدخول المبكر",
     "introHeadlinePrefix": "هل أنت مستعد لثورة في صناعة الخدمات اللوجستية؟",
     "introHeadlineAction": "اكتشف لوجيستي",
     "introDescription": "لوجيستي هو تطبيق من نظير إلى نظير من الباب إلى الباب مصمم لتبسيط إرسال واستقبال الطرود بين الأشخاص، سواء لمسافات قصيرة أو طويلة.",
@@ -16,5 +16,11 @@
     "logisityAppDescription": "احجز وتتبع التوصيلات بسهولة.",
     "logisityPartnerDescription": "انضم إلى شبكتنا لتقديم خدمات لوجستية.",
     "logisityAppTitle": "تطبيق لوجيستي",
-    "logisityPartnerTitle": "شريك لوجيستي"
+    "logisityPartnerTitle": "شريك لوجيستي",
+    "contactTitle": "تواصل معنا في أي وقت",
+    "contactDescription": "هل لديك أسئلة أو تعليقات ؟ تواصل معنا!",
+    "contactNamePlaceholder": "اسمك",
+    "contactEmailPlaceholder": "بريدك الإلكتروني",
+    "contactMessagePlaceholder": "رسالتك",
+    "contactSubmitButton": "إرسال الرسالة"
   }

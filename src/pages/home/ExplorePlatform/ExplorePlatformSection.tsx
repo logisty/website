@@ -9,7 +9,7 @@ export default function ExplorePlatformSection() {
   const { t } = useTranslation();
 
   return (
-    <section className="explore-platform-section">
+    <section id="explore" className="explore-platform-section">
       <h2 className="section-title">{t('explorePlatform')}</h2>
       <div className="section-content">
         <div className="apps-content">
@@ -17,25 +17,35 @@ export default function ExplorePlatformSection() {
             <img src={logisityAppLogo} alt="Logisity App Logo" className="app-logo" />
             <h3 className="app-title">{t('logisityAppTitle')}</h3>
             <p className="app-description">{t('logisityAppDescription')}</p>
-            <div className="download-badge">
+            <a
+              href="https://github.com/logisty/Logisty/releases/download/v0.22.5/app-release.apk"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="download-badge"
+            >
               <img src={androidLogo} alt="Android Logo" className="android-logo" />
               <div className="badge-text-container">
                 <span className="badge-text-thin">{t('downloadItOn')}</span>
                 <span className="badge-text-bold">{t('android')}</span>
               </div>
-            </div>
+            </a>
           </div>
           <div className="app-card">
             <img src={partnerAppLogo} alt="Logisity Partner Logo" className="app-logo" />
             <h3 className="app-title">{t('logisityPartnerTitle')}</h3>
             <p className="app-description">{t('logisityPartnerDescription')}</p>
-            <div className="download-badge">
+            <a
+              href="https://github.com/logisty/partner/releases/download/v0.2.12/partner_v0.2.12.apk"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="download-badge"
+            >
               <img src={androidLogo} alt="Android Logo" className="android-logo" />
               <div className="badge-text-container">
                 <span className="badge-text-thin">{t('downloadItOn')}</span>
                 <span className="badge-text-bold">{t('android')}</span>
               </div>
-            </div>
+            </a>
           </div>
         </div>
         <div className="how-it-works">

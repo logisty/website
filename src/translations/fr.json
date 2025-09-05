@@ -16,5 +16,11 @@
     "logisityAppDescription": "Réservez et suivez vos livraisons facilement.",
     "logisityPartnerDescription": "Rejoignez notre réseau pour offrir des services logistiques.",
     "logisityAppTitle": "Application Logisity",
-    "logisityPartnerTitle": "Partenaire Logisity"
+    "logisityPartnerTitle": "Partenaire Logisity",
+    "contactTitle": "Contactez-nous à tout moment",
+    "contactDescription": "Vous avez des questions, des commentaires ou envie de discuter ? Contactez-nous !",
+    "contactNamePlaceholder": "Votre Nom",
+    "contactEmailPlaceholder": "Votre Email",
+    "contactMessagePlaceholder": "Votre Message",
+    "contactSubmitButton": "Envoyer le Message"
   }
