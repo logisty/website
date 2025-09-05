@@ -18,7 +18,7 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci # Use npm ci for faster, deterministic installs
 
       - name: Build Vite project
         env:
@@ -26,6 +26,9 @@ jobs:
           VITE_EMAILJS_TEMPLATE_ID: ${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}
           VITE_EMAILJS_PUBLIC_KEY: ${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}
         run: npm run build
+
+      - name: Verify build output
+        run: ls -la dist # Debug step to confirm dist folder contents
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
