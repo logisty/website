@@ -16,63 +16,79 @@ interface ContactFormState {
   resetForm: () => void;
 }
 
-export const useContactStore = create<ContactFormState>((set, get) => ({
-  name: '',
-  email: '',
-  message: '',
-  status: '',
-  isSubmitting: false,
-  setName: (name) => set({ name }),
-  setEmail: (email) => set({ email }),
-  setMessage: (message) => set({ message }),
-  setStatus: (status) => set({ status }),
-  setIsSubmitting: (isSubmitting) => set({ isSubmitting }),
-  sendEmail: async (t) => {
-    const { name, email, message, setStatus, setIsSubmitting } = get();
-    
-    if (!name || !email || !message) {
-      setStatus('Please fill all fields');
-      return;
-    }
+export const useContactStore = create<ContactFormState>((set, get) => {
+  // Initialize EmailJS
+  const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string;
+  if (publicKey) {
+    emailjs.init(publicKey);
+  } else {
+    console.error('EmailJS public key is missing');
+  }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      setStatus('Invalid email format');
-      return;
-    }
+  return {
+    name: '',
+    email: '',
+    message: '',
+    status: '',
+    isSubmitting: false,
+    setName: (name) => set({ name }),
+    setEmail: (email) => set({ email }),
+    setMessage: (message) => set({ message }),
+    setStatus: (status) => set({ status }),
+    setIsSubmitting: (isSubmitting) => set({ isSubmitting }),
+    sendEmail: async (t) => {
+      const { name, email, message, setStatus, setIsSubmitting } = get();
 
-    setIsSubmitting(true);
-    setStatus('Sending...');
+      console.log('Form data:', { name, email, message });
+      console.log('Env vars:', {
+        serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      });
 
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID as string;
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string;
-
-    if (!serviceId || !templateId || !publicKey) {
-      setStatus('Configuration error: Missing EmailJS credentials');
-      setIsSubmitting(false);
-      return;
-    }
-
-    try {
-      const result = await emailjs.send(serviceId, templateId, {
-        name,
-        email,
-        message,
-      }, publicKey);
-      console.log('Email sent successfully:', result.text);
-      setStatus(t('contactSuccessMessage'));
-      set({ name: '', email: '', message: '' });
-    } catch (error: any) {
-      console.error('Email sending failed:', error.text);
-      if (error.text?.includes('535 5.7.8')) {
-        setStatus('Authentication failed: Check Brevo SMTP settings');
-      } else {
-        setStatus(t('contactErrorMessage'));
+      if (!name || !email || !message) {
+        setStatus(t('contactErrorMessage') + ': Please fill all fields');
+        return;
       }
-    } finally {
-      setTimeout(() => setIsSubmitting(false), 10000); // Re-enable after 10s
-    }
-  },
-  resetForm: () => set({ name: '', email: '', message: '', status: '' }),
-}));
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        setStatus(t('contactErrorMessage') + ': Invalid email format');
+        return;
+      }
+
+      setIsSubmitting(true);
+      setStatus(t('contactSendingMessage'));
+
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID as string;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
+
+      if (!serviceId || !templateId || !publicKey) {
+        setStatus(t('contactErrorMessage') + ': Missing EmailJS credentials');
+        setIsSubmitting(false);
+        return;
+      }
+
+      try {
+        const result = await emailjs.send(serviceId, templateId, {
+          name,
+          email,
+          message,
+        });
+        console.log('Email sent successfully:', result.text);
+        setStatus(t('contactSuccessMessage'));
+        set({ name: '', email: '', message: '' });
+      } catch (error: unknown) {
+        console.error('Email sending failed:', error);
+        if (error instanceof Error && error.message.includes('535 5.7.8')) {
+          setStatus(t('contactErrorMessage') + ': Authentication failed');
+        } else {
+          setStatus(t('contactErrorMessage'));
+        }
+      } finally {
+        setTimeout(() => setIsSubmitting(false), 10000);
+      }
+    },
+    resetForm: () => set({ name: '', email: '', message: '', status: '' }),
+  };
+});
