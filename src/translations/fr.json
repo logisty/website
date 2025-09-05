@@ -1,4 +1,4 @@
-{
+﻿{
     "investorProgram": "Programme Investisseur",
     "preOrderProgram": "Programme Pré-Commande",
     "getEarlyAccess": "Accès Anticipé",
@@ -22,5 +22,8 @@
     "contactNamePlaceholder": "Votre Nom",
     "contactEmailPlaceholder": "Votre Email",
     "contactMessagePlaceholder": "Votre Message",
-    "contactSubmitButton": "Envoyer le Message"
-  }
+    "contactSubmitButton": "Envoyer le Message",
+    "contactSendingMessage": "Envoi du message...",
+    "contactSuccessMessage": "Message envoyé avec succès !",
+    "contactErrorMessage": "Échec de l'envoi du message. Réessayez."
+}

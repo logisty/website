@@ -1,4 +1,4 @@
-{
+﻿{
     "investorProgram": "Investor Program",
     "preOrderProgram": "Pre-Order Program",
     "getEarlyAccess": "Get Early Access",
@@ -12,7 +12,7 @@
     "howItWorks": "How It Works",
     "step1": "Download the APK",
     "step2": "Click on the app",
-    "step3": "Install even if you are presented with a warning, it’s a secured app",
+    "step3": "Install even if you are presented with a warning, it's a secured app",
     "logisityAppDescription": "Book and track deliveries with ease.",
     "logisityPartnerDescription": "Join our network to offer logistics services.",
     "logisityAppTitle": "Logisity App",
@@ -23,6 +23,7 @@
     "contactEmailPlaceholder": "Your Email",
     "contactMessagePlaceholder": "Your Message",
     "contactSubmitButton": "Send Message",
+    "contactSendingMessage": "Sending message...",
     "contactSuccessMessage": "Message sent successfully!",
     "contactErrorMessage": "Failed to send message. Try again."
-  }
+}

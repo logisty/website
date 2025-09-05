@@ -3,20 +3,5 @@
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ],
-  "compilerOptions": {
-    "baseUrl": "src",
-    "target": "es5",
-    "module": "esnext",
-    "jsx": "react-jsx",
-    "strict": true,
-    // ... other options
-    "paths": {
-      "@assets/*": ["assets/*"],
-      "@hooks/*": ["hooks/*"],
-      "@components/*": ["components/*"],
-      "@store/*": ["store/*"],
-      "@translations/*": ["translations/*"]
-    }
-  }
+  ]
 }
