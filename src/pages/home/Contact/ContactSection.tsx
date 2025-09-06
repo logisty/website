@@ -1,82 +1,31 @@
 ﻿import { useTranslation } from '@hooks/useTranslations';
-import { useContactStore } from '@store/contactStore';
 import './ContactSection.css';
 
 export default function ContactSection() {
   const { t } = useTranslation();
-  const {
-    name,
-    email,
-    message,
-    status,
-    isSubmitting,
-    setName,
-    setEmail,
-    setMessage,
-    sendEmail,
-    setStatus,
-  } = useContactStore();
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-    try {
-      await sendEmail(t);
-    } catch (error: unknown) {
-      console.error('Form submission error:', error);
-      if (error instanceof Error) {
-        setStatus(t('contactErrorMessage') + ': ' + error.message);
-      } else {
-        setStatus(t('contactErrorMessage') + ': Unknown error');
-      }
-    }
-  };
 
   return (
     <section id="contact" className="contact-section">
-      <h2 className="contact-title">{t('contactTitle')}</h2>
-      <p className="contact-description">{t('contactDescription')}</p>
-      <div className="contact-form" onSubmit={handleSubmit as any}>
-      <input
-          type="text"
-          id="name"
-          name="name"
-          placeholder={t('contactNamePlaceholder')}
-          value={name}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
-          className="form-input"
-          required
-          minLength={2}
-        />
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder={t('contactEmailPlaceholder')}
-          value={email}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
-          className="form-input"
-          required
-        />
-        <textarea
-          id="message"
-          name="message"
-          placeholder={t('contactMessagePlaceholder')}
-          value={message}
-          onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setMessage(e.target.value)}
-          rows={5}
-          className="form-textarea"
-          required
-          minLength={10}
-        />
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="submit-button"
-        >
-          {t('contactSubmitButton')}
-        </button>
-        {status && <p className="status">{status}</p>}
+      <div className="contact-container">
+        <h2 className="contact-title">{t('contactTitle')}</h2>
+        <p className="contact-description">{t('contactDescription')}</p>
+        <div className="contact-grid">
+          <div className="contact-card">
+            <i className="fas fa-phone-alt contact-icon"></i>
+            <span className="contact-label">{t('contactPhone')}</span>
+            <a href="tel:+21655174942" className="contact-value">+216 55 174 942</a>
+          </div>
+          <div className="contact-card">
+            <i className="fab fa-whatsapp contact-icon"></i>
+            <span className="contact-label">{t('contactWhatsApp')}</span>
+            <a href="https://wa.me/+21655174942" className="contact-value">+216 55 174 942</a>
+          </div>
+          <div className="contact-card">
+            <i className="fas fa-envelope contact-icon"></i>
+            <span className="contact-label">{t('contactEmail')}</span>
+            <a href="mailto:logisty.tn@gmail.com" className="contact-value">logisty.tn@gmail.com</a>
+          </div>
+        </div>
       </div>
     </section>
   );

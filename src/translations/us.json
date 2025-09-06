@@ -25,5 +25,8 @@
     "contactSubmitButton": "Send Message",
     "contactSendingMessage": "Sending message...",
     "contactSuccessMessage": "Message sent successfully!",
-    "contactErrorMessage": "Failed to send message. Try again."
-}
+    "contactErrorMessage": "Failed to send message. Try again.",
+    "contactPhone": "Phone",
+    "contactWhatsApp": "WhatsApp",
+    "contactEmail": "Email"
+  }

@@ -25,5 +25,8 @@
     "contactSubmitButton": "إرسال الرسالة",
     "contactSendingMessage": "جاري إرسال الرسالة...",
     "contactSuccessMessage": "تم إرسال الرسالة بنجاح!",
-    "contactErrorMessage": "فشل إرسال الرسالة. حاول مرة أخرى."
-}
+    "contactErrorMessage": "فشل إرسال الرسالة. حاول مرة أخرى.",
+    "contactPhone": "الهاتف",
+    "contactWhatsApp": "واتساب",
+    "contactEmail": "البريد الإلكتروني"
+  }

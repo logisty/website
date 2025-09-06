@@ -1,12 +1,18 @@
-import './ExplorePlatformSection.css';
 import { useTranslation } from '@hooks/useTranslations';
+import { useLogistyVersion } from '@hooks/useLogistyVersion';
 import androidLogo from '@assets/android.png';
 import logisityAppLogo from '@assets/logisty_app.png';
 import partnerAppLogo from '@assets/partner_app.png';
 import infoIcon from '@assets/info_icon.png';
+import './ExplorePlatformSection.css';
 
 export default function ExplorePlatformSection() {
   const { t } = useTranslation();
+  const { versionInfo, loading } = useLogistyVersion();
+
+  // Fallback version for Logisty app
+  const logistyVersion = versionInfo?.logisty?.version || 'v0.22.5';
+  const logistyDownloadUrl = versionInfo?.logisty?.downloadUrl || 'https://github.com/logisty/Logisty/releases/download/v0.22.5/app-release.apk';
 
   return (
     <section id="explore" className="explore-platform-section">
@@ -16,9 +22,12 @@ export default function ExplorePlatformSection() {
           <div className="app-card">
             <img src={logisityAppLogo} alt="Logisity App Logo" className="app-logo" />
             <h3 className="app-title">{t('logisityAppTitle')}</h3>
+            <span className="version-badge">
+              {loading ? '...' : logistyVersion}
+            </span>
             <p className="app-description">{t('logisityAppDescription')}</p>
             <a
-              href="https://github.com/logisty/Logisty/releases/download/v0.22.5/app-release.apk"
+              href={logistyDownloadUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="download-badge"
@@ -33,6 +42,7 @@ export default function ExplorePlatformSection() {
           <div className="app-card">
             <img src={partnerAppLogo} alt="Logisity Partner Logo" className="app-logo" />
             <h3 className="app-title">{t('logisityPartnerTitle')}</h3>
+            <span className="version-badge">v0.2.12</span>
             <p className="app-description">{t('logisityPartnerDescription')}</p>
             <a
               href="https://github.com/logisty/partner/releases/download/v0.2.12/partner_v0.2.12.apk"
