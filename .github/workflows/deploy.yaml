@@ -38,6 +38,15 @@ jobs:
             --dir ./dist/downloads
         env:
           GH_TOKEN: ${{ secrets.LOGISTY_PAT }}
+      - name: Download Partner APK
+        run: |
+          mkdir -p ./dist/downloads
+          gh release download v0.2.12 \
+            --repo logisty/partner \
+            --pattern 'partner_v0.2.12.apk' \
+            --dir ./dist/downloads
+        env:
+          GH_TOKEN: ${{ secrets.PARTNER_PAT }}
 
       # Deploy dist/ to GitHub Pages
       - name: Deploy to GitHub Pages

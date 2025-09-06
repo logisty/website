@@ -15,6 +15,8 @@ export default function ExplorePlatformSection() {
   const logistyDownloadUrl =
   versionInfo?.logisty?.downloadUrl ||
   'https://logisty.github.io/logisty-website/downloads/app-release.apk';
+  const partnerDownloadUrl =
+  'https://logisty.github.io/logisty-website/downloads/partner_v0.2.12.apk';
   return (
     <section id="explore" className="explore-platform-section">
       <h2 className="section-title">{t('explorePlatform')}</h2>
@@ -46,17 +48,17 @@ export default function ExplorePlatformSection() {
             <span className="version-badge">v0.2.12</span>
             <p className="app-description">{t('logisityPartnerDescription')}</p>
             <a
-              href="https://github.com/logisty/partner/releases/download/v0.2.12/partner_v0.2.12.apk"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="download-badge"
-            >
-              <img src={androidLogo} alt="Android Logo" className="android-logo" />
-              <div className="badge-text-container">
-                <span className="badge-text-thin">{t('downloadItOn')}</span>
-                <span className="badge-text-bold">{t('android')}</span>
-              </div>
-            </a>
+            href={partnerDownloadUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="download-badge"
+          >
+            <img src={androidLogo} alt="Android Logo" className="android-logo" />
+            <div className="badge-text-container">
+              <span className="badge-text-thin">{t('downloadItOn')}</span>
+              <span className="badge-text-bold">{t('android')}</span>
+            </div>
+          </a>
           </div>
         </div>
         <div className="how-it-works">
