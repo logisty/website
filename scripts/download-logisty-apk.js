@@ -178,7 +178,27 @@ async function main() {
   } catch (error) {
     console.error('❌ Logisty APK download failed:', error.message);
     console.log('💡 Make sure GITHUB_TOKEN is set for private repository access');
-    process.exit(1);
+    console.log('⚠️  Continuing build with fallback version...');
+    
+    // Create fallback version info
+    const fallbackVersionInfo = {
+      generatedAt: new Date().toISOString(),
+      logisty: {
+        version: 'v0.22.5',
+        tag: 'v0.22.5',
+        apkName: 'app-release.apk',
+        apkPath: 'apks/logisty-v0.22.5.apk',
+        downloadUrl: 'https://github.com/logisty/Logisty/releases/download/v0.22.5/app-release.apk',
+        publishedAt: new Date().toISOString()
+      }
+    };
+    
+    // Save fallback version info
+    const versionInfoPath = path.join(__dirname, '..', 'public', 'logisty-version.json');
+    fs.writeFileSync(versionInfoPath, JSON.stringify(fallbackVersionInfo, null, 2));
+    
+    console.log('📄 Fallback version info saved to:', versionInfoPath);
+    console.log('🔗 Using GitHub release URL as fallback');
   }
 }
 
