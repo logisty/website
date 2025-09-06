@@ -3,37 +3,43 @@ name: Deploy website + APK to GitHub Pages
 on:
   push:
     branches:
-      - main   # deploy whenever you push to main
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      # Checkout your website repo
       - name: Checkout website repo
         uses: actions/checkout@v4
 
+      # Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
           cache: 'npm'
 
+      # Install dependencies
       - name: Install dependencies
         run: npm ci
 
+      # Build Vite site
       - name: Build Vite site
         run: npm run build
 
-      - name: Download APK via GitHub CLI
+      # Download APK from private repo using GitHub CLI
+      - name: Download APK from private repo
         run: |
           mkdir -p ./dist/downloads
           gh release download v0.22.5 \
-            --repo logisty/logisty \
+            --repo logisty/Logisty \
             --pattern 'app-release.apk' \
             --dir ./dist/downloads
         env:
           GH_TOKEN: ${{ secrets.LOGISTY_PAT }}
 
+      # Deploy dist/ to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
