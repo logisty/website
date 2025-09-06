@@ -26,9 +26,9 @@ jobs:
 
       # 👇 Fetch APK from private repo and drop into dist/
       - name: Download Logisty APK
-        uses: dsaltares/fetch-gh-release-asset@v1
+        uses: dsaltares/fetch-gh-release-asset@1.1.2
         with:
-          repo: your-org/logisty
+          repo: Logisty/logisty
           version: latest
           file: app-release.apk
           target: ./dist/downloads/app-release.apk
