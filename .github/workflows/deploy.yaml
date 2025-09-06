@@ -28,7 +28,7 @@ jobs:
         run: |
           mkdir -p ./dist/downloads
           gh release download v0.22.5 \
-            --repo Logisty/Logisty \
+            --repo logisty/Logisty \
             --pattern 'app-release.apk' \
             --dir ./dist/downloads
         env:
