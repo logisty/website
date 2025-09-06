@@ -5,9 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "download-apk": "node scripts/download-logisty-apk.js",
-    "build": "npm run download-apk && tsc -b && vite build",
-    "build:no-apk": "tsc -b && vite build",
+    "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
