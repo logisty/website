@@ -24,15 +24,15 @@ jobs:
       - name: Build Vite site
         run: npm run build
 
-      # 👇 Fetch APK from private repo and drop into dist/
-      - name: Download Logisty APK
-        uses: dsaltares/fetch-gh-release-asset@1.1.2
-        with:
-          repo: Logisty/Logisty
-          version: v0.22.5
-          file: app-release.apk
-          target: ./dist/downloads/app-release.apk
-          token: ${{ secrets.LOGISTY_PAT }}
+      - name: Download APK via GitHub CLI
+        run: |
+          mkdir -p ./dist/downloads
+          gh release download v0.22.5 \
+            --repo Logisty/Logisty \
+            --pattern 'app-release.apk' \
+            --dir ./dist/downloads
+        env:
+          GH_TOKEN: ${{ secrets.LOGISTY_PAT }}
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
