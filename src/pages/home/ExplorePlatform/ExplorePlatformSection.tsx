@@ -14,9 +14,9 @@ export default function ExplorePlatformSection() {
   const logistyVersion = versionInfo?.logisty?.version || 'v0.22.5';
   const logistyDownloadUrl =
   versionInfo?.logisty?.downloadUrl ||
-  'https://logisty.github.io/logisty-website/downloads/app-release.apk';
+  'https://logisty.github.io/website/downloads/app-release.apk';
   const partnerDownloadUrl =
-  'https://logisty.github.io/logisty-website/downloads/partner_v0.2.12.apk';
+  'https://logisty.github.io/website/downloads/partner_v0.2.12.apk';
   return (
     <section id="explore" className="explore-platform-section">
       <h2 className="section-title">{t('explorePlatform')}</h2>
