@@ -11,10 +11,10 @@ export default function ExplorePlatformSection() {
   const { versionInfo, loading } = useLogistyVersion();
 
   // Fallback version for Logisty app
-  const logistyVersion = versionInfo?.logisty?.version || 'v0.22.5';
+  const logistyVersion = versionInfo?.logisty?.version || 'v0.22.8';
   const logistyDownloadUrl =
   versionInfo?.logisty?.downloadUrl ||
-  'https://logisty.github.io/website/downloads/app-release.apk';
+  'https://logisty.github.io/website/downloads/partner_v0.22.8.apk';
   const partnerDownloadUrl =
   'https://logisty.github.io/website/downloads/partner_v0.2.12.apk';
   return (

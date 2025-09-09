@@ -37,9 +37,9 @@ jobs:
       - name: Download APK from private repo
         run: |
           mkdir -p ./dist/downloads
-          gh release download v0.22.5 \
+          gh release download v0.22.8 \
             --repo logisty/Logisty \
-            --pattern 'app-release.apk' \
+            --pattern 'logisty_v0.22.8.apk' \
             --dir ./dist/downloads
         env:
           GH_TOKEN: ${{ secrets.LOGISTY_PAT }}
