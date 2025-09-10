@@ -37,10 +37,10 @@ jobs:
       - name: Read app versions
         id: versions
         run: |
-          logisty_version=$(jq -r '.logisty.version' apps.json)
-          partner_version=$(jq -r '.partner.version' apps.json)
-          logisty_repo=$(jq -r '.logisty.repo' apps.json)
-          partner_repo=$(jq -r '.partner.repo' apps.json)
+          logisty_version=$(jq -r '.logisty.version' public/apps.json)
+          partner_version=$(jq -r '.partner.version' public/apps.json)
+          logisty_repo=$(jq -r '.logisty.repo' public/apps.json)
+          partner_repo=$(jq -r '.partner.repo' public/apps.json)
 
           echo "logisty_version=$logisty_version" >> $GITHUB_ENV
           echo "partner_version=$partner_version" >> $GITHUB_ENV
