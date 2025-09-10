@@ -14,7 +14,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # Checkout
+      # Checkout website repo
       - name: Checkout website repo
         uses: actions/checkout@v4
 
@@ -33,23 +33,38 @@ jobs:
       - name: Build Vite site
         run: npm run build
 
-      # Download APKs
-      - name: Download APK from private repo
+      # Read app versions from apps.json
+      - name: Read app versions
+        id: versions
+        run: |
+          logisty_version=$(jq -r '.logisty.version' apps.json)
+          partner_version=$(jq -r '.partner.version' apps.json)
+          logisty_repo=$(jq -r '.logisty.repo' apps.json)
+          partner_repo=$(jq -r '.partner.repo' apps.json)
+
+          echo "logisty_version=$logisty_version" >> $GITHUB_ENV
+          echo "partner_version=$partner_version" >> $GITHUB_ENV
+          echo "logisty_repo=$logisty_repo" >> $GITHUB_ENV
+          echo "partner_repo=$partner_repo" >> $GITHUB_ENV
+
+      # Download Logisty APK
+      - name: Download Logisty APK
         run: |
           mkdir -p ./dist/downloads
-          gh release download v0.22.17 \
-            --repo logisty/Logisty \
-            --pattern 'logisty_v0.22.17.apk' \
+          gh release download v${{ env.logisty_version }} \
+            --repo ${{ env.logisty_repo }} \
+            --pattern "logisty_v${{ env.logisty_version }}.apk" \
             --dir ./dist/downloads
         env:
           GH_TOKEN: ${{ secrets.LOGISTY_PAT }}
 
+      # Download Partner APK
       - name: Download Partner APK
         run: |
           mkdir -p ./dist/downloads
-          gh release download v0.2.12 \
-            --repo logisty/partner \
-            --pattern 'partner_v0.2.12.apk' \
+          gh release download v${{ env.partner_version }} \
+            --repo ${{ env.partner_repo }} \
+            --pattern "partner_v${{ env.partner_version }}.apk" \
             --dir ./dist/downloads
         env:
           GH_TOKEN: ${{ secrets.LOGISTY_PAT }}
