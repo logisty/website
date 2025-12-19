@@ -1,5 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
-import Home from './pages/home/home';
+import { HashRouter as Routes, Route } from 'react-router-dom';import Home from './pages/home/home';
 import Footer from './components/footer/Footer';
 import NavigationBar from './components/navigation/NavigationBar';
 import ClientTerms from './pages/legal/ClientTerms';
