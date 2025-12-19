@@ -13,10 +13,6 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    # Define the PAT here so all steps in this job can use it for cross-repo access
-    env:
-      GH_TOKEN: ${{ secrets.LOGISTY_PAT }}
-    
     steps:
       - name: Checkout website repo
         uses: actions/checkout@v4
@@ -46,21 +42,23 @@ jobs:
           echo "logisty_repo=$logisty_repo" >> $GITHUB_ENV
           echo "partner_repo=$partner_repo" >> $GITHUB_ENV
 
-      # Explicitly log in to GitHub CLI using your PAT to prevent 401 errors
-      - name: Authenticate GitHub CLI
-        run: echo "${{ secrets.LOGISTY_PAT }}" | gh auth login --with-token
-
       - name: Download APKs
+        # We unset GH_TOKEN and use a custom name to force gh to use the PAT
+        env:
+          CUSTOM_PAT: ${{ secrets.LOGISTY_PAT }}
         run: |
           mkdir -p ./dist/downloads
           
-          echo "Downloading Logisty APK v${{ env.logisty_version }}..."
+          # Force authentication using the PAT
+          echo "$CUSTOM_PAT" | gh auth login --with-token
+          
+          echo "Downloading Logisty APK..."
           gh release download v${{ env.logisty_version }} \
             --repo ${{ env.logisty_repo }} \
             --pattern "logisty_v${{ env.logisty_version }}.apk" \
             --dir ./dist/downloads
 
-          echo "Downloading Partner APK v${{ env.partner_version }}..."
+          echo "Downloading Partner APK..."
           gh release download v${{ env.partner_version }} \
             --repo ${{ env.partner_repo }} \
             --pattern "partner_v${{ env.partner_version }}.apk" \
@@ -76,7 +74,6 @@ jobs:
     needs: build
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
