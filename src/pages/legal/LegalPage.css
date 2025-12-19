@@ -1,0 +1,103 @@
+/* Force the page to not use the global flex centering */
+.legal-page {
+  display: block !important;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
+  padding: 80px 10%;
+  /* "start" means left in English and right in Arabic */
+  text-align: start !important; 
+  box-sizing: border-box;
+}
+
+/* RTL Specific: If you want to change fonts for Arabic */
+.legal-page.rtl-mode {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Or your preferred Arabic font */
+}
+
+.legal-container {
+  display: block !important;
+  max-width: 900px;
+  /* margin-inline-start: 0 aligns it to the "start" of the reading direction */
+  margin-inline-start: 0;
+  text-align: start !important;
+}
+
+.legal-header {
+  margin-bottom: 50px;
+  display: block;
+}
+
+.legal-header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0;
+  color: #000;
+  text-align: start !important;
+}
+
+.legal-warning {
+  background-color: #f8f9fa;
+  /* border-inline-start automatically moves the border to the right in RTL */
+  border-inline-start: 5px solid #000;
+  padding: 20px;
+  margin: 40px 0;
+  text-align: start !important;
+  display: block;
+}
+
+.legal-section {
+  display: block !important;
+  width: 100%;
+  margin-bottom: 50px;
+  text-align: start !important;
+}
+
+.legal-section h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 15px;
+  text-align: start !important;
+  display: block !important;
+}
+
+.section-content {
+  display: block !important;
+}
+
+.section-content p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  color: #333;
+  text-align: start !important;
+}
+
+.section-content ul {
+  /* Use padding-inline-start so the bullet indentation flips */
+  padding-inline-start: 20px;
+  margin: 15px 0;
+}
+
+.section-content li {
+  margin-bottom: 10px;
+  list-style: disc;
+  text-align: start !important;
+}
+
+@media (max-width: 768px) {
+  .legal-page {
+    padding: 40px 20px;
+  }
+  .legal-header h1 {
+    font-size: 1.8rem;
+  }
+}
+
+.legal-subtext {
+  font-size: 1rem;
+  color: #666;
+  font-weight: 500;
+  margin-top: 5px;
+}
