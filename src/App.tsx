@@ -13,9 +13,9 @@ function App() {
       <div style={{ paddingTop: 'var(--navbar-height)', minHeight: '100vh', boxSizing: 'border-box' }}>
         <Routes> {/* Routes stays here to handle the switching */}
           <Route path="/" element={<Home />} />
-          <Route path="/client-terms" element={<ClientTerms />} />
-          <Route path="/partner-terms" element={<PartnerTerms />} />
-          <Route path="/privacy-notice" element={<PrivacyNotice />} />
+          <Route path="#/client-terms" element={<ClientTerms />} />
+          <Route path="#/partner-terms" element={<PartnerTerms />} />
+          <Route path="#/privacy-notice" element={<PrivacyNotice />} />
         </Routes>
         <Footer />
       </div>
