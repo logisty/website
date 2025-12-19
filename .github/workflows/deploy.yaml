@@ -32,36 +32,30 @@ jobs:
       - name: Read app versions from apps.json
         id: versions
         run: |
-          logisty_version=$(jq -r '.logisty.version' public/apps.json)
-          partner_version=$(jq -r '.partner.version' public/apps.json)
-          logisty_repo=$(jq -r '.logisty.repo' public/apps.json)
-          partner_repo=$(jq -r '.partner.repo' public/apps.json)
-
-          echo "logisty_version=$logisty_version" >> $GITHUB_ENV
-          echo "partner_version=$partner_version" >> $GITHUB_ENV
-          echo "logisty_repo=$logisty_repo" >> $GITHUB_ENV
-          echo "partner_repo=$partner_repo" >> $GITHUB_ENV
+          # We parse and set them as env variables for the whole job to use
+          echo "LOGISTY_VER=$(jq -r '.logisty.version' public/apps.json)" >> $GITHUB_ENV
+          echo "LOGISTY_REPO=$(jq -r '.logisty.repo' public/apps.json)" >> $GITHUB_ENV
+          echo "PARTNER_VER=$(jq -r '.partner.version' public/apps.json)" >> $GITHUB_ENV
+          echo "PARTNER_REPO=$(jq -r '.partner.repo' public/apps.json)" >> $GITHUB_ENV
 
       - name: Download APKs
-        # We unset GH_TOKEN and use a custom name to force gh to use the PAT
+        # Using GH_TOKEN name directly allows 'gh' to auth automatically
         env:
-          CUSTOM_PAT: ${{ secrets.LOGISTY_PAT }}
+          GH_TOKEN: ${{ secrets.LOGISTY_PAT }}
         run: |
           mkdir -p ./dist/downloads
           
-          # Force authentication using the PAT
-          echo "$CUSTOM_PAT" | gh auth login --with-token
-          
-          echo "Downloading Logisty APK..."
-          gh release download v${{ env.logisty_version }} \
-            --repo ${{ env.logisty_repo }} \
-            --pattern "logisty_v${{ env.logisty_version }}.apk" \
+          echo "Downloading Logisty APK from ${{ env.LOGISTY_REPO }}..."
+          # We wrap the repo name in quotes to ensure no shell-splitting happens
+          gh release download "v${{ env.LOGISTY_VER }}" \
+            --repo "${{ env.LOGISTY_REPO }}" \
+            --pattern "logisty_v${{ env.LOGISTY_VER }}.apk" \
             --dir ./dist/downloads
 
-          echo "Downloading Partner APK..."
-          gh release download v${{ env.partner_version }} \
-            --repo ${{ env.partner_repo }} \
-            --pattern "partner_v${{ env.partner_version }}.apk" \
+          echo "Downloading Partner APK from ${{ env.PARTNER_REPO }}..."
+          gh release download "v${{ env.PARTNER_VER }}" \
+            --repo "${{ env.PARTNER_REPO }}" \
+            --pattern "partner_v${{ env.PARTNER_VER }}.apk" \
             --dir ./dist/downloads
 
       - name: Upload artifact
