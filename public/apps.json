@@ -1,10 +1,10 @@
 {
   "logisty": {
     "version": "0.22.19",
-    "repo": "Logisty"
+    "repo": "logisty/Logisty"
   },
   "partner": {
     "version": "0.2.12",
-    "repo": "partner"
+    "repo": "logisty/partner"
   }
 }
