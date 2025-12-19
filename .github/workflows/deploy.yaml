@@ -13,28 +13,27 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # Define the PAT here so all steps in this job can use it for cross-repo access
+    env:
+      GH_TOKEN: ${{ secrets.LOGISTY_PAT }}
+    
     steps:
-      # Checkout website repo
       - name: Checkout website repo
         uses: actions/checkout@v4
 
-      # Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: npm
 
-      # Install dependencies
       - name: Install dependencies
         run: npm ci
 
-      # Build Vite site
       - name: Build Vite site
         run: npm run build
 
-      # Read app versions from apps.json
-      - name: Read app versions
+      - name: Read app versions from apps.json
         id: versions
         run: |
           logisty_version=$(jq -r '.logisty.version' public/apps.json)
@@ -47,29 +46,26 @@ jobs:
           echo "logisty_repo=$logisty_repo" >> $GITHUB_ENV
           echo "partner_repo=$partner_repo" >> $GITHUB_ENV
 
-      # Download Logisty APK
-      - name: Download Logisty APK
+      # Explicitly log in to GitHub CLI using your PAT to prevent 401 errors
+      - name: Authenticate GitHub CLI
+        run: echo "${{ secrets.LOGISTY_PAT }}" | gh auth login --with-token
+
+      - name: Download APKs
         run: |
           mkdir -p ./dist/downloads
+          
+          echo "Downloading Logisty APK v${{ env.logisty_version }}..."
           gh release download v${{ env.logisty_version }} \
             --repo ${{ env.logisty_repo }} \
             --pattern "logisty_v${{ env.logisty_version }}.apk" \
             --dir ./dist/downloads
-        env:
-          GH_TOKEN: ${{ secrets.LOGISTY_PAT }}
 
-      # Download Partner APK
-      - name: Download Partner APK
-        run: |
-          mkdir -p ./dist/downloads
+          echo "Downloading Partner APK v${{ env.partner_version }}..."
           gh release download v${{ env.partner_version }} \
             --repo ${{ env.partner_repo }} \
             --pattern "partner_v${{ env.partner_version }}.apk" \
             --dir ./dist/downloads
-        env:
-          GH_TOKEN: ${{ secrets.LOGISTY_PAT }}
 
-      # Upload artifact for Pages
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
