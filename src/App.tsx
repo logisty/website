@@ -1,4 +1,5 @@
-import { HashRouter as Routes, Route } from 'react-router-dom';import Home from './pages/home/home';
+import { HashRouter, Routes, Route } from 'react-router-dom'; // Fixed Imports
+import Home from './pages/home/home';
 import Footer from './components/footer/Footer';
 import NavigationBar from './components/navigation/NavigationBar';
 import ClientTerms from './pages/legal/ClientTerms';
@@ -7,21 +8,18 @@ import PrivacyNotice from './pages/legal/PrivacyNotice';
 
 function App() {
   return (
-    <>
+    <HashRouter> {/* Wrap everything in the Router */}
       <NavigationBar />
       <div style={{ paddingTop: 'var(--navbar-height)', minHeight: '100vh', boxSizing: 'border-box' }}>
-        <Routes>
+        <Routes> {/* Routes stays here to handle the switching */}
           <Route path="/" element={<Home />} />
-          {/* <Route path="/blog" element={<BlogListingPage />} />
-        <Route path="/blog/:articleId" element={<ArticleDetailPage />} /> */}
-        {/* <Route path="/invest" element={<InvestorPage />} /> */}
-        <Route path="/client-terms" element={<ClientTerms />} />
-                <Route path="/partner-terms" element={<PartnerTerms />} />
-    <Route path="/privacy-notice" element={<PrivacyNotice />} />
+          <Route path="/client-terms" element={<ClientTerms />} />
+          <Route path="/partner-terms" element={<PartnerTerms />} />
+          <Route path="/privacy-notice" element={<PrivacyNotice />} />
         </Routes>
         <Footer />
       </div>
-    </>
+    </HashRouter>
   );
 }
 
