@@ -40,10 +40,10 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-  
+
     scroll-snap-align: start;
     scroll-snap-stop: always;
-  
+
     box-sizing: border-box;
   }
   

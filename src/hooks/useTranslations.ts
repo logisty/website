@@ -1,4 +1,4 @@
-
+import { useEffect } from 'react';
 import us from '@translations/us.json';
 import fr from '@translations/fr.json';
 import tn from '@translations/tn.json';
@@ -12,6 +12,17 @@ const translations: Record<string, Record<string, string>> = {
 
 export function useTranslation() {
   const { language } = useLanguageStore();
-  const t = (key: string): string => translations[language]?.[key] || key; // Fallback to key if translation missing
-  return { t };
+
+  // Determine if the current language is Arabic (tn)
+  const isRtl = language === 'tn';
+
+  useEffect(() => {
+    // Dynamically update the document direction and lang attribute
+    document.documentElement.dir = isRtl ? 'rtl' : 'ltr';
+    document.documentElement.lang = language === 'tn' ? 'ar' : language;
+  }, [language, isRtl]);
+
+  const t = (key: string): string => translations[language]?.[key] || key;
+
+  return { t, isRtl, language };
 }
