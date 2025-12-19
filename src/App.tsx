@@ -17,7 +17,7 @@ function App() {
         {/* <Route path="/invest" element={<InvestorPage />} /> */}
         <Route path="/client-terms" element={<ClientTerms />} />
                 <Route path="/partner-terms" element={<PartnerTerms />} />
-<Route path="/privacy-notice" element={<PrivacyNotice />} />
+    <Route path="/privacy-notice" element={<PrivacyNotice />} />
         </Routes>
         <Footer />
       </div>
