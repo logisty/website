@@ -1,11 +1,23 @@
 import partnerAppLogo from '@assets/logisty-partner.png'; 
 import androidLogo from '@assets/android.png';
 import './PartnerAppHero.css';
-import type { FC } from 'react';
+import { useEffect, type FC } from 'react';
 import { useTranslation } from '@hooks/useTranslations';
+import { useAppsStore } from '@store/useAppsStore';
 
 const PartnerAppHero: FC = () => {
   const { t } = useTranslation();
+  const { apps, loading, fetchApps } = useAppsStore();
+
+  useEffect(() => {
+    fetchApps();
+  }, [fetchApps]);
+
+  // Extract version from the store
+  const partnerVersion = apps.partner?.version || '0.0.0';
+
+  // Construct the dynamic URL based on your specified GitHub Pages structure
+  const partnerDownloadUrl = `https://logisty.github.io/website/downloads/partner_v${partnerVersion}.apk`;
 
   return (
     <section className="partner-app-hero">
@@ -19,7 +31,9 @@ const PartnerAppHero: FC = () => {
                 <span className="status-pulse"></span>
                 {t("experimentalBeta")}
               </div>
-              <div className="partner-version-pill">v1.0.0-carrier</div>
+              <div className="partner-version-pill">
+                {loading ? '...' : `v${partnerVersion}`}
+              </div>
             </div>
 
             <h1 className="partner-main-title">
@@ -31,7 +45,13 @@ const PartnerAppHero: FC = () => {
             </p>
 
             <div className="partner-actions">
-              <a href="#partner-download" className="partner-download-btn">
+              {/* Dynamic Download Link */}
+              <a 
+                href={partnerDownloadUrl} 
+                className="partner-download-btn"
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
                 <div className="btn-icon">
                   <img src={androidLogo} alt="Android" />
                 </div>

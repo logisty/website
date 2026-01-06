@@ -1,11 +1,23 @@
 import logistyAppLogo from '@assets/logisty_app.png';
 import androidLogo from '@assets/android.png';
 import './LogistyAppHero.css';
-import type { FC } from 'react';
+import { useEffect, type FC } from 'react';
 import { useTranslation } from '@hooks/useTranslations';
+import { useAppsStore } from '@store/useAppsStore';
 
 const LogistyAppHero: FC = () => {
   const { t } = useTranslation();
+  const { apps, loading, fetchApps } = useAppsStore();
+
+  useEffect(() => {
+    fetchApps();
+  }, [fetchApps]);
+
+  // Extract version from the store for the user app
+  const logistyVersion = apps.logisty?.version || '0.0.0';
+
+  // Construct the dynamic URL matching your GitHub Pages structure
+  const logistyDownloadUrl = `https://logisty.github.io/website/downloads/logisty_v${logistyVersion}.apk`;
 
   return (
     <section className="app-hero-section">
@@ -18,7 +30,9 @@ const LogistyAppHero: FC = () => {
                 <span className="hero-status-pulse"></span>
                 {t("experimentalBeta")}
               </div>
-              <div className="hero-status-tag">v1.0.0-alpha</div>
+              <div className="hero-status-tag">
+                {loading ? '...' : `v${logistyVersion}`}
+              </div>
             </div>
 
             <h1 className="hero-main-title">
@@ -30,7 +44,13 @@ const LogistyAppHero: FC = () => {
             </p>
 
             <div className="hero-actions">
-              <a href="#android-download" className="premium-download-btn">
+              {/* Updated Dynamic Download Link */}
+              <a 
+                href={logistyDownloadUrl} 
+                className="premium-download-btn"
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
                 <div className="btn-icon">
                   <img src={androidLogo} alt="Android" />
                 </div>

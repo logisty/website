@@ -1,11 +1,23 @@
 import businessAppLogo from '@assets/logisty-business.png'; 
 import androidLogo from '@assets/android.png';
 import './BusinessAppHero.css';
-import type { FC } from 'react';
+import { useEffect, type FC } from 'react';
 import { useTranslation } from '@hooks/useTranslations';
+import { useAppsStore } from '@store/useAppsStore';
 
 const BusinessAppHero: FC = () => {
   const { t } = useTranslation();
+  const { apps, loading, fetchApps } = useAppsStore();
+
+  useEffect(() => {
+    fetchApps();
+  }, [fetchApps]);
+
+  // Extract version from the store for the business app
+  const businessVersion = apps.business?.version || '0.0.0';
+
+  // Construct the dynamic URL matching the GitHub Pages structure
+  const businessDownloadUrl = `https://logisty.github.io/website/downloads/business_v${businessVersion}.apk`;
 
   return (
     <section className="business-app-hero">
@@ -19,7 +31,9 @@ const BusinessAppHero: FC = () => {
                 <span className="business-status-pulse"></span>
                 {t("merchantBetaAccess")}
               </div>
-              <div className="business-version-pill">v1.0.4-terminal</div>
+              <div className="business-version-pill">
+                {loading ? '...' : `v${businessVersion}`}
+              </div>
             </div>
 
             <h1 className="business-main-title">
@@ -31,7 +45,13 @@ const BusinessAppHero: FC = () => {
             </p>
 
             <div className="business-actions">
-              <a href="#business-download" className="business-download-btn">
+              {/* Updated Dynamic Download Link */}
+              <a 
+                href={businessDownloadUrl} 
+                className="business-download-btn"
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
                 <div className="btn-icon">
                   <img src={androidLogo} alt="Android" />
                 </div>
