@@ -1,11 +1,9 @@
-import { useTranslation } from '@hooks/useTranslations';
 import partnerAppLogo from '@assets/logisty-partner.png'; 
 import androidLogo from '@assets/android.png';
 import './PartnerAppHero.css';
 import type { FC } from 'react';
 
 const PartnerAppHero: FC = () => {
-  const { t } = useTranslation();
 
   return (
     <section className="partner-app-hero">
