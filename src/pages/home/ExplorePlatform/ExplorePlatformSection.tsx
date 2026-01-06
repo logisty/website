@@ -17,7 +17,7 @@ const ExplorePlatformSection: FC = () => {
 
   const logistyVersion = apps.logisty?.version || '0.0.0';
   const partnerVersion = apps.partner?.version || '0.0.0';
-  const businessVersion = '1.0.0';
+  const businessVersion = apps.business?.version ||'0.0.0';
 
   return (
     <section id="explore" className="explore-platform-section">

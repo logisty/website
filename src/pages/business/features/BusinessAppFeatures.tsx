@@ -9,33 +9,49 @@ const BusinessAppFeatures: FC = () => {
     {
       title: t("featCatalogTitle"),
       desc: t("featCatalogDesc"),
-      icon: "📦"
+      icon: "📦",
+      color: "#3B82F6" // Business Blue
     },
     {
       title: t("featVisibilityTitle"),
       desc: t("featVisibilityDesc"),
-      icon: "📍"
+      icon: "📍",
+      color: "#10B981" // Success Green
     },
     {
       title: t("featHandoutTitle"),
       desc: t("featHandoutDesc"),
-      icon: "🤝"
+      icon: "🤝",
+      color: "#F59E0B" // Warning Amber
     }
   ];
 
   return (
-    <section className="business-features">
+    <section className="business-features-section">
       <div className="business-features-container">
-        <div className="section-header-compact">
-          <h2 className="feat-headline-small">{t("coreCapabilities")}</h2>
-          <div className="headline-line blue"></div>
+        {/* Updated Left-Aligned Header */}
+        <div className="business-features-header">
+          <span className="business-features-label">{t("coreCapabilities")}</span>
+          <h2 className="business-features-title">{t("optimizedLogistics") || "Enterprise Power"}</h2>
+          <div className="business-features-line"></div>
         </div>
+        
         <div className="business-features-grid">
-          {features.map((f, i) => (
-            <div key={i} className="business-feat-card">
-              <div className="feat-icon-box">{f.icon}</div>
-              <h3 className="feat-title">{f.title}</h3>
-              <p className="feat-desc">{f.desc}</p>
+          {features.map((item, index) => (
+            <div 
+              className="business-feature-card" 
+              key={index}
+              style={{ '--hover-accent': item.color } as React.CSSProperties}
+            >
+              <div className="business-card-icon">
+                {item.icon}
+              </div>
+              <div className="business-card-text">
+                <h3 className="business-card-title">{item.title}</h3>
+                <p className="business-card-desc">{item.desc}</p>
+              </div>
+              {/* Top hover indicator */}
+              <div className="business-card-indicator" style={{ backgroundColor: item.color }}></div>
             </div>
           ))}
         </div>

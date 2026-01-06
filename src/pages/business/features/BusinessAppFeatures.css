@@ -1,6 +1,6 @@
-.business-features {
+.business-features-section {
   width: 100%;
-  padding: 6rem 0;
+  padding: 4rem 0;
   background-color: #ffffff;
 }
 
@@ -10,80 +10,105 @@
   padding: 0 40px;
 }
 
-/* --- Section Header (Matching FAQ style) --- */
-.section-header-compact {
+/* --- Left-Aligned Header --- */
+.business-features-header {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-bottom: 3rem;
+  align-items: flex-start;
+  margin-bottom: 3.5rem;
 }
 
-.feat-headline-small {
-  font-size: 1.1rem;
-  font-weight: 900;
+.business-features-label {
+  font-size: 0.75rem;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #000;
-  margin: 0;
+  color: #888;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
 }
 
-.headline-line.blue {
-  width: 40px;
-  height: 4px;
-  background-color: #3B82F6; /* Business Blue */
+.business-features-title {
+  font-size: 2.8rem;
+  font-weight: 950;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: -1.5px;
+  margin: 0 0 1.25rem 0;
+}
+
+.business-features-line {
+  width: 80px;
+  height: 5px;
+  background: #3B82F6; /* Keeping the Business Blue for the line */
 }
 
 /* --- Features Grid --- */
 .business-features-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 24px;
 }
 
-.business-feat-card {
-  padding: 2.5rem 2rem;
-  border: 1.5px solid #000;
+/* --- Premium Cards --- */
+.business-feature-card {
   background: #fff;
-  transition: all 0.2s ease;
+  border: 1px solid #eee;
+  padding: 2.5rem 2rem;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  overflow: hidden;
+  cursor: pointer;
 }
 
-.business-feat-card:hover {
-  transform: translate(-4px, -4px);
-  box-shadow: 6px 6px 0px #3B82F6; /* Blue shadow on hover */
-}
-
-/* --- Icon Box --- */
-.feat-icon-box {
-  font-size: 2rem;
+.business-card-icon {
+  font-size: 2.5rem;
   margin-bottom: 1.5rem;
-  width: 60px;
-  height: 60px;
-  background: #f0f7ff;
-  border: 1.5px solid #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  transition: transform 0.3s ease;
+  line-height: 1;
 }
 
-/* --- Text Content --- */
-.feat-title {
-  font-size: 1.25rem;
+.business-card-title {
+  font-size: 1.15rem;
   font-weight: 900;
-  color: #000;
   text-transform: uppercase;
-  margin: 0 0 1rem 0;
+  margin: 0 0 12px 0;
+  color: #000;
   letter-spacing: -0.5px;
 }
 
-.feat-desc {
-  font-size: 1rem;
-  line-height: 1.6;
+.business-card-desc {
+  font-size: 0.95rem;
   color: #555;
+  line-height: 1.6;
   font-weight: 500;
   margin: 0;
+}
+
+/* --- Interactive Elements --- */
+.business-card-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.business-feature-card:hover {
+  border-color: #3B82F6;
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(59, 130, 246, 0.1);
+}
+
+.business-feature-card:hover .business-card-indicator {
+  opacity: 1;
+}
+
+.business-feature-card:hover .business-card-icon {
+  transform: scale(1.15) rotate(5deg);
 }
 
 /* --- Responsive Layout --- */
@@ -94,25 +119,15 @@
 }
 
 @media (max-width: 768px) {
-  .business-features {
-    padding: 4rem 0;
-  }
-  
-  .business-features-container {
-    padding: 0 24px;
-  }
+  .business-features-container { padding: 0 24px; }
+  .business-features-title { font-size: 2.2rem; }
+}
 
+@media (max-width: 600px) {
   .business-features-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
   }
-
-  .business-feat-card {
+  .business-feature-card {
     padding: 2rem;
-  }
-  
-  .business-feat-card:hover {
-    transform: none;
-    box-shadow: 4px 4px 0px #3B82F6;
   }
 }
