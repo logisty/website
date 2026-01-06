@@ -1,11 +1,9 @@
-import { useTranslation } from '@hooks/useTranslations';
 import businessAppLogo from '@assets/logisty-business.png'; 
 import androidLogo from '@assets/android.png';
 import './BusinessAppHero.css';
 import type { FC } from 'react';
 
 const BusinessAppHero: FC = () => {
-  const { t } = useTranslation();
 
   return (
     <section className="business-app-hero">
