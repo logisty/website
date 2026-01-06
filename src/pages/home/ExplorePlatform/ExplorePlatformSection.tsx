@@ -1,8 +1,8 @@
 import { useTranslation } from '@hooks/useTranslations';
-import androidLogo from '@assets/android.png';
+import { Link } from 'react-router-dom';
 import logistyAppLogo from '@assets/logisty_app.png';
-import partnerAppLogo from '@assets/partner_app.png';
-import infoIcon from '@assets/info_icon.png';
+import partnerAppLogo from '@assets/logisty-partner.png';
+import businessAppLogo from '@assets/logisty-business.png'; 
 import './ExplorePlatformSection.css';
 import { useAppsStore } from '@store/useAppsStore';
 import { useEffect, type FC } from 'react';
@@ -17,57 +17,69 @@ const ExplorePlatformSection: FC = () => {
 
   const logistyVersion = apps.logisty?.version || '0.0.0';
   const partnerVersion = apps.partner?.version || '0.0.0';
-
-  const logistyDownloadUrl = `https://logisty.github.io/website/downloads/logisty_v${logistyVersion}.apk`;
-  const partnerDownloadUrl = `https://logisty.github.io/website/downloads/partner_v${partnerVersion}.apk`;
+  const businessVersion = '1.0.0';
 
   return (
     <section id="explore" className="explore-platform-section">
-      <h2 className="section-title">{t('explorePlatform')}</h2>
-      <div className="section-content">
-        <div className="apps-content">
-
-          {/* Logisty App */}
-          <div className="app-card">
-            <img src={logistyAppLogo} alt="Logisty App Logo" className="app-logo" />
-            <h3 className="app-title">{t('logisityAppTitle')}</h3>
+      <div className="explore-container">
+        <div className="section-title-container">
+          <h2 className="section-title">{t('explorePlatform')}</h2>
+          
+          <div className="beta-label-experimental">
+            <span className="beta-icon-red">✦</span>
+            <span className="beta-text-main">EXPERIMENTAL BETA</span>
+            <span className="beta-date">EARLY 2026</span>
+          </div>
+        </div>
+        
+        <div className="apps-grid">
+          {/* Logisty App Card - Updated Link to /logisty-app */}
+          <Link to="/logisty-app" className="app-card card-app">
+            <div className="card-arrow">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" strokeLinejoin="miter">
+                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+              </svg>
+            </div>
+            <img src={logistyAppLogo} alt="Logisty App" className="app-logo-clean" />
+            <div className="app-header-text">
+              <span className="brand-name">Logisty</span>
+              <span className="app-type">App</span>
+            </div>
             <span className="version-badge">{loading ? '...' : `v${logistyVersion}`}</span>
             <p className="app-description">{t('logisityAppDescription')}</p>
-            <a href={logistyDownloadUrl} target="_blank" rel="noopener noreferrer" className="download-badge">
-              <img src={androidLogo} alt="Android Logo" className="android-logo" />
-              <div className="badge-text-container">
-                <span className="badge-text-thin">{t('downloadItOn')}</span>
-                <span className="badge-text-bold">{t('android')}</span>
-              </div>
-            </a>
-          </div>
+          </Link>
 
-          {/* Partner App */}
-          <div className="app-card">
-            <img src={partnerAppLogo} alt="Partner App Logo" className="app-logo" />
-            <h3 className="app-title">{t('logisityPartnerTitle')}</h3>
+          {/* Logisty Partner Card */}
+          <Link to="/partner-app" className="app-card card-partner">
+            <div className="card-arrow">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" strokeLinejoin="miter">
+                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+              </svg>
+            </div>
+            <img src={partnerAppLogo} alt="Logisty Partner" className="app-logo-clean" />
+            <div className="app-header-text">
+              <span className="brand-name">Logisty</span>
+              <span className="app-type">Partner</span>
+            </div>
             <span className="version-badge">{loading ? '...' : `v${partnerVersion}`}</span>
             <p className="app-description">{t('logisityPartnerDescription')}</p>
-            <a href={partnerDownloadUrl} target="_blank" rel="noopener noreferrer" className="download-badge">
-              <img src={androidLogo} alt="Android Logo" className="android-logo" />
-              <div className="badge-text-container">
-                <span className="badge-text-thin">{t('downloadItOn')}</span>
-                <span className="badge-text-bold">{t('android')}</span>
-              </div>
-            </a>
-          </div>
+          </Link>
 
-        </div>
-
-        {/* How it works */}
-        <div className="how-it-works">
-          <img src={infoIcon} alt="Info Icon" className="info-icon" />
-          <h3 className="how-it-works-title">{t('howItWorks')}</h3>
-          <ol className="how-it-works-list">
-            <li>{t('step1')}</li>
-            <li>{t('step2')}</li>
-            <li>{t('step3')}</li>
-          </ol>
+          {/* Logisty Business Card */}
+          <Link to="/business" className="app-card card-business">
+            <div className="card-arrow">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" strokeLinejoin="miter">
+                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+              </svg>
+            </div>
+            <img src={businessAppLogo} alt="Logisty Business" className="app-logo-clean" />
+            <div className="app-header-text">
+              <span className="brand-name">Logisty</span>
+              <span className="app-type">Business</span>
+            </div>
+            <span className="version-badge">v{businessVersion}</span>
+            <p className="app-description">{t('logisityBusinessDescription') || 'Professional logistics management and tracking for enterprise clients.'}</p>
+          </Link>
         </div>
       </div>
     </section>

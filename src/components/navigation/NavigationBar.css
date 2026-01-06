@@ -1,189 +1,170 @@
-/* Navigation Bar (unchanged except for additions below) */
+:root {
+  --brutalist-black: #000000;
+  --brutalist-white: #ffffff;
+  --brutalist-yellow: #FFCF00;
+  --brutalist-green: #39DD85;
+  --brutalist-blue: #3B82F6;
+  --brutalist-border: 2px;
+  --brutalist-shadow-small: 3px 3px 0px 0px rgba(0,0,0,1);
+}
+
 .navigation-bar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  height: var(--navbar-height);
-  background-color: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid #eaeaea;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  height: 75px;
+  background-color: var(--brutalist-white);
+  border-bottom: var(--brutalist-border) solid var(--brutalist-black);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 1.5rem;
-  transition: all 0.3s ease;
+  width: 100%;
 }
 
-/* Logo section (unchanged) */
-.navigation-bar__logo {
+.navigation-bar__container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 0.5rem;
+  padding: 0 30px;
 }
 
 .navigation-bar__logo-image {
-  width: 110px;
   height: 32px;
+  width: auto;
 }
 
-/* Center links (unchanged) */
-.navigation-bar__links {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  flex: 1;
-}
-
-.navigation-bar__links a {
-  text-decoration: none;
-  color: var(--color-text);
-  font-weight: 500;
-}
-
-.navigation-bar__links a:hover {
-  color: var(--color-primary);
-}
-
-/* Call to action button (unchanged) */
-.navigation-bar__cta .cta-button {
-  background-color:  #FFCF00;
-  color: black;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.navigation-bar__cta .cta-button:hover {
-  background-color: #c7a200;
-}
-
-/* Language Dropdown */
-.navigation-bar__cta {
+.navigation-bar__actions {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.8rem;
+}
+
+/* --- The Button/Link Base Style --- */
+.nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  padding: 0.5rem 1rem;
+  border: var(--brutalist-border) solid var(--brutalist-black);
+  cursor: pointer;
+  box-shadow: var(--brutalist-shadow-small);
+  transition: all 0.1s ease;
+  text-decoration: none; /* Essential for Link tags */
+  user-select: none;
+}
+
+.nav-btn-png {
+  height: 20px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1); 
+}
+
+/* --- Hover State: Moves Up-Left --- */
+.nav-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px 0px rgba(0,0,0,1);
+}
+
+/* --- Active/Click State: Moves Down-Right (Pressed Feel) --- */
+.nav-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px 0px rgba(0,0,0,1);
+}
+
+.btn-partner {
+  background-color: var(--brutalist-green);
+  color: var(--brutalist-white);
+}
+
+.btn-business {
+  background-color: var(--brutalist-blue);
+  color: var(--brutalist-white);
 }
 
 .language-dropdown {
   position: relative;
+  margin-left: 0.3rem;
 }
 
-.language-button {
+.language-button-refined {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: none;
-  border: 1px solid #e0e0e0;
-  border-radius: 6px;
-  padding: 0.5rem 0.75rem;
+  background: transparent;
+  border: none;
+  padding: 0.4rem;
   cursor: pointer;
-  font-size: 14px;
-  color: var(--color-text);
-  transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
-.language-button:hover {
-  background-color: #f5f5f5;
-  border-color: var(--color-primary);
+.language-flag-clean {
+  width: 18px;
+  height: 18px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid #eee;
 }
 
-.language-flag {
-  width: 20px;
-  height: 20px;
-  border-radius: 2px;
+.lang-code-text {
+  font-weight: 800;
+  font-size: 12px;
+  color: var(--brutalist-black);
 }
 
-.language-label {
-  font-weight: 500;
-}
-
-.dropdown-icon {
+.dropdown-icon-minimal {
   transition: transform 0.2s ease;
+  color: var(--brutalist-black);
 }
 
-.dropdown-icon.open {
-  transform: rotate(180deg);
-}
-
-.language-options {
+.language-options-refined {
   position: absolute;
-  top: calc(100% + 0.5rem);
+  top: calc(100% + 10px);
   right: 0;
-  background-color: white;
-  border: 1px solid #e0e0e0;
-  border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: var(--brutalist-white);
+  border: var(--brutalist-border) solid var(--brutalist-black);
+  box-shadow: var(--brutalist-shadow-small);
   list-style: none;
-  padding: 0.5rem 0;
-  min-width: 140px;
-  animation: fadeIn 0.2s ease-in-out;
-  z-index: 1000;
+  padding: 0;
+  min-width: 150px;
+  z-index: 1001;
 }
 
-.language-option {
+.language-option-refined {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.5rem 1rem;
+  gap: 0.8rem;
+  padding: 0.6rem 1rem;
   cursor: pointer;
-  font-size: 14px;
-  color: var(--color-text);
-  transition: background-color 0.2s ease;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--brutalist-black);
+  border-bottom: 1px solid #eee;
 }
 
-.language-option:hover {
-  background-color: #f5f5f5;
+.language-option-refined:hover {
+  background-color: var(--brutalist-yellow);
 }
 
-.language-option.selected {
-  background-color: #e3f2fd;
-  font-weight: 600;
-}
-
-.language-option img {
-  width: 20px;
-  height: 20px;
-  border-radius: 2px;
-}
-
-/* Animation for dropdown */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-5px);
+@media (max-width: 900px) {
+  .nav-btn .btn-text {
+    display: none;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  .nav-btn {
+    padding: 0.5rem;
   }
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
-  .navigation-bar__links {
-    display: none; /* Hide links on mobile (unchanged) */
-  }
-
-  .navigation-bar__cta .cta-button {
-    padding: 0.4rem 0.8rem;
-    font-size: 14px;
-  }
-
-  .language-button {
-    padding: 0.4rem 0.6rem;
-  }
-
-  .language-label {
-    display: none; /* Hide label on mobile for compactness */
-  }
-
-  .language-options {
-    min-width: 120px;
-  }
+  .navigation-bar { height: 60px; }
+  .navigation-bar__container { padding: 0 12px; }
+  .navigation-bar__logo-image { height: 24px; }
 }

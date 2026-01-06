@@ -1,34 +1,90 @@
+:root {
+  --brutalist-black: #000000;
+  --brutalist-white: #ffffff;
+  --brutalist-yellow: #FFCF00;
+  --brutalist-border-thin: 2px;
+  --brutalist-shadow-small: 3px 3px 0px 0px rgba(0,0,0,1);
+}
+
 .scroll-indicator {
-    position: fixed;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    z-index: 1100;
+  position: fixed;
+  top: 50%;
+  right: 30px; /* More space from the edge */
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Increased gap for elegance */
+  z-index: 1100;
+}
+
+.scroll-dot {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background: var(--brutalist-white);
+  border: var(--brutalist-border-thin) solid var(--brutalist-black);
+  /* Brutalist choice: Square corners */
+  border-radius: 0px; 
+  cursor: pointer;
+  transition: all 0.1s steps(2); /* Snappy transition */
+  box-shadow: none;
+}
+
+.scroll-dot:hover {
+  background: var(--brutalist-yellow);
+  transform: translate(-2px, -2px);
+  box-shadow: 2px 2px 0px 0px var(--brutalist-black);
+}
+
+.scroll-dot.active {
+  background: var(--brutalist-yellow);
+  width: 20px; /* Active dot gets slightly larger */
+  height: 20px;
+  border-width: 3px;
+  transform: translate(-3px, -3px);
+  box-shadow: var(--brutalist-shadow-small);
+}
+
+/* Optional: Tooltip effect on hover if you want to be extra elegant */
+.scroll-dot::after {
+  content: "";
+  position: absolute;
+  right: 150%;
+  background: var(--brutalist-black);
+  color: white;
+  padding: 4px 8px;
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  border-radius: 0;
+  transition: opacity 0.2s ease;
+}
+
+.scroll-dot:hover::after {
+  opacity: 1;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .scroll-indicator {
+    right: 15px;
+    gap: 12px;
   }
   
   .scroll-dot {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(4px);
-    border: 1.5px solid rgba(255, 255, 255, 0.4);
-  }
-  
-  .scroll-dot:hover {
-    background: rgba(255, 255, 255, 0.6);
-    box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+    width: 12px;
+    height: 12px;
   }
   
   .scroll-dot.active {
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 0 16px rgba(255, 255, 255, 1);
-    border-color: white;
+    width: 14px;
+    height: 14px;
+    transform: translate(-2px, -2px);
   }
-  
+}

@@ -1,321 +1,197 @@
-/* Keyframes for content entry animation */
-@keyframes fadeInSlideUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+:root {
+  --brutalist-black: #000000;
+  --brutalist-white: #ffffff;
+  --brutalist-yellow: #FFCF00;
+  --brutalist-red-bright: #FF3B30;
+  --brutalist-green: #39DD85;
+  --brutalist-blue: #3B82F6;
+  --brutalist-border: 1.5px;
+  --brutalist-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+}
+
+.explore-platform-section {
+  padding: 4rem 5%;
+  background-color: var(--brutalist-yellow);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.explore-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-title-container {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--brutalist-black);
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  margin: 0;
+}
+
+.beta-label-experimental {
+  background-color: var(--brutalist-black);
+  color: var(--brutalist-white);
+  padding: 6px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 2px;
+  box-shadow: 3px 3px 0px var(--brutalist-red-bright);
+}
+
+.beta-icon-red {
+  color: var(--brutalist-red-bright);
+  font-size: 1rem;
+}
+
+.beta-text-main {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.beta-date {
+  font-size: 0.65rem;
+  font-weight: 400;
+  color: #aaa;
+  border-left: 1px solid #444;
+  padding-left: 10px;
+}
+
+.apps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.app-card {
+  position: relative;
+  background-color: var(--brutalist-white);
+  border: var(--brutalist-border) solid var(--brutalist-black);
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  box-shadow: var(--brutalist-shadow);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.app-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);
+}
+
+/* --- Dynamic Hover Colors --- */
+
+/* Partner -> Green Background & White Text */
+.card-partner:hover {
+  background-color: var(--brutalist-green);
+  color: var(--brutalist-white);
+}
+
+/* Business -> Blue Background & White Text */
+.card-business:hover {
+  background-color: var(--brutalist-blue);
+  color: var(--brutalist-white);
+}
+
+.card-app:hover {
+  background-color: #f8f8f8;
+}
+
+/* Arrow adjustments on hover */
+.card-arrow {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  color: var(--brutalist-black);
+  transition: all 0.2s ease;
+}
+
+.app-card:hover .card-arrow {
+  transform: translate(3px, -3px);
+}
+
+/* Arrow turns white on colored cards */
+.card-partner:hover .card-arrow,
+.card-business:hover .card-arrow {
+  color: var(--brutalist-white);
+}
+
+.app-logo-clean {
+  width: 45px;
+  height: 45px;
+  margin-bottom: 1rem;
+}
+
+.app-header-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: inherit;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.app-type {
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #666;
+  margin-top: 2px;
+}
+
+/* Helper for dimmed text on colored hover */
+.card-partner:hover .app-type,
+.card-business:hover .app-type {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.version-badge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #999;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.card-partner:hover .version-badge,
+.card-business:hover .version-badge {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.app-description {
+  font-size: 0.85rem;
+  color: #444;
+  line-height: 1.5;
+  margin-top: 0.5rem;
+}
+
+.card-partner:hover .app-description,
+.card-business:hover .app-description {
+  color: var(--brutalist-white);
+}
+
+@media (max-width: 900px) {
+  .apps-grid {
+    grid-template-columns: 1fr;
   }
-  
-  /* Explore Platform Section Styling */
-  .explore-platform-section {
-    padding: 4rem 2rem;
-    background-color: #FFCF00; /* Yellow background */
-    text-align: center;
-    width: 100%;
-    box-sizing: border-box;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  }
-  
-  .section-title {
-    font-size: clamp(2rem, 5vw, 2.5rem);
-    font-weight: 800;
-    color: #212529;
-    margin-bottom: 2rem;
-    animation: fadeInSlideUp 1s ease-out forwards;
-  }
-  
-  .section-content {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .apps-content {
-    flex: 2;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    max-width: 800px;
-  }
-  
-  .app-card {
-    flex: 1;
-    max-width: 400px;
-    padding: 2rem;
-    background-color: white;
-    border: 2px solid #000000; /* Black border */
-    border-radius: 0; /* Sharp corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    animation: fadeInSlideUp 1s ease-out forwards;
-    animation-delay: 0.3s;
-  }
-  
-  .app-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-  }
-  
-  .app-logo {
-    width: 150px;
-    height: 150px;
-    background-color: #ffffff; /* White background */
-    border: 2px solid #000000; /* Black border */
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    object-fit: contain;
-  }
-  
-  .app-title {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #000000; /* Black text */
-    margin-bottom: 0.25rem; /* Reduced margin for version badge */
-    text-align: center;
-  }
-  
-  .version-badge {
-    background-color: #e1e4e8; /* GitHub-like light grey background */
-    color: #24292e; /* GitHub-like dark text */
-    border-radius: 12px; /* Rounded corners for pill shape */
-    padding: 0.3rem 0.8rem;
-    font-size: 0.85rem;
-    font-weight: 600;
-    margin-bottom: 0.75rem; /* Space below badge */
-    display: inline-block;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  
-  .version-badge:hover {
-    transform: scale(1.05);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .app-description {
-    font-size: 0.9rem;
-    font-weight: 400;
-    color: #495057;
-    margin-bottom: 1rem;
-    text-align: center;
-    max-width: 80%;
-  }
-  
-  .download-badge {
-    background-color: #000000; /* Black background */
-    border: 2px solid #808080; /* Grey border */
-    border-radius: 8px;
-    padding: 0.8rem 1.2rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
-    text-decoration: none; /* Remove underline for <a> */
-    color: inherit; /* Inherit text color for child elements */
-  }
-  
-  .download-badge:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-    cursor: pointer; /* Pointer cursor on hover */
-  }
-  
-  .android-logo {
-    width: 40px; /* Larger logo size */
-    height: 40px;
-    margin-right: 0.5rem;
-    object-fit: contain;
-  }
-  
-  .badge-text-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .badge-text-thin {
-    font-size: 0.9rem;
-    font-weight: 300;
-    color: #ffffff;
-    line-height: 1.2;
-  }
-  
-  .badge-text-bold {
-    font-size: 1.4rem; /* Larger text size */
-    font-weight: 700;
-    color: #39DD85; /* Green color */
-    line-height: 1.2;
-  }
-  
-  .how-it-works {
-    flex: 1;
-    max-width: 400px;
-    padding: 2rem;
-    background-color: #ffffff; /* White background */
-    border: 2px solid #000000; /* Black border */
-    border-radius: 0; /* Sharp corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    animation: fadeInSlideUp 1s ease-out forwards;
-    animation-delay: 0.6s;
-  }
-  
-  .info-icon {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 1rem;
-    object-fit: contain;
-  }
-  
-  .how-it-works-title {
-    font-size: clamp(1.5rem, 4vw, 2rem);
-    font-weight: 800;
-    color: #212529;
-    margin-bottom: 1rem;
-  }
-  
-  .how-it-works-list {
-    list-style-type: decimal;
-    text-align: left;
-    padding-left: 1.5rem;
-    width: 100%;
-  }
-  
-  .how-it-works-list li {
-    font-size: clamp(1rem, 2vw, 1.1rem);
-    color: #495057;
-    margin-bottom: 0.5rem;
-  }
-  
-  /* Responsive Adjustments */
-  @media (max-width: 768px) {
-    .explore-platform-section {
-      padding: 2rem 1rem;
-    }
-  
-    .section-content {
-      flex-direction: column;
-      align-items: center;
-      gap: 1.5rem;
-    }
-  
-    .apps-content {
-      flex-direction: column;
-      align-items: center;
-      gap: 1.5rem;
-      max-width: 100%;
-    }
-  
-    .app-card {
-      max-width: 100%;
-      padding: 1.5rem; /* Consistent padding in phone mode */
-      border: 2px solid #000000; /* Consistent black border */
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-  
-    .how-it-works {
-      max-width: 100%;
-      padding: 1.5rem; /* Consistent padding in phone mode */
-      border: 2px solid #000000; /* Consistent black border */
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-  
-    .app-logo {
-      width: 120px; /* Slightly smaller logo for phone mode */
-      height: 120px;
-    }
-  
-    .info-icon {
-      width: 80px; /* Slightly smaller icon for phone mode */
-      height: 80px;
-    }
-  
-    .app-title {
-      font-size: 1.1rem;
-    }
-  
-    .version-badge {
-      font-size: 0.8rem;
-      padding: 0.25rem 0.7rem;
-    }
-  
-    .app-description {
-      font-size: 0.85rem;
-    }
-  
-    .download-badge {
-      padding: 0.6rem 1rem;
-    }
-  
-    .android-logo {
-      width: 32px;
-      height: 32px;
-    }
-  
-    .badge-text-thin {
-      font-size: 0.8rem;
-    }
-  
-    .badge-text-bold {
-      font-size: 1.2rem;
-    }
-  
-    .how-it-works-title {
-      font-size: clamp(1.3rem, 4vw, 1.8rem);
-    }
-  
-    .how-it-works-list li {
-      font-size: clamp(0.9rem, 2vw, 1rem);
-    }
-  }
-  
-  /* RTL support for Arabic */
-  [dir="rtl"] .how-it-works-list {
-    text-align: right;
-    padding-right: 1.5rem;
-    padding-left: 0;
-  }
-  
-  [dir="rtl"] .download-badge {
-    flex-direction: row-reverse;
-  }
-  
-  [dir="rtl"] .android-logo {
-    margin-right: 0;
-    margin-left: 0.5rem;
-  }
-  
-  [dir="rtl"] .badge-text-container {
-    align-items: flex-end;
-  }
-  
-  [dir="rtl"] .app-description {
-    text-align: right;
-  }
-  
-  [dir="rtl"] .section-content {
-    flex-direction: row-reverse;
-  }
-  
-  [dir="rtl"] .how-it-works {
-    align-items: center;
-  }
-  
-  [dir="rtl"] .app-title {
-    text-align: right;
-  }
-  
-  [dir="rtl"] .version-badge {
-    text-align: center;
-  }
+}

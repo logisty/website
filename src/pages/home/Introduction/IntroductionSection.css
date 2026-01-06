@@ -1,184 +1,173 @@
-/* Keyframes for content entry animation */
-@keyframes fadeInSlideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+:root {
+  --brutalist-black: #000000;
+  --brutalist-white: #ffffff;
+  --brutalist-yellow: #FFCF00;
+  --brutalist-red: #FF3B30;
 }
 
 .intro-section {
   min-height: 100vh;
   width: 100%;
-  background-color: #f8f9fa; /* Light, clean background */
+  background-color: var(--brutalist-white);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
-  box-sizing: border-box;
+  position: relative;
   overflow: hidden;
+  padding: 0 5%;
 }
 
-.intro-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px; /* Constrain content width */
+/* Background aesthetic aura */
+.aesthetic-aura {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255, 207, 0, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.intro-container {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
   width: 100%;
-  gap: 2rem;
 }
 
-.intro-text {
-  flex: 1;
+.intro-content-centered {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  max-width: 600px;
-  text-align: left; /* Explicitly left-align text */
-  animation: fadeInSlideUp 1s ease-out forwards;
+  align-items: center;
+  text-align: center;
 }
 
-.intro-headline {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  font-weight: 300; /* Thinner weight for the entire headline */
-  color: #212529;
-  line-height: 1.2;
-  margin: 0;
-}
-
-.headline-prefix {
-  font-weight: 300; /* Thinner weight for prefix */
-}
-
-.headline-action {
-  font-weight: 300; /* Thinner weight for action part */
-  color: #FFCF00; /* Blue color for "Explore Logisity" */
-}
-
-.headline-action-bold {
-  font-weight: 800; /* Bold weight for "Explore" */
-  color: #FFCF00; /* Blue color for consistency */
-}
-
-.glowing-word {
-  font-weight: 300; /* Thinner weight for "Logisity" */
-  color: #FFCF00; /* Blue color */
-}
-
-.intro-description {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  color: #495057;
-  line-height: 1.6;
-  animation: fadeInSlideUp 1s ease-out forwards;
-  animation-delay: 0.3s;
-  opacity: 0;
-}
-
-.cta-buttons {
+/* Modern Beta Tag */
+.hero-beta-tag {
   display: flex;
-  gap: 1.5rem;
-  animation: fadeInSlideUp 1s ease-out forwards;
-  animation-delay: 0.6s;
-  opacity: 0;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #eee;
+  padding: 6px 16px;
+  border-radius: 100px;
+  margin-bottom: 2.5rem;
+  background: #fff;
 }
 
-.cta-button {
-  padding: 0.8rem 1.8rem;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.beta-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--brutalist-red);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--brutalist-red);
+  animation: pulse 2s infinite;
 }
 
-.primary-button {
-  background-color: #FFCF00; /* Match the new blue color */
-  color: black;
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
 }
 
-.primary-button:hover {
-  background-color: #FFCF00; /* Darker shade of #1e2ede */
-  transform: translateY(-3px);
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+.beta-text {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #666;
 }
 
-.secondary-button {
-  background-color: #6c757d;
-  color: white;
+/* Aesthetic Typography */
+.intro-headline-aesthetic {
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 950;
+  line-height: 0.85;
+  color: var(--brutalist-black);
+  text-transform: uppercase;
+  letter-spacing: -3px;
+  margin-bottom: 2rem;
 }
 
-.secondary-button:hover {
-  background-color: #5a6268;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+.headline-top {
+  display: block;
+  font-size: 0.35em;
+  letter-spacing: 4px;
+  color: #888;
+  margin-bottom: 10px;
 }
 
-.intro-image {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-  animation: fadeInSlideUp 1s ease-out forwards;
-  animation-delay: 0.9s;
-  opacity: 0;
+.logisty-brand-aesthetic {
+  position: relative;
+  display: inline-block;
+  padding: 0 10px;
 }
 
-.phone-mockup {
-  max-width: 320px; /* Smaller size for desktop */
+.brand-underline {
+  position: absolute;
+  bottom: -5px;
+  left: 0;
   width: 100%;
-  height: auto;
-  object-fit: contain;
+  height: 15px;
+  z-index: -1;
 }
 
-/* Mobile adjustments */
+.intro-subtext {
+  font-size: 1.15rem;
+  color: #555;
+  max-width: 600px;
+  line-height: 1.6;
+  margin-bottom: 3rem;
+  font-weight: 500;
+}
+
+/* Aesthetic CTA Button */
+.aesthetic-button {
+  display: flex;
+  align-items: center;
+  background: var(--brutalist-black);
+  color: #fff;
+  padding: 14px 32px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.aesthetic-button:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.btn-icon {
+  width: 28px;
+  margin-right: 15px;
+}
+
+.btn-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.btn-label {
+  font-size: 0.65rem;
+  font-weight: 500;
+  opacity: 0.7;
+}
+
+.btn-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+/* Mobile Adjustments */
 @media (max-width: 768px) {
-  .intro-section {
-    padding: 1rem;
+  .intro-headline-aesthetic {
+    font-size: 3.5rem;
+    letter-spacing: -1px;
   }
-
-  .intro-content {
-    flex-direction: column;
-    gap: 2rem;
+  .intro-subtext {
+    font-size: 1rem;
   }
-
-  .intro-text {
-    max-width: 100%;
-    text-align: center; /* Center on mobile for better aesthetics */
-  }
-
-  .intro-headline {
-    font-size: clamp(2rem, 6vw, 3rem);
-  }
-
-  .intro-description {
-    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
-  }
-
-  .cta-buttons {
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
-  }
-
-  .cta-button {
-    width: 100%;
-    padding: 0.8rem 1.2rem;
-  }
-
-  .intro-image {
-    justify-content: center;
-  }
-
-  .phone-mockup {
-    max-width: 240px; /* Smaller size for mobile */
-  }
-}
-
-/* RTL support for Arabic */
-[dir="rtl"] .intro-text {
-  text-align: right;
 }

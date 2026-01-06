@@ -2,20 +2,20 @@ import { Link } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 import "./NavigationBar.css";
 import logo from "@assets/logisty-full-logo.png";
+import partnerIcon from "@assets/logisty-partner.png";
+import businessIcon from "@assets/logisty-business.png";
 import usFlag from "@assets/flags/us.png";
 import frFlag from "@assets/flags/fr.png";
 import tnFlag from "@assets/flags/tn.png";
 import useLanguageStore from "@store/useLanguageStore";
 import { useTranslation } from "@hooks/useTranslations";
 
-
-
 export default function NavigationBar() {
   const { language, setLanguage } = useLanguageStore();
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const { t } = useTranslation(); // Get the t function
+  const { t } = useTranslation();
 
   const languages = [
     { code: "us", label: "English", flag: usFlag },
@@ -23,14 +23,11 @@ export default function NavigationBar() {
     { code: "tn", label: "العربية", flag: tnFlag },
   ];
 
-  const toggleDropdown = () => setOpen((prev) => !prev);
-
   const handleLanguageChange = (code: "us" | "fr" | "tn") => {
     setLanguage(code);
     setOpen(false);
   };
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -42,77 +39,56 @@ export default function NavigationBar() {
   }, []);
 
   const currentLanguage = languages.find((l) => l.code === language);
-  const handleScroll = (sectionId: string) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+
   return (
     <nav className="navigation-bar">
-      {/* Logo */}
-      <div className="navigation-bar__logo">
-        <Link to="/">
-          <img src={logo} alt="Logisty Logo" className="navigation-bar__logo-image" />
-        </Link>
-      </div>
+      <div className="navigation-bar__container">
+        <div className="navigation-bar__logo-container">
+          <Link to="/" className="navigation-bar__logo-link">
+            <img src={logo} alt="Logisty Logo" className="navigation-bar__logo-image" />
+          </Link>
+        </div>
 
-      {/* Links */}
-      {/* <div className="navigation-bar__links">
-        <Link to="/invest">{t("investorProgram")}</Link>
-        <Link to="/preorder">{t("preOrderProgram")}</Link>
-      </div> */}
+        <div className="navigation-bar__actions">
+          {/* Partner Link */}
+          <Link to="/partner-app" className="nav-btn btn-partner">
+            <img src={partnerIcon} alt="" className="nav-btn-png" />
+            <span className="btn-text">{t("partner") || "Partner"}</span>
+          </Link>
+          
+          {/* Business Link */}
+          <Link to="/business-app" className="nav-btn btn-business">
+            <img src={businessIcon} alt="" className="nav-btn-png" />
+            <span className="btn-text">{t("business") || "Business"}</span>
+          </Link>
 
-      {/* CTA + Language Selector */}
-      <div className="navigation-bar__cta">
-        <button className="cta-button" onClick={() => handleScroll('explore')}>{t("getEarlyAccess")}</button>
-
-        <div className="language-dropdown" ref={dropdownRef}>
-          <button
-            className="language-button"
-            onClick={toggleDropdown}
-            aria-label={`Select language, current: ${currentLanguage?.label}`}
-            aria-expanded={open}
-          >
-            <img
-              src={currentLanguage?.flag}
-              alt={`${currentLanguage?.label} flag`}
-              className="language-flag"
-            />
-            {/* <span className="language-label">{currentLanguage?.label}</span> */}
-            <svg
-              className={`dropdown-icon ${open ? "open" : ""}`}
-              width="12"
-              height="12"
-              viewBox="0 0 12 12"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+          <div className="language-dropdown" ref={dropdownRef}>
+            <button
+              className="language-button-refined"
+              onClick={() => setOpen(!open)}
             >
-              <path
-                d="M2 4L6 8L10 4"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
-          {open && (
-            <ul className="language-options" role="menu">
-              {languages.map((l) => (
-                <li
-                  key={l.code}
-                  onClick={() => handleLanguageChange(l.code as "us" | "fr" | "tn")}
-                  className={`language-option ${l.code === language ? "selected" : ""}`}
-                  role="menuitem"
-                  aria-label={`Select ${l.label}`}
-                >
-                  <img src={l.flag} alt={`${l.label} flag`} className="language-flag" />
-                  <span>{l.label}</span>
-                </li>
-              ))}
-            </ul>
-          )}
+              <img src={currentLanguage?.flag} alt="" className="language-flag-clean" />
+              <span className="lang-code-text">{language.toUpperCase()}</span>
+              <svg className={`dropdown-icon-minimal ${open ? "open" : ""}`} width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            
+            {open && (
+              <ul className="language-options-refined">
+                {languages.map((l) => (
+                  <li
+                    key={l.code}
+                    onClick={() => handleLanguageChange(l.code as "us" | "fr" | "tn")}
+                    className={`language-option-refined ${l.code === language ? "selected" : ""}`}
+                  >
+                    <img src={l.flag} alt="" className="language-flag-clean" />
+                    <span>{l.label}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
         </div>
       </div>
     </nav>

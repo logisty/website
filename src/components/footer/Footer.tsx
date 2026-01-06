@@ -1,5 +1,5 @@
 import { useTranslation } from '@hooks/useTranslations';
-import { Link } from 'react-router-dom'; // 1. Import Link
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 export default function Footer() {
@@ -9,11 +9,10 @@ export default function Footer() {
     <footer className={`footer ${isRtl ? 'rtl-mode' : ''}`}>
       <div className="footer-container">
         <div className="footer-copyright">
-          <p>© Logisty 2025</p>
+          <p>© Logisty 2026</p>
         </div>
         
         <nav className="footer-legal">
-          {/* 2. Use Link component and remove /website/ prefix */}
           <Link to="/client-terms" className="legal-link">
             {t('footerClientTerms')}
           </Link>

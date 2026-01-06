@@ -1,45 +1,61 @@
 import './IntroductionSection.css';
-import phoneMockup from '@assets/logisty_app_iphone.png';
+import androidLogo from '@assets/android.png';
 import { useTranslation } from '@hooks/useTranslations';
+import { Link } from 'react-router-dom';
+import type { FC } from 'react';
 
-export default function IntroductionSection() {
+const IntroductionSection: FC = () => {
   const { t } = useTranslation();
-  const actionParts = t('introHeadlineAction').split(' '); // Split "Explore Logisity" into ["Explore", "Logisity"]
-  const exploreText = actionParts[0] || t('introHeadlineAction'); // Fallback to full string if no split
+  
+  const actionParts = t('introHeadlineAction').split(' ');
+  const exploreText = actionParts[0] || t('introHeadlineAction');
   const logisityText = actionParts[1] || '';
-
-  const handleScroll = (sectionId: string) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <section className="intro-section">
-      <div className="intro-content">
-        <div className="intro-text">
-          <h1 className="intro-headline">
-            <span className="headline-prefix">{t('introHeadlinePrefix')}</span>{' '}
-            <span className="headline-action">
-              <span className="headline-action-bold">{exploreText}</span>{' '}
-              <span className="headline-action-bold">{logisityText}</span>
-            </span>
-          </h1>
-          <p className="intro-description">{t('introDescription')}</p>
-          <div className="cta-buttons">
-            <button  className="cta-button primary-button" onClick={() => handleScroll('explore')}>{t('getEarlyAccess')} </button>
+      {/* Decorative background element for aesthetic depth */}
+      <div className="aesthetic-aura"></div>
+      
+      <div className="intro-container">
+        <div className="intro-content-centered">
+          
+          {/* Minimalist Beta Tag */}
+          <div className="hero-beta-tag">
+            <span className="beta-dot"></span>
+            <span className="beta-text">EXPERIMENTAL BETA — EARLY 2026</span>
           </div>
-        </div>
-        <div className="intro-image">
-          <img
-            src={phoneMockup}
-            alt="Logisity App on Phone"
-            className="phone-mockup"
-            loading="lazy"
-          />
+
+          <h1 className="intro-headline-aesthetic">
+            <span className="headline-top">{t('introHeadlinePrefix')}</span>
+            <div className="headline-main">
+              {exploreText} 
+              <span className="logisty-brand-aesthetic">
+                {logisityText}
+                <svg className="brand-underline" viewBox="0 0 400 20" preserveAspectRatio="none">
+                  <path d="M0,10 Q100,20 200,10 T400,10" stroke="#FFCF00" strokeWidth="8" fill="transparent" strokeLinecap="round" />
+                </svg>
+              </span>
+            </div>
+          </h1>
+          
+          <p className="intro-subtext">
+            {t('introDescription')}
+          </p>
+
+          <div className="cta-wrapper">
+            <Link to="/logisty-app" className="aesthetic-button">
+              <img src={androidLogo} alt="" className="btn-icon" />
+              <div className="btn-text">
+                <span className="btn-label">{t('downloadItOn')}</span>
+                <span className="btn-title">Android</span>
+              </div>
+            </Link>
+          </div>
+
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default IntroductionSection;
