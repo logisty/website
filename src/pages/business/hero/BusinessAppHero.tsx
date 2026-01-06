@@ -2,8 +2,10 @@ import businessAppLogo from '@assets/logisty-business.png';
 import androidLogo from '@assets/android.png';
 import './BusinessAppHero.css';
 import type { FC } from 'react';
+import { useTranslation } from '@hooks/useTranslations';
 
 const BusinessAppHero: FC = () => {
+  const { t } = useTranslation();
 
   return (
     <section className="business-app-hero">
@@ -15,7 +17,7 @@ const BusinessAppHero: FC = () => {
             <div className="business-status-row">
               <div className="business-beta-tag">
                 <span className="business-status-pulse"></span>
-                MERCHANT BETA ACCESS
+                {t("merchantBetaAccess")}
               </div>
               <div className="business-version-pill">v1.0.4-terminal</div>
             </div>
@@ -25,10 +27,7 @@ const BusinessAppHero: FC = () => {
             </h1>
 
             <p className="business-description">
-              The command center for local merchants and food vendors. 
-              List products, manage orders, and control your store visibility in real-time. 
-              Our <strong>Handout System</strong> ensures every delivery starts with a secure, 
-              verified transition to the courier.
+              {t("logistyBusinessDescription")}
             </p>
 
             <div className="business-actions">
@@ -37,8 +36,8 @@ const BusinessAppHero: FC = () => {
                   <img src={androidLogo} alt="Android" />
                 </div>
                 <div className="btn-label">
-                  <span className="label-top">MERCHANT EDITION</span>
-                  <span className="label-main">Business APK</span>
+                  <span className="label-top">{t("merchantEdition")}</span>
+                  <span className="label-main">{t("businessApk")}</span>
                 </div>
               </a>
               
@@ -46,7 +45,7 @@ const BusinessAppHero: FC = () => {
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                 </svg>
-                <span>Store Visibility Active</span>
+                <span>{t("storeVisibilityActive")}</span>
               </div>
             </div>
           </div>

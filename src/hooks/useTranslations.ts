@@ -13,16 +13,28 @@ const translations: Record<string, Record<string, string>> = {
 export function useTranslation() {
   const { language } = useLanguageStore();
 
+  // Set 'fr' as the absolute default if the current language is not in our dictionary
+  const currentLanguage = translations[language] ? language : 'fr';
+
   // Determine if the current language is Arabic (tn)
-  const isRtl = language === 'tn';
+  const isRtl = currentLanguage === 'tn';
 
   useEffect(() => {
     // Dynamically update the document direction and lang attribute
     document.documentElement.dir = isRtl ? 'rtl' : 'ltr';
-    document.documentElement.lang = language === 'tn' ? 'ar' : language;
-  }, [language, isRtl]);
+    
+    // Set HTML lang attribute ('ar' for tunisian, otherwise the language code)
+    document.documentElement.lang = currentLanguage === 'tn' ? 'ar' : currentLanguage;
+  }, [currentLanguage, isRtl]);
 
-  const t = (key: string): string => translations[language]?.[key] || key;
+  /**
+   * Translation function
+   * Falls back to French translation if key is missing in the current language, 
+   * then finally back to the key name itself.
+   */
+  const t = (key: string): string => {
+    return translations[currentLanguage]?.[key] || translations['fr']?.[key] || key;
+  };
 
-  return { t, isRtl, language };
+  return { t, isRtl, language: currentLanguage };
 }

@@ -1,27 +1,30 @@
 import type { FC } from 'react';
 import './PartnerAppInstall.css';
+import { useTranslation } from '@hooks/useTranslations';
 
 const PartnerAppInstall: FC = () => {
+  const { t } = useTranslation();
+
   const steps = [
     {
-      title: "Download APK",
-      desc: "Tap download. Your browser may flag the file as 'potentially harmful'—this is standard for direct APKs.",
-      placeholderLabel: "Browser Warning"
+      title: t("pStep1Title"),
+      desc: t("pStep1Desc"),
+      placeholderLabel: t("pStep1Label")
     },
     {
-      title: "Enable Trust",
-      desc: "Go to Settings > Security and enable 'Install from Unknown Sources' for your mobile browser.",
-      placeholderLabel: "Settings Toggle"
+      title: t("pStep2Title"),
+      desc: t("pStep2Desc"),
+      placeholderLabel: t("pStep2Label")
     },
     {
-      title: "Play Protect",
-      desc: "Google may ask to scan the app. Select 'Install Anyway'—the app is verified and safe.",
-      placeholderLabel: "Play Protect Popup"
+      title: t("pStep3Title"),
+      desc: t("pStep3Desc"),
+      placeholderLabel: t("pStep3Label")
     },
     {
-      title: "Ready to Use",
-      desc: "Once installed, open Logisty Partner and log in to start optimizing your delivery routes.",
-      placeholderLabel: "Partner Interface"
+      title: t("pStep4Title"),
+      desc: t("pStep4Desc"),
+      placeholderLabel: t("pStep4Label")
     }
   ];
 
@@ -31,8 +34,8 @@ const PartnerAppInstall: FC = () => {
         
         {/* Header - Aligned with the rest of the layout */}
         <div className="partner-install-header">
-          <span className="install-label">Get Started</span>
-          <h2 className="install-main-title">Installation Guide</h2>
+          <span className="install-label">{t("getStarted")}</span>
+          <h2 className="install-main-title">{t("installationGuide")}</h2>
           <div className="install-accent-line"></div>
         </div>
 
@@ -67,7 +70,7 @@ const PartnerAppInstall: FC = () => {
             </svg>
           </div>
           <div className="security-notice-text">
-            <strong>Partner Security Protocol:</strong> The Logisty Partner APK is 100% verified. We distribute directly to enable industrial-grade features like our <strong>VRP Solver</strong> which requires deep system integration for background GPS optimization.
+            <strong>{t("partnerSecurityProtocol")}</strong> {t("partnerSecurityNotice")}
           </div>
         </div>
       </div>

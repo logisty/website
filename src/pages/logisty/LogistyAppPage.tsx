@@ -11,15 +11,21 @@ const LogistyAppPage: FC = () => {
     <div className="logisty-app-page-wrapper">
       <NavigationBar />
       
-      <main className="logisty-app-content">
-        <LogistyAppHero />
-        
-        <LogistyAppFeatures />
+      {/* 1. Hero Section - No longer wrapped in 'logisty-app-content' */}
+      <LogistyAppHero />
 
-        <LogistyAppInstall />
+      <div className="section-divider">
+        <div className="divider-line"></div>
+      </div>
 
-        <LogistyAppFAQ />
-      </main>
+      {/* 2. Features */}
+      <LogistyAppFeatures />
+
+      {/* 3. Installation */}
+      <LogistyAppInstall />
+
+      {/* 4. FAQ */}
+      <LogistyAppFAQ />
     </div>
   );
 };

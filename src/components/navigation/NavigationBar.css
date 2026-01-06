@@ -50,7 +50,7 @@
   justify-content: center;
   gap: 10px;
   text-transform: uppercase;
-  font-weight: 900;
+  font-weight: 950; /* Slightly heavier for brutalist feel */
   font-size: 11px;
   letter-spacing: 0.5px;
   padding: 0.5rem 1rem;
@@ -58,15 +58,16 @@
   cursor: pointer;
   box-shadow: var(--brutalist-shadow-small);
   transition: all 0.1s ease;
-  text-decoration: none; /* Essential for Link tags */
+  text-decoration: none;
   user-select: none;
+  color: var(--brutalist-black); /* Default text to black for all */
 }
 
 .nav-btn-png {
   height: 20px;
   width: auto;
   object-fit: contain;
-  filter: brightness(0) invert(1); 
+  filter: brightness(0); /* Default icons to black for all */
 }
 
 /* --- Hover State: Moves Up-Left --- */
@@ -75,22 +76,26 @@
   box-shadow: 5px 5px 0px 0px rgba(0,0,0,1);
 }
 
-/* --- Active/Click State: Moves Down-Right (Pressed Feel) --- */
+/* --- Active/Click State: Moves Down-Right --- */
 .nav-btn:active {
   transform: translate(1px, 1px);
   box-shadow: 1px 1px 0px 0px rgba(0,0,0,1);
 }
 
+/* --- Specific Background Colors --- */
+.btn-app {
+  background-color: var(--brutalist-yellow);
+}
+
 .btn-partner {
   background-color: var(--brutalist-green);
-  color: var(--brutalist-white);
 }
 
 .btn-business {
   background-color: var(--brutalist-blue);
-  color: var(--brutalist-white);
 }
 
+/* --- Language Dropdown & Rest --- */
 .language-dropdown {
   position: relative;
   margin-left: 0.3rem;
@@ -154,7 +159,7 @@
   background-color: var(--brutalist-yellow);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .nav-btn .btn-text {
     display: none;
   }

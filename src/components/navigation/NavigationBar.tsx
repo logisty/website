@@ -4,6 +4,7 @@ import "./NavigationBar.css";
 import logo from "@assets/logisty-full-logo.png";
 import partnerIcon from "@assets/logisty-partner.png";
 import businessIcon from "@assets/logisty-business.png";
+import appIcon from "@assets/logisty_app.png"; // Assuming this is the main app icon
 import usFlag from "@assets/flags/us.png";
 import frFlag from "@assets/flags/fr.png";
 import tnFlag from "@assets/flags/tn.png";
@@ -50,6 +51,12 @@ export default function NavigationBar() {
         </div>
 
         <div className="navigation-bar__actions">
+          {/* Logisty User App Link (New Yellow Button) */}
+          <Link to="/logisty-app" className="nav-btn btn-app">
+            <img src={appIcon} alt="" className="nav-btn-png" />
+            <span className="btn-text">{t("logisty") || "Logisty"}</span>
+          </Link>
+
           {/* Partner Link */}
           <Link to="/partner-app" className="nav-btn btn-partner">
             <img src={partnerIcon} alt="" className="nav-btn-png" />

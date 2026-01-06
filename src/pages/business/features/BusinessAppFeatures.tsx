@@ -1,21 +1,24 @@
 import type { FC } from 'react';
 import './BusinessAppFeatures.css';
+import { useTranslation } from '@hooks/useTranslations';
 
 const BusinessAppFeatures: FC = () => {
+  const { t } = useTranslation();
+
   const features = [
     {
-      title: "Digital Catalog",
-      desc: "List products or fast-food menus with high-res photos and real-time stock levels.",
+      title: t("featCatalogTitle"),
+      desc: t("featCatalogDesc"),
       icon: "📦"
     },
     {
-      title: "Visibility Control",
-      desc: "Toggle your store's visibility based on your capacity. Define your delivery radius instantly.",
+      title: t("featVisibilityTitle"),
+      desc: t("featVisibilityDesc"),
       icon: "📍"
     },
     {
-      title: "Handout Management",
-      desc: "Seamlessly transition from kitchen to courier. Manage pickup tokens and handout status.",
+      title: t("featHandoutTitle"),
+      desc: t("featHandoutDesc"),
       icon: "🤝"
     }
   ];
@@ -24,7 +27,7 @@ const BusinessAppFeatures: FC = () => {
     <section className="business-features">
       <div className="business-features-container">
         <div className="section-header-compact">
-          <h2 className="feat-headline-small">Core Capabilities</h2>
+          <h2 className="feat-headline-small">{t("coreCapabilities")}</h2>
           <div className="headline-line blue"></div>
         </div>
         <div className="business-features-grid">

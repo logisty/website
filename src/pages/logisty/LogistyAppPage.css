@@ -1,27 +1,26 @@
-:root {
-  --b-black: #000000;
-  --b-white: #ffffff;
-  --b-yellow: #FFCF00;
-  --nav-h: 75px;
-}
-
 .logisty-app-page-wrapper {
-  background-color: var(--b-white);
+  background-color: #ffffff;
   min-height: 100vh;
-  padding-top: var(--nav-h);
-  font-family: 'Inter', sans-serif;
-  box-sizing: border-box;
+  scroll-behavior: smooth;
+  /* Removed padding-top here if you want it to feel exactly like business */
 }
 
-.logisty-app-content {
+/* Match the divider logic from your business page exactly */
+.section-divider {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 5rem 40px;
+  padding: 0 40px;
 }
 
-/* Responsive adjustments for the main container */
-@media (max-width: 900px) {
-  .logisty-app-content {
-    padding: 2rem 20px;
+.divider-line {
+  height: 1px;
+  background: #f0f0f0;
+  width: 100%;
+}
+
+/* Ensure no squeezing wrapper exists */
+@media (max-width: 768px) {
+  .section-divider {
+    padding: 0 20px;
   }
 }

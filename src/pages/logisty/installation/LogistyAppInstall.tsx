@@ -1,34 +1,37 @@
 import type { FC } from 'react';
 import './LogistyAppInstall.css';
+import { useTranslation } from '@hooks/useTranslations';
 
 const LogistyAppInstall: FC = () => {
+  const { t } = useTranslation();
+
   const steps = [
     {
-      title: "Download APK",
-      desc: "Tap download. Your browser may flag the file as 'potentially harmful'—this is standard for direct APKs.",
-      placeholderLabel: "Browser Warning"
+      title: t("uStep1Title"),
+      desc: t("uStep1Desc"),
+      placeholderLabel: t("uStep1Label")
     },
     {
-      title: "Enable Trust",
-      desc: "Go to Settings > Security and enable 'Install from Unknown Sources' for your mobile browser.",
-      placeholderLabel: "Settings Toggle"
+      title: t("uStep2Title"),
+      desc: t("uStep2Desc"),
+      placeholderLabel: t("uStep2Label")
     },
     {
-      title: "Play Protect",
-      desc: "Google may ask to scan the app. Select 'Install Anyway'—the app is verified and safe.",
-      placeholderLabel: "Play Protect Popup"
+      title: t("uStep3Title"),
+      desc: t("uStep3Desc"),
+      placeholderLabel: t("uStep3Label")
     },
     {
-      title: "Ready to Use",
-      desc: "Once installed, open Logisty and log in to start tracking and managing your deliveries.",
-      placeholderLabel: "App Interface"
+      title: t("uStep4Title"),
+      desc: t("uStep4Desc"),
+      placeholderLabel: t("uStep4Label")
     }
   ];
 
   return (
     <section className="app-install-section">
       <div className="section-header-compact">
-        <h2 className="install-headline-small">Installation Guide</h2>
+        <h2 className="install-headline-small">{t("userInstallationGuide")}</h2>
         <div className="headline-line"></div>
       </div>
 
@@ -62,7 +65,7 @@ const LogistyAppInstall: FC = () => {
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
           </svg>
         </div>
-        <p><strong>Security Note:</strong> Logisty App is 100% secure. We distribute via APK to provide faster updates and direct peer-to-peer features bypassing store restrictions.</p>
+        <p><strong>{t("userSecurityNoteTitle")}</strong> {t("userSecurityNoteBody")}</p>
       </div>
     </section>
   );

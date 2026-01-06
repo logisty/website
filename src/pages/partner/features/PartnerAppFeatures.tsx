@@ -1,52 +1,55 @@
 import type { FC } from 'react';
 import './PartnerAppFeatures.css';
-
-const partnerFeatures = [
-  {
-    icon: "🗺️",
-    title: "VRP Solver",
-    desc: "Advanced Vehicle Routing Problem logic that calculates the most efficient path for complex journeys.",
-    color: "#5F9FFF"
-  },
-  {
-    icon: "📦",
-    title: "Multi-Parcel Routing",
-    desc: "Bundle food, market, and package orders into a single trip to maximize your earnings per kilometer.",
-    color: "#FFCF00"
-  },
-  {
-    icon: "🔔",
-    title: "Live Offers",
-    desc: "Real-time marketplace for delivery requests. Accept high-value shipments as they appear on the map.",
-    color: "#4CAF50"
-  },
-  {
-    icon: "⛽",
-    title: "Fuel Optimization",
-    desc: "Reduce deadhead miles and idling time with precision sequencing of pickups and drop-offs.",
-    color: "#FF5F5F"
-  },
-  {
-    icon: "🚛",
-    title: "Fleet Connectivity",
-    desc: "Ideal for individual drivers or small transporters managing a team of delivery vehicles.",
-    color: "#A061FF"
-  },
-  {
-    icon: "💰",
-    title: "Instant Earnings",
-    desc: "Transparent payment tracking for every completed route, directly within the Partner interface.",
-    color: "#FF9A3E"
-  }
-];
+import { useTranslation } from '@hooks/useTranslations';
 
 const PartnerAppFeatures: FC = () => {
+  const { t } = useTranslation();
+
+  const partnerFeatures = [
+    {
+      icon: "🗺️",
+      title: t("pFeatVrpTitle"),
+      desc: t("pFeatVrpDesc"),
+      color: "#5F9FFF"
+    },
+    {
+      icon: "📦",
+      title: t("pFeatMultiTitle"),
+      desc: t("pFeatMultiDesc"),
+      color: "#FFCF00"
+    },
+    {
+      icon: "🔔",
+      title: t("pFeatOffersTitle"),
+      desc: t("pFeatOffersDesc"),
+      color: "#4CAF50"
+    },
+    {
+      icon: "⛽",
+      title: t("pFeatFuelTitle"),
+      desc: t("pFeatFuelDesc"),
+      color: "#FF5F5F"
+    },
+    {
+      icon: "🚛",
+      title: t("pFeatFleetTitle"),
+      desc: t("pFeatFleetDesc"),
+      color: "#A061FF"
+    },
+    {
+      icon: "💰",
+      title: t("pFeatEarnTitle"),
+      desc: t("pFeatEarnDesc"),
+      color: "#FF9A3E"
+    }
+  ];
+
   return (
     <section className="partner-features-section">
       <div className="partner-features-container">
         <div className="partner-features-header">
-          <span className="partner-features-label">Transporter Tools</span>
-          <h2 className="partner-features-title">Optimized Logistics</h2>
+          <span className="partner-features-label">{t("transporterTools")}</span>
+          <h2 className="partner-features-title">{t("optimizedLogistics")}</h2>
           <div className="partner-features-line"></div>
         </div>
         

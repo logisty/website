@@ -66,7 +66,7 @@ const ExplorePlatformSection: FC = () => {
           </Link>
 
           {/* Logisty Business Card */}
-          <Link to="/business" className="app-card card-business">
+          <Link to="/business-app" className="app-card card-business">
             <div className="card-arrow">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" strokeLinejoin="miter">
                 <path d="M7 17L17 7M17 7H7M17 7V17"/>
@@ -78,8 +78,9 @@ const ExplorePlatformSection: FC = () => {
               <span className="app-type">Business</span>
             </div>
             <span className="version-badge">v{businessVersion}</span>
-            <p className="app-description">{t('logisityBusinessDescription') || 'Professional logistics management and tracking for enterprise clients.'}</p>
-          </Link>
+<p className="app-description">
+  {t('logistyBusinessDescription') || 'Professional logistics management and tracking for enterprise clients.'}
+</p>          </Link>
         </div>
       </div>
     </section>

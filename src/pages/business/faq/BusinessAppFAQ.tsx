@@ -1,30 +1,34 @@
 import { useState, type FC } from 'react';
 import './BusinessAppFAQ.css';
+import { useTranslation } from '@hooks/useTranslations'; // Adjust path based on your folder structure
 
 const BusinessAppFAQ: FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const { t } = useTranslation();
 
+  // Mapping the FAQ data to the translation keys
   const faqs = [
     {
-      question: "How do I set my store location?",
-      answer: "Within the 'Store Settings', you can drop a pin or enter coordinates. Our VRP engine uses this exact location to route couriers to your doorstep for handouts."
+      question: t("faqQ1"),
+      answer: t("faqA1")
     },
     {
-      question: "Can I manage multiple branch visibility?",
-      answer: "Yes. The app supports multi-location management. You can toggle visibility for individual branches depending on their current order volume."
+      question: t("faqQ2"),
+      answer: t("faqA2")
     },
     {
-      question: "What is the 'Handout' system?",
-      answer: "Once an order is ready, you mark it as 'Awaiting Handout'. The app generates a secure token that the Logisty Partner must scan to verify they are picking up the correct items."
+      question: t("faqQ3"),
+      answer: t("faqA3")
     }
   ];
 
   return (
     <section className="app-faq-section">
       <div className="section-header-compact">
-        <h2 className="faq-headline-small">Business Support</h2>
+        <h2 className="faq-headline-small">{t("businessSupport")}</h2>
         <div className="headline-line blue"></div>
       </div>
+      
       <div className="faq-container">
         {faqs.map((faq, index) => (
           <div 

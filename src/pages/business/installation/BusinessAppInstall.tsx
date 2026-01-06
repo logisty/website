@@ -1,27 +1,30 @@
 import type { FC } from 'react';
 import './BusinessAppInstall.css';
+import { useTranslation } from '@hooks/useTranslations';
 
 const BusinessAppInstall: FC = () => {
+  const { t } = useTranslation();
+
   const steps = [
     {
-      title: "Download APK",
-      desc: "Tap the download button. Your browser may flag the file as 'potentially harmful'—this is standard for industrial Android applications.",
-      placeholderLabel: "Browser Warning"
+      title: t("step1Title"),
+      desc: t("step1Desc"),
+      placeholderLabel: t("step1Label")
     },
     {
-      title: "Security Trust",
-      desc: "Navigate to Settings > Security and enable 'Install from Unknown Sources' for your mobile browser to proceed.",
-      placeholderLabel: "Settings Toggle"
+      title: t("step2Title"),
+      desc: t("step2Desc"),
+      placeholderLabel: t("step2Label")
     },
     {
-      title: "Verified Install",
-      desc: "If Play Protect prompts a scan, select 'Install Anyway'. Our business terminal is secure and internally verified.",
-      placeholderLabel: "Security Popup"
+      title: t("step3Title"),
+      desc: t("step3Desc"),
+      placeholderLabel: t("step3Label")
     },
     {
-      title: "Merchant Setup",
-      desc: "Open Logisty Business, log in, and drop your store pin to start receiving orders instantly.",
-      placeholderLabel: "Merchant Terminal"
+      title: t("step4Title"),
+      desc: t("step4Desc"),
+      placeholderLabel: t("step4Label")
     }
   ];
 
@@ -31,8 +34,8 @@ const BusinessAppInstall: FC = () => {
         
         {/* Header - Industrial Alignment */}
         <div className="business-install-header">
-          <span className="install-label">Operations</span>
-          <h2 className="install-main-title">Business Setup Guide</h2>
+          <span className="install-label">{t("operations")}</span>
+          <h2 className="install-main-title">{t("businessSetupGuide")}</h2>
           <div className="install-accent-line"></div>
         </div>
 
@@ -67,7 +70,7 @@ const BusinessAppInstall: FC = () => {
             </svg>
           </div>
           <div className="security-notice-text">
-            <strong>Business Security Protocol:</strong> The Logisty Business APK is 100% verified. Direct distribution ensures your terminal remains updated with real-time <strong>Inventory Management</strong> and <strong>Handout Verification</strong> features.
+            <strong>{t("securityProtocol")}</strong> {t("securityNoticeBody")}
           </div>
         </div>
       </div>

@@ -2,8 +2,10 @@ import partnerAppLogo from '@assets/logisty-partner.png';
 import androidLogo from '@assets/android.png';
 import './PartnerAppHero.css';
 import type { FC } from 'react';
+import { useTranslation } from '@hooks/useTranslations';
 
 const PartnerAppHero: FC = () => {
+  const { t } = useTranslation();
 
   return (
     <section className="partner-app-hero">
@@ -15,7 +17,7 @@ const PartnerAppHero: FC = () => {
             <div className="partner-status-row">
               <div className="experimental-beta-tag">
                 <span className="status-pulse"></span>
-                EXPERIMENTAL BETA PHASE
+                {t("experimentalBeta")}
               </div>
               <div className="partner-version-pill">v1.0.0-carrier</div>
             </div>
@@ -25,10 +27,7 @@ const PartnerAppHero: FC = () => {
             </h1>
 
             <p className="partner-description">
-              The professional engine for drivers and transporters. 
-              Discover food, market, and package offers in real-time. 
-              Our <strong>VRP Solver</strong> optimizes multi-parcel routes 
-              automatically, saving fuel and maximizing your earnings.
+              {t("partnerDescription")}
             </p>
 
             <div className="partner-actions">
@@ -37,8 +36,8 @@ const PartnerAppHero: FC = () => {
                   <img src={androidLogo} alt="Android" />
                 </div>
                 <div className="btn-label">
-                  <span className="label-top">CARRIER EDITION</span>
-                  <span className="label-main">Partner APK</span>
+                  <span className="label-top">{t("carrierEdition")}</span>
+                  <span className="label-main">{t("partnerApk")}</span>
                 </div>
               </a>
               
@@ -46,7 +45,7 @@ const PartnerAppHero: FC = () => {
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <path d="M12 2v20M2 12h20M12 2l4 4M12 22l-4-4M2 12l4 4M22 12l-4-4" />
                 </svg>
-                <span>VRP Routing Active</span>
+                <span>{t("vrpRoutingActive")}</span>
               </div>
             </div>
           </div>

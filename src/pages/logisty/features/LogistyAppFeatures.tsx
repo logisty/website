@@ -1,52 +1,55 @@
 import type { FC } from 'react';
 import './LogistyAppFeatures.css';
-
-const features = [
-  {
-    icon: "🛍️",
-    title: "Market Discovery",
-    desc: "Browse local vendors and products in your area with a unified interface.",
-    color: "#FFCF00"
-  },
-  {
-    icon: "🍔",
-    title: "Fast Food",
-    desc: "Discover nearby restaurants and order instantly through our P2P network.",
-    color: "#FF5F5F"
-  },
-  {
-    icon: "📍",
-    title: "P2P GPS Pickup",
-    desc: "Real-time GPS network for precise peer-to-peer delivery and tracking.",
-    color: "#5F9FFF"
-  },
-  {
-    icon: "🛡️",
-    title: "Secure Verification",
-    desc: "Encrypted QR code scanning ensures every delivery reaches the right hands.",
-    color: "#4CAF50"
-  },
-  {
-    icon: "🧾",
-    title: "Digital Receipts",
-    desc: "Automated, cloud-stored proof of purchase and delivery for every transaction.",
-    color: "#A061FF"
-  },
-  {
-    icon: "⏱️",
-    title: "Arrival Estimation",
-    desc: "Precision tracking using local traffic data for accurate arrival times.",
-    color: "#FF9A3E"
-  }
-];
+import { useTranslation } from '@hooks/useTranslations';
 
 const LogistyAppFeatures: FC = () => {
+  const { t } = useTranslation();
+
+  const features = [
+    {
+      icon: "🛍️",
+      title: t("featMarketTitle"),
+      desc: t("featMarketDesc"),
+      color: "#FFCF00"
+    },
+    {
+      icon: "🍔",
+      title: t("featFoodTitle"),
+      desc: t("featFoodDesc"),
+      color: "#FF5F5F"
+    },
+    {
+      icon: "📍",
+      title: t("featGpsTitle"),
+      desc: t("featGpsDesc"),
+      color: "#5F9FFF"
+    },
+    {
+      icon: "🛡️",
+      title: t("featVerifyTitle"),
+      desc: t("featVerifyDesc"),
+      color: "#4CAF50"
+    },
+    {
+      icon: "🧾",
+      title: t("featReceiptTitle"),
+      desc: t("featReceiptDesc"),
+      color: "#A061FF"
+    },
+    {
+      icon: "⏱️",
+      title: t("featArrivalTitle"),
+      desc: t("featArrivalDesc"),
+      color: "#FF9A3E"
+    }
+  ];
+
   return (
     <section className="app-features-section">
       <div className="features-container">
         <div className="features-header-left">
-          <span className="features-label">Core Capabilities</span>
-          <h2 className="features-main-title">Built for Efficiency</h2>
+          <span className="features-label">{t("userFeaturesLabel")}</span>
+          <h2 className="features-main-title">{t("userFeaturesTitle")}</h2>
           <div className="features-accent-line"></div>
         </div>
         
