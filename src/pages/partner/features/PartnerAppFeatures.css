@@ -1,0 +1,133 @@
+.partner-features-section {
+  width: 100%;
+  padding: 4rem 0;
+  background-color: #ffffff;
+}
+
+.partner-features-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* --- Left-Aligned Header --- */
+.partner-features-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 3.5rem;
+}
+
+.partner-features-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #888;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+
+.partner-features-title {
+  font-size: 2.8rem;
+  font-weight: 950;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: -1.5px;
+  margin: 0 0 1.25rem 0;
+}
+
+.partner-features-line {
+  width: 80px;
+  height: 5px;
+  background: #000;
+}
+
+/* --- Features Grid --- */
+.partner-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* --- Premium Cards --- */
+.partner-feature-card {
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  overflow: hidden;
+  cursor: pointer; /* Change cursor to hand */
+}
+
+.partner-card-icon {
+  font-size: 2.5rem; /* Larger for emojis */
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease;
+  line-height: 1;
+}
+
+.partner-card-title {
+  font-size: 1.15rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 0 0 12px 0;
+  color: #000;
+  letter-spacing: -0.5px;
+}
+
+.partner-card-desc {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* --- Interactive Elements --- */
+.partner-card-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.partner-feature-card:hover {
+  border-color: #000;
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+}
+
+.partner-feature-card:hover .partner-card-indicator {
+  opacity: 1;
+}
+
+.partner-feature-card:hover .partner-card-icon {
+  transform: scale(1.15) rotate(5deg); /* Slight pop and tilt for emojis */
+}
+
+/* --- Responsive Layout --- */
+@media (max-width: 1024px) {
+  .partner-features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .partner-features-container { padding: 0 24px; }
+  .partner-features-title { font-size: 2.2rem; }
+}
+
+@media (max-width: 600px) {
+  .partner-features-grid {
+    grid-template-columns: 1fr;
+  }
+  .partner-feature-card {
+    padding: 2rem;
+  }
+}

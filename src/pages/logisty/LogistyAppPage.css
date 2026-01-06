@@ -1,0 +1,27 @@
+:root {
+  --b-black: #000000;
+  --b-white: #ffffff;
+  --b-yellow: #FFCF00;
+  --nav-h: 75px;
+}
+
+.logisty-app-page-wrapper {
+  background-color: var(--b-white);
+  min-height: 100vh;
+  padding-top: var(--nav-h);
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+}
+
+.logisty-app-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 40px;
+}
+
+/* Responsive adjustments for the main container */
+@media (max-width: 900px) {
+  .logisty-app-content {
+    padding: 2rem 20px;
+  }
+}

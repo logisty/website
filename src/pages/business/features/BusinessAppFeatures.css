@@ -1,0 +1,118 @@
+.business-features {
+  width: 100%;
+  padding: 6rem 0;
+  background-color: #ffffff;
+}
+
+.business-features-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* --- Section Header (Matching FAQ style) --- */
+.section-header-compact {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 3rem;
+}
+
+.feat-headline-small {
+  font-size: 1.1rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #000;
+  margin: 0;
+}
+
+.headline-line.blue {
+  width: 40px;
+  height: 4px;
+  background-color: #3B82F6; /* Business Blue */
+}
+
+/* --- Features Grid --- */
+.business-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.business-feat-card {
+  padding: 2.5rem 2rem;
+  border: 1.5px solid #000;
+  background: #fff;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.business-feat-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 6px 6px 0px #3B82F6; /* Blue shadow on hover */
+}
+
+/* --- Icon Box --- */
+.feat-icon-box {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  width: 60px;
+  height: 60px;
+  background: #f0f7ff;
+  border: 1.5px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Text Content --- */
+.feat-title {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #000;
+  text-transform: uppercase;
+  margin: 0 0 1rem 0;
+  letter-spacing: -0.5px;
+}
+
+.feat-desc {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* --- Responsive Layout --- */
+@media (max-width: 1024px) {
+  .business-features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .business-features {
+    padding: 4rem 0;
+  }
+  
+  .business-features-container {
+    padding: 0 24px;
+  }
+
+  .business-features-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .business-feat-card {
+    padding: 2rem;
+  }
+  
+  .business-feat-card:hover {
+    transform: none;
+    box-shadow: 4px 4px 0px #3B82F6;
+  }
+}

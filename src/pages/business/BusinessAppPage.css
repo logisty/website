@@ -1,0 +1,53 @@
+.business-page-wrapper {
+  background-color: #ffffff;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+
+.section-divider {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.divider-line {
+  height: 1px;
+  background: #f0f0f0;
+  width: 100%;
+}
+
+/* --- Final Call to Action - Blue Theme --- */
+.business-final-cta {
+  width: 100%;
+  padding: 8rem 2rem;
+  background: #000;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.business-cta-button {
+  background: #3B82F6; /* Logisty Blue */
+  color: #fff;
+  padding: 18px 40px;
+  text-decoration: none;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 1rem;
+  border: 2px solid #3B82F6;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  box-shadow: 4px 4px 0px rgba(59, 130, 246, 0.3);
+}
+
+.business-cta-button:hover {
+  transform: translateY(-3px);
+  background: #2563EB;
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+}
+
+@media (max-width: 768px) {
+  .business-final-cta { padding: 5rem 1.5rem; }
+  .cta-title { font-size: 2.2rem; }
+}

@@ -1,0 +1,149 @@
+.app-features-section {
+  width: 100%;
+  padding: 3rem 0;
+  background-color: #ffffff;
+}
+
+.features-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* --- Header Section (Strict Left Alignment) --- */
+.features-header-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+}
+
+.features-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #888;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.5rem;
+}
+
+.features-main-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  margin: 0 0 1rem 0;
+}
+
+.features-accent-line {
+  width: 60px;
+  height: 4px;
+  background: #000;
+}
+
+/* --- Grid System --- */
+.features-clean-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* --- Refined Cards --- */
+.feature-v-card {
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 220px;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  cursor: pointer; /* Hand cursor */
+}
+
+.card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.card-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emoji-icon {
+  font-size: 2.2rem; /* Adjusted for emoji visibility */
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+.card-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  opacity: 0.3;
+  transition: all 0.3s ease;
+}
+
+.card-title-refined {
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0 0 12px 0;
+  color: #000;
+  letter-spacing: -0.5px;
+}
+
+.card-desc-refined {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.6;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* --- Hover Effects --- */
+.feature-v-card:hover {
+  border-color: #000;
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+}
+
+.feature-v-card:hover .emoji-icon {
+  transform: scale(1.1) rotate(3deg);
+}
+
+.feature-v-card:hover .card-dot {
+  opacity: 1;
+  transform: scale(1.5);
+  box-shadow: 0 0 8px var(--accent-color);
+}
+
+/* --- Responsive Layouts --- */
+@media (max-width: 1024px) {
+  .features-clean-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .features-container { padding: 0 24px; }
+  .features-main-title { font-size: 2rem; }
+}
+
+@media (max-width: 600px) {
+  .features-header-left { align-items: flex-start; }
+  .features-clean-grid {
+    grid-template-columns: 1fr;
+  }
+  .feature-v-card {
+    min-height: auto;
+    padding: 1.5rem;
+  }
+}

@@ -1,0 +1,229 @@
+.partner-app-hero {
+  width: 100%;
+  padding: 0.5rem 2rem 3rem 2rem; /* Tight top padding to hug navigation */
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.partner-hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.partner-grid-balanced {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* --- Left-Aligned Content --- */
+.partner-text-area {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.partner-status-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1.25rem;
+}
+
+.experimental-beta-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFCF00; /* Logisty Brand Yellow */
+  color: #000;
+  padding: 5px 12px;
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  border: 1px solid #000;
+}
+
+.status-pulse {
+  width: 6px;
+  height: 6px;
+  background-color: #000;
+  border-radius: 50%;
+  animation: partner-pulse 1.5s infinite;
+}
+
+@keyframes partner-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.partner-version-pill {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #888;
+  border: 1px solid #eee;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.partner-main-title {
+  font-size: 4.5rem;
+  font-weight: 950;
+  line-height: 0.95;
+  letter-spacing: -2px;
+  margin: 0 0 1.5rem 0;
+  color: #000;
+  text-transform: uppercase;
+}
+
+.partner-title-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px #000;
+}
+
+.partner-description {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #444;
+  max-width: 540px;
+  margin-bottom: 2.5rem;
+  font-weight: 500;
+}
+
+.partner-description strong {
+  color: #000;
+  font-weight: 800;
+}
+
+/* --- Actions --- */
+.partner-actions {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.partner-download-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #000;
+  padding: 12px 28px;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 4px;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.partner-download-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.btn-icon img { width: 26px; height: auto; }
+
+.btn-label { display: flex; flex-direction: column; }
+
+.label-top { font-size: 8px; text-transform: uppercase; font-weight: 700; opacity: 0.7; }
+
+.label-main { font-size: 17px; font-weight: 900; }
+
+.vrp-status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #5F9FFF; /* Tech Blue */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* --- Visual Area (Mockup) --- */
+.partner-visual-area {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.partner-device-frame {
+  position: relative;
+  width: 270px;
+  z-index: 2;
+}
+
+.partner-device-screen {
+  width: 100%;
+  aspect-ratio: 9/18.5;
+  background: #fff;
+  border: 6px solid #000;
+  border-radius: 34px;
+  position: relative;
+  overflow: hidden;
+}
+
+.partner-device-notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 20px;
+  background: #000;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.partner-screen-content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #ffffff 0%, #f7f7f7 100%);
+}
+
+.partner-float-logo {
+  width: 65px;
+  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.05));
+  animation: partner-float 4s ease-in-out infinite;
+}
+
+@keyframes partner-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.partner-device-shadow {
+  position: absolute;
+  bottom: -25px;
+  width: 80%;
+  height: 20px;
+  background: rgba(0,0,0,0.04);
+  filter: blur(12px);
+  border-radius: 50%;
+  left: 10%;
+}
+
+/* --- Responsive (Maintain Left Alignment) --- */
+@media (max-width: 1024px) {
+  .partner-grid-balanced { 
+    grid-template-columns: 1fr; 
+    gap: 4rem; 
+  }
+  
+  .partner-text-area {
+    align-items: flex-start; /* Remain Left Aligned */
+    text-align: left;
+  }
+
+  .partner-main-title { font-size: 3.8rem; }
+  
+  .partner-visual-area {
+    justify-content: flex-start; 
+  }
+}
+
+@media (max-width: 600px) {
+  .partner-main-title { font-size: 3rem; }
+  .partner-actions { flex-direction: column; align-items: flex-start; gap: 20px; }
+}
