@@ -19,6 +19,9 @@ export default function Footer() {
           <Link to="/partner-terms" className="legal-link">
             {t('footerPartnerTerms')}
           </Link>
+                    <Link to="/business-terms" className="legal-link">
+            {t('footerBusinessTerms')}
+          </Link>
           <Link to="/privacy-notice" className="legal-link">
             {t('footerPrivacy')}
           </Link>

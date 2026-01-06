@@ -8,6 +8,7 @@ import PartnerTerms from './pages/legal/PartnerTerms';
 import PrivacyNotice from './pages/legal/PrivacyNotice';
 import PartnerAppPage from './pages/partner/PartnerAppPage';
 import BusinessAppPage from './pages/business/BusinessAppPage';
+import BusinessTerms from './pages/legal/BusinessTerms';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/partner-app" element={<PartnerAppPage />} />
           <Route path="/business-app" element={<BusinessAppPage />} />
           <Route path="/client-terms" element={<ClientTerms />} />
+          <Route path="/business-terms" element={<BusinessTerms />} />
           <Route path="/partner-terms" element={<PartnerTerms />} />
           <Route path="/privacy-notice" element={<PrivacyNotice />} />
         </Routes>
