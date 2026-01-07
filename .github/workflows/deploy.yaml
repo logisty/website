@@ -32,30 +32,39 @@ jobs:
       - name: Read app versions from apps.json
         id: versions
         run: |
-          # We parse and set them as env variables for the whole job to use
+          # Parsing version and repo info for Logisty, Partner, and Business apps
           echo "LOGISTY_VER=$(jq -r '.logisty.version' public/apps.json)" >> $GITHUB_ENV
           echo "LOGISTY_REPO=$(jq -r '.logisty.repo' public/apps.json)" >> $GITHUB_ENV
+          
           echo "PARTNER_VER=$(jq -r '.partner.version' public/apps.json)" >> $GITHUB_ENV
           echo "PARTNER_REPO=$(jq -r '.partner.repo' public/apps.json)" >> $GITHUB_ENV
+          
+          echo "BUSINESS_VER=$(jq -r '.business.version' public/apps.json)" >> $GITHUB_ENV
+          echo "BUSINESS_REPO=$(jq -r '.business.repo' public/apps.json)" >> $GITHUB_ENV
 
       - name: Download APKs
-        # Using GH_TOKEN name directly allows 'gh' to auth automatically
+        # Using LOGISTY_PAT to authenticate with other private/public repos
         env:
           GH_TOKEN: ${{ secrets.LOGISTY_PAT }}
         run: |
           mkdir -p ./dist/downloads
           
-          echo "Downloading Logisty APK from ${{ env.LOGISTY_REPO }}..."
-          # We wrap the repo name in quotes to ensure no shell-splitting happens
+          echo "Downloading Logisty APK..."
           gh release download "v${{ env.LOGISTY_VER }}" \
             --repo "${{ env.LOGISTY_REPO }}" \
             --pattern "logisty_v${{ env.LOGISTY_VER }}.apk" \
             --dir ./dist/downloads
 
-          echo "Downloading Partner APK from ${{ env.PARTNER_REPO }}..."
+          echo "Downloading Partner APK..."
           gh release download "v${{ env.PARTNER_VER }}" \
             --repo "${{ env.PARTNER_REPO }}" \
             --pattern "partner_v${{ env.PARTNER_VER }}.apk" \
+            --dir ./dist/downloads
+
+          echo "Downloading Business APK..."
+          gh release download "v${{ env.BUSINESS_VER }}" \
+            --repo "${{ env.BUSINESS_REPO }}" \
+            --pattern "business_v${{ env.BUSINESS_VER }}.apk" \
             --dir ./dist/downloads
 
       - name: Upload artifact
@@ -68,6 +77,7 @@ jobs:
     needs: build
     environment:
       name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
