@@ -4,11 +4,11 @@
     "repo": "logisty/Logisty"
   },
   "partner": {
-    "version": "0.24.1",
+    "version": "0.24.2",
     "repo": "logisty/partner"
   },
     "business": {
-    "version": "0.8.2",
+    "version": "0.8.3",
     "repo": "logisty/business"
   }
 }
