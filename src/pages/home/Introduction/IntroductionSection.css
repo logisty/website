@@ -44,15 +44,15 @@
   text-align: center;
 }
 
-/* Modern Beta Tag */
+/* Modern Beta Tag - Tightened */
 .hero-beta-tag {
   display: flex;
   align-items: center;
   gap: 10px;
   border: 1px solid #eee;
-  padding: 6px 16px;
+  padding: 4px 14px;
   border-radius: 100px;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1rem; /* Reduced more for tighter fit */
   background: #fff;
 }
 
@@ -72,21 +72,21 @@
 }
 
 .beta-text {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 1px;
   color: #666;
 }
 
-/* Aesthetic Typography */
+/* Aesthetic Typography - Tightened */
 .intro-headline-aesthetic {
   font-size: clamp(3rem, 8vw, 6.5rem);
   font-weight: 950;
-  line-height: 0.85;
+  line-height: 0.75; /* Even tighter line height */
   color: var(--brutalist-black);
   text-transform: uppercase;
   letter-spacing: -3px;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem; /* Minimal gap before subtext */
 }
 
 .headline-top {
@@ -94,7 +94,7 @@
   font-size: 0.35em;
   letter-spacing: 4px;
   color: #888;
-  margin-bottom: 10px;
+  margin-bottom: -5px; /* Negative margin to pull headline closer to prefix */
 }
 
 .logisty-brand-aesthetic {
@@ -116,8 +116,8 @@
   font-size: 1.15rem;
   color: #555;
   max-width: 600px;
-  line-height: 1.6;
-  margin-bottom: 3rem;
+  line-height: 1.4; 
+  margin-bottom: 2rem; 
   font-weight: 500;
 }
 
@@ -148,6 +148,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  text-align: left;
 }
 
 .btn-label {
@@ -166,8 +167,9 @@
   .intro-headline-aesthetic {
     font-size: 3.5rem;
     letter-spacing: -1px;
+    margin-bottom: 0.75rem;
   }
-  .intro-subtext {
-    font-size: 1rem;
+  .hero-beta-tag {
+    margin-bottom: 0.75rem;
   }
 }
