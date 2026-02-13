@@ -17,7 +17,7 @@ export const useAppsStore = create<AppsState>((set) => ({
   fetchApps: async () => {
     set({ loading: true });
     try {
-    const res = await fetch('/website/apps.json');
+    const res = await fetch('/apps.json');
       const data: Record<string, AppInfo> = await res.json();
       set({ apps: data });
     } catch (err) {

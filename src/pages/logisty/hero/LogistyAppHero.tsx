@@ -17,7 +17,7 @@ const LogistyAppHero: FC = () => {
   const logistyVersion = apps.logisty?.version || '0.0.0';
 
   // Construct the dynamic URL matching your GitHub Pages structure
-  const logistyDownloadUrl = `https://logisty.github.io/website/downloads/logisty_v${logistyVersion}.apk`;
+  const logistyDownloadUrl = `https://logisty.tn/downloads/logisty_v${logistyVersion}.apk`;
 
   return (
     <section className="app-hero-section">

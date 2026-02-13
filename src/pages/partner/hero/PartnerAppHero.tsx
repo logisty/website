@@ -17,7 +17,7 @@ const PartnerAppHero: FC = () => {
   const partnerVersion = apps.partner?.version || '0.0.0';
 
   // Construct the dynamic URL based on your specified GitHub Pages structure
-  const partnerDownloadUrl = `https://logisty.github.io/website/downloads/partner_v${partnerVersion}.apk`;
+  const partnerDownloadUrl = `http://logisty.tn/downloads/partner_v${partnerVersion}.apk`;
 
   return (
     <section className="partner-app-hero">
