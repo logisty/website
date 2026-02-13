@@ -45,7 +45,7 @@ export default function ContactSection() {
               </svg>
             </div>
             <span className="contact-label">{t('contactEmail')}</span>
-            <a href="mailto:logisty.tn@gmail.com" className="contact-value">logisty.tn@gmail.com</a>
+            <a href="mailto:contact@logisty.tn" className="contact-value">contact@logisty.tn</a>
           </div>
         </div>
       </div>
