@@ -17,7 +17,7 @@ const BusinessAppHero: FC = () => {
   const businessVersion = apps.business?.version || '0.0.0';
 
   // Construct the dynamic URL matching the GitHub Pages structure
-  const businessDownloadUrl = `https://logisty.github.io/website/downloads/business_v${businessVersion}.apk`;
+  const businessDownloadUrl = `https://logisty.tn/downloads/business_v${businessVersion}.apk`;
 
   return (
     <section className="business-app-hero">
