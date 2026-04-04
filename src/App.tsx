@@ -1,6 +1,6 @@
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/home/home';
-import LogistyAppPage from './pages/logisty/LogistyAppPage'; 
+import LogistyAppPage from './pages/logisty/LogistyAppPage';
 import Footer from './components/footer/Footer';
 import NavigationBar from './components/navigation/NavigationBar';
 import ClientTerms from './pages/legal/ClientTerms';
@@ -10,18 +10,22 @@ import PartnerAppPage from './pages/partner/PartnerAppPage';
 import BusinessAppPage from './pages/business/BusinessAppPage';
 import BusinessTerms from './pages/legal/BusinessTerms';
 import AboutPage from './pages/about/AboutPage';
+import RoadmapPage from './pages/roadmap/RoadmapPage';
+import InvestorsPage from './pages/investors/InvestorsPage';
+import BackersPage from './pages/backers/BackersPage';
+import EcosystemPage from './pages/ecosystem/EcosystemPage';
 
 function App() {
   return (
     <HashRouter>
       <NavigationBar />
-      
+
       {/* Using a standard main tag. 
           The padding-top ensures that the Hero section isn't hidden 
           behind the fixed navbar when the page first loads.
       */}
-      <main style={{ 
-        paddingTop: 'var(--nav-height)', 
+      <main style={{
+        paddingTop: 'var(--nav-height)',
         minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column'
@@ -30,6 +34,11 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/roadmap" element={<RoadmapPage />} />
+            <Route path="/investors" element={<InvestorsPage />} />
+                        <Route path="/backers" element={<BackersPage />} />
+                        <Route path="/ecosystem" element={<EcosystemPage />} />
+
             <Route path="/logisty-app" element={<LogistyAppPage />} />
             <Route path="/partner-app" element={<PartnerAppPage />} />
             <Route path="/business-app" element={<BusinessAppPage />} />

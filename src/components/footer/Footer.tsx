@@ -39,7 +39,7 @@ export default function Footer() {
         {/* BOTTOM SECTION: Legal, Origin, and Copyright */}
         <div className="footer-bottom">
           <div className="footer-bottom-left">
-            <span className="copyright-text">© LOGISTY 2026</span>
+            <span className="copyright-text">© Logisty 2026</span>
             <div className="origin-tag">
               <span>MADE IN</span>
               <img src={tnFlag} alt="Tunisia" />

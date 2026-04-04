@@ -10,10 +10,11 @@ const AboutPage: React.FC = () => {
     <main className="about-page">
       <div className="about-master-grid">
         
-        {/* LEFT PANEL: BRAND IDENTITY */}
+        {/* LEFT PANEL: IDENTITY + METADATA */}
         <section className="brand-panel">
           <div className="sticky-content">
             <img src={logo} alt="Logisty" className="about-main-logo" />
+            
             <div className="badge-row">
               <div className="origin-pill">
                 <span>MADE IN</span>
@@ -22,13 +23,26 @@ const AboutPage: React.FC = () => {
               </div>
               <div className="status-pill">PRE-INCORPORATED</div>
             </div>
+
+            {/* NEW: METADATA BLOCK UNDER LOGO */}
+            <div className="brand-metadata">
+              <div className="meta-item">
+                <span className="meta-label">LOCATION</span>
+                <span className="meta-val">Tunis, TN</span>
+              </div>
+              <div className="meta-item">
+                <span className="meta-label">PHASE</span>
+                <span className="meta-val">Experimental Beta</span>
+              </div>
+            </div>
+
             <div className="panel-footer">
-              <p>© 2026 LOGISTY TECH LABORATORY</p>
+              <p>© 2026 Logisty</p>
             </div>
           </div>
         </section>
 
-        {/* RIGHT PANEL: SCROLLABLE CONTENT */}
+        {/* RIGHT PANEL: CONTENT */}
         <section className="content-panel">
           <div className="content-block">
             <h1 className="main-heading">FACILITATING THE <span className="highlight">FUTURE</span> OF TUNISIAN LOGISTICS.</h1>
@@ -61,17 +75,7 @@ const AboutPage: React.FC = () => {
               infrastructure that is as reliable as it is fast.
             </p>
           </div>
-
-          <div className="utility-footer">
-            <div className="util-item">
-              <span className="label">LOCATION</span>
-              <span className="val">Tunis, TN</span>
-            </div>
-            <div className="util-item">
-              <span className="label">PHASE</span>
-              <span className="val">Experimental Beta</span>
-            </div>
-          </div>
+          {/* Bottom utility-footer removed to keep it clean */}
         </section>
 
       </div>
