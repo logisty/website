@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700;900&family=Inter:wght@400;500&display=swap');
+
+.eco-minimal-page {
+  background-color: #ffffff;
+  color: #000;
+  font-family: 'Inter', sans-serif;
+  padding: 120px 20px;
+  position: relative;
+}
+
+.eco-dots-bg {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: radial-gradient(#eee 1px, transparent 1px);
+  background-size: 30px 30px;
+  z-index: 0;
+}
+
+.eco-content-wrap { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+
+/* --- Highlight Mark --- */
+.text-highlight {
+  position: relative;
+  z-index: 1;
+  padding: 0 5px;
+}
+
+.text-highlight::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: 4px;
+  width: 100%; height: 30%;
+  background: #FFCF00;
+  z-index: -1;
+}
+
+/* --- Header --- */
+.eco-header-main { margin-bottom: 80px; }
+.eco-tag { font-family: 'League Spartan', sans-serif; font-size: 12px; color: #999; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; }
+.eco-hero-text { font-family: 'League Spartan', sans-serif; font-size: clamp(40px, 6vw, 64px); line-height: 0.95; letter-spacing: -2px; margin-bottom: 20px; }
+.eco-hero-sub { font-size: 18px; color: #666; max-width: 500px; }
+
+/* --- Stack Rows --- */
+.eco-row { display: grid; grid-template-columns: 80px 1fr; gap: 20px; align-items: start; margin-bottom: 15px; }
+.eco-num { font-family: 'League Spartan', sans-serif; font-size: 14px; color: #ddd; padding-top: 40px; }
+
+/* --- The Cards --- */
+.eco-card {
+  background: #fff;
+  border: 1px solid #f2f2f2;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 40px;
+  align-items: center;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.eco-card:hover { border-color: #ddd; transform: translateX(5px); }
+
+/* --- Simple Icons --- */
+.simple-icon-box {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.gold-bg { background: #FFCF00; color: #000; }
+.black-bg { background: #000; color: #fff; }
+
+.simple-icon-box svg { width: 30px; height: 30px; }
+
+.asset-png, .single-asset { height: 50px; object-fit: contain; }
+.img-duo { display: flex; gap: 10px; }
+.img-duo img { height: 45px; }
+
+/* --- Text & Labels --- */
+.eco-node-name { font-family: 'League Spartan', sans-serif; font-size: 24px; margin-bottom: 5px; }
+.eco-info p { font-size: 15px; color: #777; margin-bottom: 15px; }
+
+/* --- Platform Metadata --- */
+.eco-platforms { display: flex; gap: 10px; }
+.plat-item {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 600; color: #aaa;
+  border: 1px solid #eee; padding: 4px 10px;
+}
+.plat-item img { height: 12px; filter: grayscale(1); }
+
+.eco-card:hover .plat-item { color: #000; border-color: #ccc; }
+.eco-card:hover .plat-item img { filter: grayscale(0); }
+.eco-card:hover .eco-node-name { color: #FFCF00; }
+
+/* Hover highlight stripe */
+.hover-line {
+  position: absolute;
+  top: 0; left: 0; width: 0; height: 100%;
+  background: #FFCF00; transition: width 0.3s ease;
+}
+.eco-card:hover .hover-line { width: 3px; }
+
+@media (max-width: 600px) {
+  .eco-row { grid-template-columns: 1fr; }
+  .eco-num { display: none; }
+  .eco-card { grid-template-columns: 1fr; text-align: center; }
+  .eco-visual, .eco-platforms, .img-duo { justify-content: center; }
+  .simple-icon-box { margin: 0 auto; }
+}

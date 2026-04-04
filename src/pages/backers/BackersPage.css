@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700;900&family=Inter:wght@400;600&display=swap');
+
+.backers-page {
+  background-color: #ffffff;
+  color: #000;
+  font-family: 'League Spartan', sans-serif;
+  padding: 140px 24px 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.backers-container {
+  width: 100%;
+  max-width: 1000px;
+}
+
+/* --- Header --- */
+.backers-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.header-label {
+  font-size: 10px;
+  font-weight: 950;
+  letter-spacing: 3px;
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+.backers-logo { height: 40px; margin-bottom: 20px; }
+.backers-title { font-size: 60px; text-transform: uppercase; letter-spacing: -3px; line-height: 0.9; margin-bottom: 15px; }
+.backers-subtitle { font-family: 'Inter', sans-serif; font-size: 18px; color: #666; max-width: 550px; margin: 0 auto; }
+
+/* --- Grid --- */
+.backers-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+/* --- Founder Card Illustration (CSS Only) --- */
+.founder-card {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1.58 / 1; /* Standard Credit Card Ratio */
+  background: #000;
+  border-radius: 16px;
+  position: relative;
+  padding: 25px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  overflow: hidden;
+  border: 1px solid #333;
+}
+
+.card-top { display: flex; justify-content: space-between; align-items: center; }
+.card-mini-logo { height: 20px; filter: brightness(0) invert(1); }
+.card-edition { font-size: 8px; font-weight: 900; background: #FFCF00; color: #000; padding: 2px 6px; }
+
+.card-middle { margin-top: 20px; }
+.card-label { font-size: 12px; font-weight: 900; color: #FFCF00; letter-spacing: 2px; }
+.card-value { font-size: 52px; font-weight: 900; line-height: 1; }
+
+.card-bottom { display: flex; justify-content: space-between; font-size: 9px; font-weight: 900; opacity: 0.6; }
+
+/* Subtle Holographic Shimmer Effect */
+.card-shimmer {
+  position: absolute;
+  top: 0; left: -100%;
+  width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+  transform: skewX(-20deg);
+  animation: shimmer 4s infinite;
+}
+
+@keyframes shimmer { 100% { left: 200%; } }
+
+.promo-details { margin-top: 30px; }
+.promo-details h3 { font-size: 28px; margin-bottom: 10px; }
+.promo-details p { font-family: 'Inter', sans-serif; color: #555; line-height: 1.5; margin-bottom: 20px; }
+
+.backer-btn-primary {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  padding: 15px 25px;
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 13px;
+  border: 2px solid #000;
+  transition: all 0.2s ease;
+}
+
+.backer-btn-primary:hover { background: #FFCF00; color: #000; border-color: #000; }
+
+/* --- Backers List (Wall of Names) --- */
+.list-title { font-size: 24px; margin-bottom: 30px; border-bottom: 4px solid #000; display: inline-block; }
+
+.names-grid { display: flex; flex-direction: column; gap: 15px; }
+
+.backer-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.backer-name { font-size: 18px; font-weight: 900; }
+.backer-role { font-family: 'Inter', sans-serif; font-size: 12px; color: #999; text-transform: uppercase; }
+
+.placeholder { border-bottom: 2px dashed #ddd; opacity: 0.5; }
+
+/* Responsive */
+@media (max-width: 850px) {
+  .backers-main-grid { grid-template-columns: 1fr; gap: 80px; }
+  .backers-title { font-size: 44px; }
+  .founder-card { margin: 0 auto; }
+}
