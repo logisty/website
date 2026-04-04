@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
-import us from '@translations/us.json';
+import en from '@translations/en.json';
 import fr from '@translations/fr.json';
 import tn from '@translations/tn.json';
 import useLanguageStore from '@store/useLanguageStore';
 
 const translations: Record<string, Record<string, string>> = {
-  us,
+  en,
   fr,
   tn,
 };

@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-type Language = "us" | "fr" | "tn";
+type Language = "en" | "fr" | "tn";
 
 type LanguageStore = {
   language: Language;
@@ -9,7 +9,7 @@ type LanguageStore = {
 
 const savedLang = localStorage.getItem("language");
 const initialLang: Language =
-  savedLang === "fr" || savedLang === "tn" ? (savedLang as Language) : "us";
+  savedLang === "fr" || savedLang === "tn" ? (savedLang as Language) : "en";
 
 const useLanguageStore = create<LanguageStore>((set) => ({
   language: initialLang,

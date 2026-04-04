@@ -1,175 +1,167 @@
-:root {
-  --brutalist-black: #000000;
-  --brutalist-white: #ffffff;
-  --brutalist-yellow: #FFCF00;
-  --brutalist-red: #FF3B30;
-}
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700;900&display=swap');
 
-.intro-section {
-  min-height: 100vh;
+.flouci-hero {
+  min-height: calc(100vh - 75px);
   width: 100%;
-  background-color: var(--brutalist-white);
+  background: #ffffff;
   display: flex;
-  justify-content: center;
   align-items: center;
-  position: relative;
-  overflow: hidden;
-  padding: 0 5%;
+  padding: 80px 5%;
+  box-sizing: border-box;
+  font-family: 'League Spartan', sans-serif;
 }
 
-/* Background aesthetic aura */
-.aesthetic-aura {
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(255, 207, 0, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  pointer-events: none;
-}
-
-.intro-container {
-  position: relative;
-  z-index: 2;
-  max-width: 900px;
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
   width: 100%;
-}
-
-.intro-content-centered {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-/* Modern Beta Tag - Tightened */
-.hero-beta-tag {
   display: flex;
   align-items: center;
-  gap: 10px;
-  border: 1px solid #eee;
-  padding: 4px 14px;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+/* --- Left Side Content --- */
+.hero-text-block {
+  flex: 1.2;
+  max-width: 650px;
+}
+
+.beta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: #f8f8f8;
+  border: 1.5px solid #000;
   border-radius: 100px;
-  margin-bottom: 1rem; /* Reduced more for tighter fit */
-  background: #fff;
+  margin-bottom: 32px;
 }
 
-.beta-dot {
-  width: 8px;
-  height: 8px;
-  background: var(--brutalist-red);
-  border-radius: 50%;
-  box-shadow: 0 0 10px var(--brutalist-red);
-  animation: pulse 2s infinite;
-}
+.beta-badge .dot { width: 8px; height: 8px; background: #FFCF00; border-radius: 50%; }
+.beta-badge .label { font-size: 11px; font-weight: 800; letter-spacing: 1px; }
 
-@keyframes pulse {
-  0% { opacity: 1; }
-  50% { opacity: 0.4; }
-  100% { opacity: 1; }
-}
-
-.beta-text {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: #666;
-}
-
-/* Aesthetic Typography - Tightened */
-.intro-headline-aesthetic {
-  font-size: clamp(3rem, 8vw, 6.5rem);
+.hero-title {
+  font-size: clamp(42px, 6vw, 72px);
+  line-height: 0.95;
   font-weight: 950;
-  line-height: 0.75; /* Even tighter line height */
-  color: var(--brutalist-black);
-  text-transform: uppercase;
-  letter-spacing: -3px;
-  margin-bottom: 1rem; /* Minimal gap before subtext */
+  /* text-transform: uppercase removed to allow mixed case */
+  letter-spacing: -2.5px;
+  margin: 0 0 32px 0;
+  color: #000;
 }
 
-.headline-top {
+.title-prefix {
   display: block;
   font-size: 0.35em;
-  letter-spacing: 4px;
-  color: #888;
-  margin-bottom: -5px; /* Negative margin to pull headline closer to prefix */
+  letter-spacing: 6px;
+  color: #666;
+  margin-bottom: 12px;
+  text-transform: uppercase;
 }
 
-.logisty-brand-aesthetic {
+/* Specific classes to ensure neither word is forced to uppercase */
+.action-text-case, 
+.brand-name-case {
+  text-transform: none; 
+  position: relative;
+  z-index: 2;
+}
+
+.word-spacer {
+  display: inline-block;
+  width: 15px;
+}
+
+/* --- High-End Highlighter Effect --- */
+.marker-wrapper {
   position: relative;
   display: inline-block;
-  padding: 0 10px;
 }
 
-.brand-underline {
+.yellow-highlighter {
   position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 100%;
-  height: 15px;
-  z-index: -1;
+  top: 15%; 
+  left: -3%;
+  width: 106%;
+  height: 80%; 
+  background-color: #FFCF00;
+  z-index: 1;
+  mix-blend-mode: multiply; 
+  transform: rotate(-1.5deg);
+  border-radius: 2px;
 }
 
-.intro-subtext {
-  font-size: 1.15rem;
-  color: #555;
-  max-width: 600px;
-  line-height: 1.4; 
-  margin-bottom: 2rem; 
+.hero-description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #333;
+  max-width: 500px;
+  margin-bottom: 40px;
   font-weight: 500;
 }
 
-/* Aesthetic CTA Button */
-.aesthetic-button {
+/* --- Buttons --- */
+.hero-btns-wrapper {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.google-play-link {
+  display: block;
+  height: 56px;
+  transition: transform 0.2s ease;
+}
+
+.official-play-badge {
+  height: 100%;
+  width: auto;
+}
+
+.store-placeholder {
   display: flex;
   align-items: center;
-  background: var(--brutalist-black);
+  height: 56px;
+  padding: 0 24px;
+  background: #000;
   color: #fff;
-  padding: 14px 32px;
-  border-radius: 12px;
-  text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  min-width: 180px;
+  box-sizing: border-box;
+  opacity: 0.45;
 }
 
-.aesthetic-button:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-}
+.apple-icon { width: 24px; height: 24px; margin-right: 12px; }
+.placeholder-txt { display: flex; flex-direction: column; line-height: 1.1; }
+.p-small { font-size: 9px; font-weight: 800; opacity: 0.8; }
+.p-big { font-size: 19px; font-weight: 600; letter-spacing: -0.5px; }
 
-.btn-icon {
-  width: 28px;
-  margin-right: 15px;
-}
-
-.btn-text {
+/* --- Right Side Visual --- */
+.hero-visual {
+  flex: 0.8;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
+  justify-content: flex-end;
 }
 
-.btn-label {
-  font-size: 0.65rem;
-  font-weight: 500;
-  opacity: 0.7;
+.mockup-container {
+  width: 100%;
+  max-width: 440px;
 }
 
-.btn-title {
-  font-size: 1.1rem;
-  font-weight: 700;
+.static-mockup {
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: contain;
+  filter: drop-shadow(0 30px 80px rgba(0,0,0,0.12));
 }
 
-/* Mobile Adjustments */
-@media (max-width: 768px) {
-  .intro-headline-aesthetic {
-    font-size: 3.5rem;
-    letter-spacing: -1px;
-    margin-bottom: 0.75rem;
-  }
-  .hero-beta-tag {
-    margin-bottom: 0.75rem;
-  }
+@media (max-width: 1100px) {
+  .hero-container { flex-direction: column; text-align: center; gap: 50px; }
+  .hero-text-block { align-items: center; max-width: 100%; }
+  .hero-visual { justify-content: center; width: 100%; }
+  .hero-btns-wrapper { justify-content: center; }
+  .yellow-highlighter { height: 70%; top: 20%; }
 }

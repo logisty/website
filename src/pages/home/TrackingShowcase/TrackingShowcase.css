@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700;900&display=swap');
+
+.tracking-showcase {
+  background-color: #ffffff;
+  padding: 60px 5%;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'League Spartan', sans-serif;
+  color: #000;
+  box-sizing: border-box;
+}
+
+.tracking-container {
+  max-width: 1100px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* --- Content Styling --- */
+.live-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 900;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.live-dot {
+  width: 6px;
+  height: 6px;
+  background: #39DD85;
+  border-radius: 50%;
+  animation: blink 1.5s infinite;
+}
+
+.tracking-title {
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 950;
+  line-height: 0.95;
+  margin: 0 0 15px 0;
+  letter-spacing: -2.5px;
+}
+
+.marker {
+  color: #000;
+  background: #FFCF00;
+  padding: 0 8px;
+  display: inline-block;
+}
+
+/* --- Detail Rows with Hover Animation --- */
+.tracking-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Tighter gap for the hover effect */
+}
+
+.detail-row {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  border: 2px solid transparent;
+  background: #fff;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: default;
+  position: relative;
+}
+
+/* The Hover State: High Contrast Neo-Brutalist */
+.detail-row:hover {
+  background: #fff;
+  border-color: #000;
+  transform: translateX(15px); /* Slide out effect */
+  box-shadow: -10px 0px 0px #FFCF00; /* Yellow bar on the left */
+}
+
+.row-number {
+  font-weight: 900;
+  font-size: 13px;
+  color: #FFCF00;
+  background: #000;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.detail-row:hover .row-number {
+  transform: scale(1.1) rotate(-5deg);
+  background: #FFCF00;
+  color: #000;
+}
+
+.row-info h3 {
+  font-size: 19px;
+  font-weight: 900;
+  margin: 0 0 4px 0;
+  transition: color 0.3s ease;
+}
+
+.detail-row:hover .row-info h3 {
+  color: #000;
+}
+
+.row-info p {
+  font-size: 14px;
+  color: #777;
+  margin: 0;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+.detail-row:hover .row-info p {
+  color: #444;
+}
+
+/* --- Visual Styling --- */
+.tracking-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.tracking-image-box {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+}
+
+.tracking-asset-clean {
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(10px 10px 0px rgba(0,0,0,0.05));
+  transition: transform 0.5s ease;
+}
+
+/* Phone reacts when any detail row is hovered */
+.tracking-container:has(.detail-row:hover) .tracking-asset-clean {
+  transform: scale(1.05) translateY(-10px);
+}
+
+.visual-offset-bg {
+  position: absolute;
+  top: 10%;
+  right: -10%;
+  width: 100%;
+  height: 80%;
+  background: #f8f8f8;
+  border: 2px solid #000;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.tracking-container:has(.detail-row:hover) .visual-offset-bg {
+  background: #FFCF00;
+  transform: translate(5px, 5px);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* --- Mobile Styling --- */
+@media (max-width: 900px) {
+  .tracking-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+  .tracking-visual { order: -1; }
+  .detail-row { text-align: left; }
+  .detail-row:hover { transform: translateY(-5px); box-shadow: 0px 8px 0px #FFCF00; }
+}
