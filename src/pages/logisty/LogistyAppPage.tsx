@@ -4,28 +4,31 @@ import LogistyAppFeatures from './features/LogistyAppFeatures';
 import LogistyAppFAQ from './faq/LogistyAppFAQ';
 import './LogistyAppPage.css';
 import type { FC } from 'react';
-import LogistyAppInstall from './installation/LogistyAppInstall';
 
 const LogistyAppPage: FC = () => {
   return (
     <div className="logisty-app-page-wrapper">
       <NavigationBar />
       
-      {/* 1. Hero Section - No longer wrapped in 'logisty-app-content' */}
+      {/* 1. Hero Section */}
       <LogistyAppHero />
 
-      <div className="section-divider">
-        <div className="divider-line"></div>
-      </div>
+      <div className="spacer-xl"></div>
 
       {/* 2. Features */}
-      <LogistyAppFeatures />
+      <div className="section-container">
+        <LogistyAppFeatures />
+      </div>
 
-      {/* 3. Installation */}
-      <LogistyAppInstall />
+      <div className="spacer-xl"></div>
 
-      {/* 4. FAQ */}
-      <LogistyAppFAQ />
+      {/* 3. FAQ */}
+      <div className="section-container">
+        <LogistyAppFAQ />
+      </div>
+      
+      {/* Optional Footer Spacer */}
+      <div className="spacer-xl"></div>
     </div>
   );
 };

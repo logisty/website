@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import './BackersPage.css';
-import logo from '@assets/logisty-full-logo.png';
+import logo from '@assets/logo.png';
 
 const BackersPage: React.FC = () => {
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -15,13 +15,19 @@ const BackersPage: React.FC = () => {
 
   return (
     <main className="backers-page">
+      {/* Subtle backer text pattern in the background */}
+      <div className="backers-watermark-bg">
+        SAMI BEN HASSINE FATMA MANSOUR THE BIZERTE INNOVATION LAB YASSINE KALLEL ZIED ALOUI 
+        SAMI BEN HASSINE FATMA MANSOUR THE BIZERTE INNOVATION LAB YASSINE KALLEL ZIED ALOUI
+        SAMI BEN HASSINE FATMA MANSOUR THE BIZERTE INNOVATION LAB YASSINE KALLEL ZIED ALOUI
+      </div>
+
       <div className="backers-container">
         
         {/* HEADER SECTION */}
         <header className="backers-header">
           <div className="header-label">COMMUNITY SUPPORT</div>
-          <img src={logo} alt="Logisty" className="backers-logo" />
-          <h1 className="backers-title">Early Backers</h1>
+          <h1 className="backers-title">Early <span className="text-highlight">Backers</span></h1>
           <p className="backers-subtitle">
             The laboratory experiment is made possible by those who believe in 
             modernizing Tunisian trade from day zero.
@@ -33,14 +39,19 @@ const BackersPage: React.FC = () => {
           {/* LEFT: THE FOUNDER CARD ILLUSTRATION */}
           <section className="card-promo-section">
             <div className="founder-card">
+              {/* Amazon Signature: Full logo watermark in the background */}
+              <img src={logo} alt="" className="card-bg-watermark" />
+              
               <div className="card-top">
-                <img src={logo} alt="" className="card-mini-logo" />
+                <img src={logo} alt="Logisty" className="card-mini-logo" />
                 <span className="card-edition">EARLY ACCESS</span>
               </div>
+              
               <div className="card-middle">
                 <div className="card-label">FOUNDER CARD</div>
                 <div className="card-value">50 DT</div>
               </div>
+              
               <div className="card-bottom">
                 <span className="card-serial">LOG-BETA-2026</span>
                 <span className="card-credit">FUTURE APP CREDIT</span>

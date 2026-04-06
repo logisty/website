@@ -1,6 +1,6 @@
 .app-features-section {
   width: 100%;
-  padding: 3rem 0;
+  padding: 5rem 0;
   background-color: #ffffff;
 }
 
@@ -10,12 +10,12 @@
   padding: 0 40px;
 }
 
-/* --- Header Section (Strict Left Alignment) --- */
+/* --- Header Section --- */
 .features-header-left {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 
 .features-label {
@@ -33,7 +33,7 @@
   color: #000;
   text-transform: uppercase;
   letter-spacing: -1px;
-  margin: 0 0 1rem 0;
+  margin: 0 0 1.2rem 0;
 }
 
 .features-accent-line {
@@ -46,104 +46,74 @@
 .features-clean-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 30px;
 }
 
-/* --- Refined Cards --- */
+/* --- Feature Cards --- */
 .feature-v-card {
   background: #fff;
-  border: 1px solid #eee;
-  padding: 2rem;
+  border: 1px solid #f0f0f0;
+  padding: 2.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  min-height: 220px;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  position: relative;
-  cursor: pointer; /* Hand cursor */
-}
-
-.card-top-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 2rem;
+  gap: 1.5rem;
+  transition: all 0.25s ease;
+  cursor: default;
 }
 
 .card-icon-wrapper {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .emoji-icon {
-  font-size: 2.2rem; /* Adjusted for emoji visibility */
+  font-size: 3.5rem; /* Made significantly bigger */
   line-height: 1;
-  transition: transform 0.3s ease;
-}
-
-.card-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  opacity: 0.3;
-  transition: all 0.3s ease;
 }
 
 .card-title-refined {
-  font-size: 1.1rem;
-  font-weight: 800;
+  font-size: 1.15rem;
+  font-weight: 850;
   text-transform: uppercase;
-  margin: 0 0 12px 0;
+  margin: 0 0 10px 0;
   color: #000;
   letter-spacing: -0.5px;
 }
 
 .card-desc-refined {
-  font-size: 0.9rem;
-  color: #666;
+  font-size: 0.95rem;
+  color: #555;
   line-height: 1.6;
   font-weight: 500;
   margin: 0;
 }
 
-/* --- Hover Effects --- */
+/* --- Clean Hover (No Rotation) --- */
 .feature-v-card:hover {
   border-color: #000;
-  transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.06);
 }
 
-.feature-v-card:hover .emoji-icon {
-  transform: scale(1.1) rotate(3deg);
-}
-
-.feature-v-card:hover .card-dot {
-  opacity: 1;
-  transform: scale(1.5);
-  box-shadow: 0 0 8px var(--accent-color);
-}
-
-/* --- Responsive Layouts --- */
+/* --- Responsive --- */
 @media (max-width: 1024px) {
   .features-clean-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
   }
 }
 
 @media (max-width: 768px) {
   .features-container { padding: 0 24px; }
-  .features-main-title { font-size: 2rem; }
+  .features-main-title { font-size: 2.2rem; }
+  .emoji-icon { font-size: 3rem; }
 }
 
 @media (max-width: 600px) {
-  .features-header-left { align-items: flex-start; }
   .features-clean-grid {
     grid-template-columns: 1fr;
   }
   .feature-v-card {
-    min-height: auto;
-    padding: 1.5rem;
+    padding: 2rem;
   }
 }

@@ -1,29 +1,35 @@
-import type { FC } from 'react';
+import { useEffect, type FC } from 'react';
 import './PartnerAppPage.css';
 import PartnerAppFAQ from './faq/PartnerAppFAQ';
 import PartnerAppFeatures from './features/PartnerAppFeatures';
 import PartnerAppHero from './hero/PartnerAppHero';
-import PartnerAppInstall from './installation/PartnerAppInstall';
 
 const PartnerAppPage: FC = () => {
+  // Reset scroll on entry
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <main className="partner-page-wrapper">
-      {/* 1. Hero Section - The First Impression */}
+      {/* 1. Hero Section */}
       <PartnerAppHero />
 
-      {/* 2. Visual Break / Divider */}
-      <div className="section-divider">
-        <div className="divider-line"></div>
+      <div className="spacer-xl"></div>
+
+      {/* 2. Features Section */}
+      <div className="section-container">
+        <PartnerAppFeatures />
       </div>
 
-      {/* 3. Features Section - The Technical Value */}
-      <PartnerAppFeatures />
+      <div className="spacer-xl"></div>
 
-      {/* 4. Installation Guide - Converting the User */}
-      <PartnerAppInstall />
+      {/* 3. FAQ Section */}
+      <div className="section-container">
+        <PartnerAppFAQ />
+      </div>
 
-      {/* 5. FAQ - Handling Objections */}
-      <PartnerAppFAQ />
+      <div className="spacer-xl"></div>
     </main>
   );
 };

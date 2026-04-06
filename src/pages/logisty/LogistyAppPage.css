@@ -2,25 +2,49 @@
   background-color: #ffffff;
   min-height: 100vh;
   scroll-behavior: smooth;
-  /* Removed padding-top here if you want it to feel exactly like business */
+  display: flex;
+  flex-direction: column;
 }
 
-/* Match the divider logic from your business page exactly */
-.section-divider {
+/* The Section Container ensures horizontal alignment across all modules */
+.section-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 40px;
-}
-
-.divider-line {
-  height: 1px;
-  background: #f0f0f0;
   width: 100%;
 }
 
-/* Ensure no squeezing wrapper exists */
+/* --- Brutalist Spacing Logic --- */
+.spacer-xl {
+  height: 160px; /* Massive breathing room for premium feel */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Optional: Adding a heavy brutalist divider in the middle of the spacer */
+.spacer-xl::after {
+  content: "";
+  width: 100%;
+  max-width: 1120px; /* Matches container padding */
+  height: 4px; /* Thick, confident line */
+  background: #000;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1024px) {
+  .spacer-xl {
+    height: 100px;
+  }
+}
+
 @media (max-width: 768px) {
-  .section-divider {
+  .spacer-xl {
+    height: 80px;
     padding: 0 20px;
+  }
+  
+  .spacer-xl::after {
+    max-width: 100%;
   }
 }

@@ -6,68 +6,33 @@ const PartnerAppFeatures: FC = () => {
   const { t } = useTranslation();
 
   const partnerFeatures = [
-    {
-      icon: "🗺️",
-      title: t("pFeatVrpTitle"),
-      desc: t("pFeatVrpDesc"),
-      color: "#5F9FFF"
-    },
-    {
-      icon: "📦",
-      title: t("pFeatMultiTitle"),
-      desc: t("pFeatMultiDesc"),
-      color: "#FFCF00"
-    },
-    {
-      icon: "🔔",
-      title: t("pFeatOffersTitle"),
-      desc: t("pFeatOffersDesc"),
-      color: "#4CAF50"
-    },
-    {
-      icon: "⛽",
-      title: t("pFeatFuelTitle"),
-      desc: t("pFeatFuelDesc"),
-      color: "#FF5F5F"
-    },
-    {
-      icon: "🚛",
-      title: t("pFeatFleetTitle"),
-      desc: t("pFeatFleetDesc"),
-      color: "#A061FF"
-    },
-    {
-      icon: "💰",
-      title: t("pFeatEarnTitle"),
-      desc: t("pFeatEarnDesc"),
-      color: "#FF9A3E"
-    }
+    { icon: "🗺️", title: t("pFeatVrpTitle"), desc: t("pFeatVrpDesc") },
+    { icon: "📦", title: t("pFeatMultiTitle"), desc: t("pFeatMultiDesc") },
+    { icon: "🔔", title: t("pFeatOffersTitle"), desc: t("pFeatOffersDesc") },
+    { icon: "⛽", title: t("pFeatFuelTitle"), desc: t("pFeatFuelDesc") },
+    { icon: "🚛", title: t("pFeatFleetTitle"), desc: t("pFeatFleetDesc") },
+    { icon: "💰", title: t("pFeatEarnTitle"), desc: t("pFeatEarnDesc") }
   ];
 
   return (
     <section className="partner-features-section">
       <div className="partner-features-container">
-        <div className="partner-features-header">
+        <div className="partner-features-header-left">
           <span className="partner-features-label">{t("transporterTools")}</span>
-          <h2 className="partner-features-title">{t("optimizedLogistics")}</h2>
-          <div className="partner-features-line"></div>
+          <h2 className="partner-features-main-title">{t("optimizedLogistics")}</h2>
+          <div className="partner-features-accent-line"></div>
         </div>
         
-        <div className="partner-features-grid">
+        <div className="partner-features-clean-grid">
           {partnerFeatures.map((item, index) => (
-            <div 
-              className="partner-feature-card" 
-              key={index}
-              style={{ '--hover-accent': item.color } as React.CSSProperties}
-            >
-              <div className="partner-card-icon">
-                {item.icon}
+            <div className="partner-feature-v-card" key={index}>
+              <div className="partner-card-icon-wrapper">
+                <span className="partner-emoji-icon">{item.icon}</span>
               </div>
-              <div className="partner-card-text">
-                <h3 className="partner-card-title">{item.title}</h3>
-                <p className="partner-card-desc">{item.desc}</p>
+              <div className="partner-card-body">
+                <h3 className="partner-card-title-refined">{item.title}</h3>
+                <p className="partner-card-desc-refined">{item.desc}</p>
               </div>
-              <div className="partner-card-indicator" style={{ backgroundColor: item.color }}></div>
             </div>
           ))}
         </div>

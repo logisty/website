@@ -2,52 +2,76 @@
   background-color: #ffffff;
   min-height: 100vh;
   scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
 }
 
-.section-divider {
+/* Consistent horizontal grid */
+.section-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 40px;
-}
-
-.divider-line {
-  height: 1px;
-  background: #f0f0f0;
   width: 100%;
 }
 
-/* --- Final Call to Action - Blue Theme --- */
+/* --- Brutalist Spacing Logic (Matched to User Page) --- */
+.spacer-xl {
+  height: 160px; /* Massive breathing room */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spacer-xl::after {
+  content: "";
+  width: 100%;
+  max-width: 1120px; /* Matches container padding */
+  height: 4px; /* Thick Brutalist Line */
+  background: #000;
+}
+
+/* --- Responsive Layout --- */
+@media (max-width: 1024px) {
+  .spacer-xl {
+    height: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .spacer-xl {
+    height: 80px;
+    padding: 0 20px;
+  }
+  
+  .spacer-xl::after {
+    max-width: 100%;
+  }
+}
+
+/* --- Final Call to Action - Brutalist Update --- */
 .business-final-cta {
   width: 100%;
   padding: 8rem 2rem;
   background: #000;
   color: #fff;
   text-align: center;
-  display: flex;
-  justify-content: center;
 }
 
 .business-cta-button {
-  background: #3B82F6; /* Logisty Blue */
+  display: inline-block;
+  background: #3B82F6; 
   color: #fff;
-  padding: 18px 40px;
+  padding: 20px 48px;
   text-decoration: none;
   font-weight: 900;
   text-transform: uppercase;
-  font-size: 1rem;
-  border: 2px solid #3B82F6;
-  border-radius: 4px;
+  font-size: 1.1rem;
+  border: 3px solid #fff; /* White border on black background */
   transition: all 0.2s ease;
-  box-shadow: 4px 4px 0px rgba(59, 130, 246, 0.3);
+  box-shadow: 6px 6px 0px #3B82F6;
 }
 
 .business-cta-button:hover {
-  transform: translateY(-3px);
-  background: #2563EB;
-  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
-}
-
-@media (max-width: 768px) {
-  .business-final-cta { padding: 5rem 1.5rem; }
-  .cta-title { font-size: 2.2rem; }
+  transform: translate(-2px, -2px);
+  box-shadow: 10px 10px 0px #3B82F6;
 }

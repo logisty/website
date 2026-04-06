@@ -24,7 +24,6 @@ const AboutPage: React.FC = () => {
               <div className="status-pill">PRE-INCORPORATED</div>
             </div>
 
-            {/* NEW: METADATA BLOCK UNDER LOGO */}
             <div className="brand-metadata">
               <div className="meta-item">
                 <span className="meta-label">LOCATION</span>
@@ -53,11 +52,15 @@ const AboutPage: React.FC = () => {
           </div>
 
           <div className="feature-grid">
-            <div className="f-box yellow">
+            {/* 01. INNOVATION - Purple */}
+            <div className="f-box purple">
+              <span className="box-emoji">💡</span>
               <h3>01. INNOVATION</h3>
               <p>We replace paper-based friction with real-time digital intelligence and automated workflows.</p>
             </div>
-            <div className="f-box black">
+            {/* 02. TRUST - Blue */}
+            <div className="f-box blue">
+              <span className="box-emoji">🛡️</span>
               <h3>02. TRUST</h3>
               <p>Built-in encryption and verified partner protocols ensure every handover is secure and documented.</p>
             </div>
@@ -66,16 +69,15 @@ const AboutPage: React.FC = () => {
           <div className="manifesto-section">
             <h2>OUR MISSION</h2>
             <p>
-              Logistics is the backbone of any economy. In Tunisia, we are building the digital 
-              connective tissue that allows businesses to scale without the traditional 
-              bottlenecks of delivery uncertainty. 
+              Logisty is not just an app; it is the infrastructure for a smarter Tunisian economy.
+              Logistics is the connective tissue of any market. In Tunisia, we are building the digital 
+              tissue that allows businesses to scale without the traditional bottlenecks of delivery uncertainty. 
             </p>
             <p className="sub-p">
-              By leveraging AI-driven routing and a transparent ledger system, we provide 
+              By leveraging AI-driven routing and a secure, transparent ledger system, we provide 
               infrastructure that is as reliable as it is fast.
             </p>
           </div>
-          {/* Bottom utility-footer removed to keep it clean */}
         </section>
 
       </div>

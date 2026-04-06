@@ -1,36 +1,47 @@
 .partner-page-wrapper {
   background-color: #ffffff;
   min-height: 100vh;
-  /* Smooth scrolling for anchor links */
   scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
 }
 
-/* --- Section Dividers --- */
-.section-divider {
+/* Consistent horizontal grid */
+.section-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 40px;
-}
-
-.divider-line {
-  height: 1px;
-  background: #f0f0f0;
   width: 100%;
 }
 
-/* --- Final Call to Action --- */
+/* --- Brutalist Spacing Logic --- */
+.spacer-xl {
+  height: 160px; /* Massive breathing room */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spacer-xl::after {
+  content: "";
+  width: 100%;
+  max-width: 1120px; /* Matches container padding */
+  height: 4px; /* Thick Brutalist Line */
+  background: #000;
+}
+
+/* --- Final Call to Action (Brutalist Update) --- */
 .partner-final-cta {
   width: 100%;
   padding: 8rem 2rem;
   background: #000;
   color: #fff;
   text-align: center;
-  display: flex;
-  justify-content: center;
 }
 
 .cta-content {
   max-width: 600px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,39 +58,45 @@
 
 .cta-subtitle {
   font-size: 1.1rem;
-  opacity: 0.7;
+  opacity: 0.8;
   margin-bottom: 2.5rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .cta-button {
-  background: #FFCF00;
+  display: inline-block;
+  background: #FFCF00; /* Logisty Yellow */
   color: #000;
-  padding: 18px 40px;
+  padding: 20px 48px;
   text-decoration: none;
   font-weight: 900;
   text-transform: uppercase;
-  font-size: 1rem;
-  border-radius: 4px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-size: 1.1rem;
+  border: 3px solid #000;
+  transition: all 0.2s ease;
+  box-shadow: 6px 6px 0px #FFCF00; /* Hard shadow instead of blur */
 }
 
 .cta-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(255, 207, 0, 0.3);
+  transform: translate(-2px, -2px);
+  box-shadow: 10px 10px 0px #FFCF00;
+  background: #ffe054;
 }
 
 /* --- Responsive Adjustments --- */
+@media (max-width: 1024px) {
+  .spacer-xl { height: 100px; }
+}
+
 @media (max-width: 768px) {
-  .partner-final-cta {
-    padding: 5rem 1.5rem;
+  .spacer-xl {
+    height: 80px;
+    padding: 0 20px;
   }
   
-  .cta-title {
-    font-size: 2.2rem;
-  }
+  .spacer-xl::after { max-width: 100%; }
 
-  .section-divider {
-    padding: 0 24px;
-  }
+  .partner-final-cta { padding: 5rem 1.5rem; }
+  
+  .cta-title { font-size: 2.2rem; }
 }

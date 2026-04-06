@@ -1,6 +1,6 @@
 .partner-features-section {
   width: 100%;
-  padding: 4rem 0;
+  padding: 5rem 0;
   background-color: #ffffff;
 }
 
@@ -10,12 +10,12 @@
   padding: 0 40px;
 }
 
-/* --- Left-Aligned Header --- */
-.partner-features-header {
+/* --- Header Section (Unified) --- */
+.partner-features-header-left {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-bottom: 3.5rem;
+  margin-bottom: 4rem;
 }
 
 .partner-features-label {
@@ -23,62 +23,65 @@
   font-weight: 800;
   text-transform: uppercase;
   color: #888;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   margin-bottom: 0.5rem;
 }
 
-.partner-features-title {
-  font-size: 2.8rem;
-  font-weight: 950;
+.partner-features-main-title {
+  font-size: 2.5rem;
+  font-weight: 900;
   color: #000;
   text-transform: uppercase;
-  letter-spacing: -1.5px;
-  margin: 0 0 1.25rem 0;
+  letter-spacing: -1px;
+  margin: 0 0 1.2rem 0;
 }
 
-.partner-features-line {
-  width: 80px;
-  height: 5px;
+.partner-features-accent-line {
+  width: 60px;
+  height: 4px;
   background: #000;
 }
 
-/* --- Features Grid --- */
-.partner-features-grid {
+/* --- Clean Grid --- */
+.partner-features-clean-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 25px;
 }
 
-/* --- Premium Cards --- */
-.partner-feature-card {
+/* --- Refined Feature Cards --- */
+.partner-feature-v-card {
   background: #fff;
-  border: 1px solid #eee;
-  padding: 2.5rem 2rem;
+  border: 1px solid #f0f0f0;
+  padding: 2.5rem;
   display: flex;
   flex-direction: column;
-  position: relative;
-  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-  overflow: hidden;
-  cursor: pointer; /* Change cursor to hand */
+  gap: 1.5rem;
+  transition: all 0.25s ease;
+  cursor: default;
 }
 
-.partner-card-icon {
-  font-size: 2.5rem; /* Larger for emojis */
-  margin-bottom: 1.5rem;
-  transition: transform 0.3s ease;
+.partner-card-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.partner-emoji-icon {
+  font-size: 3.2rem;
   line-height: 1;
 }
 
-.partner-card-title {
-  font-size: 1.15rem;
-  font-weight: 900;
+.partner-card-title-refined {
+  font-size: 1.1rem;
+  font-weight: 850;
   text-transform: uppercase;
-  margin: 0 0 12px 0;
+  margin: 0 0 10px 0;
   color: #000;
   letter-spacing: -0.5px;
 }
 
-.partner-card-desc {
+.partner-card-desc-refined {
   font-size: 0.95rem;
   color: #555;
   line-height: 1.6;
@@ -86,48 +89,31 @@
   margin: 0;
 }
 
-/* --- Interactive Elements --- */
-.partner-card-indicator {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.partner-feature-card:hover {
+/* --- Clean Hover --- */
+.partner-feature-v-card:hover {
   border-color: #000;
-  transform: translateY(-8px);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.06);
 }
 
-.partner-feature-card:hover .partner-card-indicator {
-  opacity: 1;
-}
-
-.partner-feature-card:hover .partner-card-icon {
-  transform: scale(1.15) rotate(5deg); /* Slight pop and tilt for emojis */
-}
-
-/* --- Responsive Layout --- */
+/* --- Responsive --- */
 @media (max-width: 1024px) {
-  .partner-features-grid {
+  .partner-features-clean-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
   .partner-features-container { padding: 0 24px; }
-  .partner-features-title { font-size: 2.2rem; }
+  .partner-features-main-title { font-size: 2rem; }
+  .partner-emoji-icon { font-size: 2.8rem; }
 }
 
 @media (max-width: 600px) {
-  .partner-features-grid {
+  .partner-features-clean-grid {
     grid-template-columns: 1fr;
   }
-  .partner-feature-card {
+  .partner-feature-v-card {
     padding: 2rem;
   }
 }
