@@ -1,50 +1,140 @@
-.logisty-app-page-wrapper {
+.app-hero-section {
+  width: 100%;
+  padding: 8rem 0 4rem 0;
   background-color: #ffffff;
-  min-height: 100vh;
-  scroll-behavior: smooth;
-  display: flex;
-  flex-direction: column;
 }
 
-/* The Section Container ensures horizontal alignment across all modules */
-.section-container {
+.hero-container {
   max-width: 1200px;
   margin: 0 auto;
-  width: 100%;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 60px;
+  align-items: center;
 }
 
-/* --- Brutalist Spacing Logic --- */
-.spacer-xl {
-  height: 160px; /* Massive breathing room for premium feel */
-  position: relative;
+.hero-main-title {
+  font-size: 5.5rem;
+  font-weight: 950;
+  line-height: 0.9;
+  letter-spacing: -3px;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+.title-outline {
+  color: transparent;
+  -webkit-text-stroke: 2px #000;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #444;
+  max-width: 500px;
+  line-height: 1.6;
+  margin-bottom: 4rem;
+}
+
+/* --- Onboarding Flow & Connector --- */
+.onboarding-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 0; /* Gap managed by connector */
+}
+
+.flow-step {
+  display: flex;
+  gap: 25px;
+}
+
+.step-number {
+  font-size: 1.5rem;
+  font-weight: 950;
+  background: #000;
+  color: #fff;
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
-/* Optional: Adding a heavy brutalist divider in the middle of the spacer */
-.spacer-xl::after {
-  content: "";
-  width: 100%;
-  max-width: 1120px; /* Matches container padding */
-  height: 4px; /* Thick, confident line */
+/* The Connecting Line */
+.flow-connector {
+  padding-left: 24px; /* Center under the 50px step number */
+  height: 40px;
+}
+
+.connector-line {
+  width: 3px;
+  height: 100%;
   background: #000;
 }
 
-/* --- Responsive Adjustments --- */
+.step-body {
+  padding-top: 5px;
+}
+
+.step-label {
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
+}
+
+.step-desc {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 15px;
+  max-width: 350px;
+}
+
+/* --- Simplified Brutalist Button --- */
+.step-cta-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 0.85rem;
+  border: 2px solid #000;
+  transition: all 0.2s ease;
+}
+
+.step-cta-button:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* --- Right Visual --- */
+.app-mockup-placeholder {
+  width: 100%;
+  height: 500px;
+  background: #f0f0f0;
+  border: 4px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 15px 15px 0px #000;
+}
+
+.mockup-text {
+  font-weight: 900;
+  letter-spacing: 2px;
+  opacity: 0.2;
+}
+
+/* --- Responsive --- */
 @media (max-width: 1024px) {
-  .spacer-xl {
-    height: 100px;
-  }
+  .hero-container { grid-template-columns: 1fr; }
+  .hero-main-title { font-size: 4rem; }
+  .app-mockup-placeholder { height: 300px; }
 }
 
 @media (max-width: 768px) {
-  .spacer-xl {
-    height: 80px;
-    padding: 0 20px;
-  }
-  
-  .spacer-xl::after {
-    max-width: 100%;
-  }
+  .hero-main-title { font-size: 3.2rem; }
 }

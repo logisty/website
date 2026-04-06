@@ -1,10 +1,8 @@
 import { useState, type FC } from 'react';
 import './PartnerAppFAQ.css';
-import { useTranslation } from '@hooks/useTranslations';
 
 const PartnerAppFAQ: FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
-  const { t } = useTranslation();
 
   const faqs = [
     {
