@@ -64,7 +64,7 @@ const InvestorsPage: React.FC = () => {
             <div className="action-card yellow-card">
               <h3>FOUNDER MEETING</h3>
               <p>Schedule a 30-minute briefing with the management team via Calendly.</p>
-              <a href="https://calendly.com/your-link" target="_blank" rel="noreferrer" className="investor-link-btn black-btn">
+              <a href="https://calendly.com/nasserallah-hourichi-logisty/30min" target="_blank" rel="noreferrer" className="investor-link-btn black-btn">
                 BOOK VIA CALENDLY
               </a>
             </div>
