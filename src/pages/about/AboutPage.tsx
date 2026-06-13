@@ -2,9 +2,14 @@ import React, { useEffect } from 'react';
 import './AboutPage.css';
 import tnFlag from '@assets/flags/tn.png'; 
 import logo from '@assets/logisty-full-logo.png'; 
+import { useTranslation } from '@hooks/useTranslations';
 
 const AboutPage: React.FC = () => {
-  useEffect(() => { window.scrollTo(0, 0); }, []);
+  const { t } = useTranslation();
+
+  useEffect(() => { 
+    window.scrollTo(0, 0); 
+  }, []);
 
   return (
     <main className="about-page">
@@ -17,21 +22,21 @@ const AboutPage: React.FC = () => {
             
             <div className="badge-row">
               <div className="origin-pill">
-                <span>MADE IN</span>
+                <span>{t('about.brand.made_in')}</span>
                 <img src={tnFlag} alt="TN" />
-                <span>TUNISIA</span>
+                <span>{t('about.brand.country')}</span>
               </div>
-              <div className="status-pill">PRE-INCORPORATED</div>
+              <div className="status-pill">{t('about.brand.status')}</div>
             </div>
 
             <div className="brand-metadata">
               <div className="meta-item">
-                <span className="meta-label">LOCATION</span>
-                <span className="meta-val">Tunis, TN</span>
+                <span className="meta-label">{t('about.brand.meta.location_label')}</span>
+                <span className="meta-val">{t('about.brand.meta.location_val')}</span>
               </div>
               <div className="meta-item">
-                <span className="meta-label">PHASE</span>
-                <span className="meta-val">Experimental Beta</span>
+                <span className="meta-label">{t('about.brand.meta.phase_label')}</span>
+                <span className="meta-val">{t('about.brand.meta.phase_val')}</span>
               </div>
             </div>
 
@@ -44,10 +49,11 @@ const AboutPage: React.FC = () => {
         {/* RIGHT PANEL: CONTENT */}
         <section className="content-panel">
           <div className="content-block">
-            <h1 className="main-heading">FACILITATING THE <span className="highlight">FUTURE</span> OF TUNISIAN LOGISTICS.</h1>
+            <h1 className="main-heading">
+              {t('about.content.heading_prefix')} <span className="highlight">{t('about.content.heading_highlight')}</span> {t('about.content.heading_suffix')}
+            </h1>
             <p className="lead-text">
-              Logisty is a tech startup designed to introduce innovation and trust to the economy, 
-              facilitating and accelerating logistics in Tunisia and beyond.
+              {t('about.content.lead_text')}
             </p>
           </div>
 
@@ -55,27 +61,24 @@ const AboutPage: React.FC = () => {
             {/* 01. INNOVATION - Purple */}
             <div className="f-box purple">
               <span className="box-emoji">💡</span>
-              <h3>01. INNOVATION</h3>
-              <p>We replace paper-based friction with real-time digital intelligence and automated workflows.</p>
+              <h3>{t('about.features.innovation.title')}</h3>
+              <p>{t('about.features.innovation.desc')}</p>
             </div>
             {/* 02. TRUST - Blue */}
             <div className="f-box blue">
               <span className="box-emoji">🛡️</span>
-              <h3>02. TRUST</h3>
-              <p>Built-in encryption and verified partner protocols ensure every handover is secure and documented.</p>
+              <h3>{t('about.features.trust.title')}</h3>
+              <p>{t('about.features.trust.desc')}</p>
             </div>
           </div>
 
           <div className="manifesto-section">
-            <h2>OUR MISSION</h2>
+            <h2>{t('about.manifesto.title')}</h2>
             <p>
-              Logisty is not just an app; it is the infrastructure for a smarter Tunisian economy.
-              Logistics is the connective tissue of any market. In Tunisia, we are building the digital 
-              tissue that allows businesses to scale without the traditional bottlenecks of delivery uncertainty. 
+              {t('about.manifesto.paragraph_1')}
             </p>
             <p className="sub-p">
-              By leveraging AI-driven routing and a secure, transparent ledger system, we provide 
-              infrastructure that is as reliable as it is fast.
+              {t('about.manifesto.paragraph_2')}
             </p>
           </div>
         </section>

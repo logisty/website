@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght=700;900&display=swap');
 
 /* Basic Page Setup */
 .about-page {
@@ -12,7 +12,7 @@
 /* Master Grid: 2 columns */
 .about-master-grid {
   display: grid;
-  grid-template-columns: 400px 1fr;
+  grid-template-columns: minmax(340px, 420px) 1fr;
   min-height: calc(100vh - 75px);
 }
 
@@ -20,49 +20,77 @@
 .brand-panel {
   background-color: #ffffff;
   color: #000000;
-  padding: 60px 45px;
+  padding: 60px 35px;
   border-right: 4px solid #000000;
   position: relative;
 }
 
+/* Handle RTL border flip for Arabic layout */
+[dir="rtl"] .brand-panel {
+  border-right: none;
+  border-left: 4px solid #000000;
+}
+
 .sticky-content {
   position: sticky;
-  top: 115px;
+  top: 115px; 
   display: flex;
   flex-direction: column;
   height: calc(100vh - 180px);
+  gap: 25px;
 }
 
 .about-main-logo {
   width: 100%;
   max-width: 280px;
   height: auto;
-  margin-bottom: 25px;
   mix-blend-mode: multiply; 
+  flex-shrink: 0;
 }
 
 .badge-row {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 40px;
+  gap: 12px;
+  width: 100%;
+  flex-shrink: 0;
 }
 
+/* FIXED TEXT OVERFLOW: Added flex-wrap and responsive font clamping */
 .origin-pill, .status-pill {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap; /* Allows text to wrap into multiple rows safely if long */
   gap: 8px;
   background: #000000;
   color: #ffffff;
-  padding: 8px 14px;
-  font-size: 11px;
+  padding: 10px 14px;
+  font-size: clamp(10px, 1.2vw, 12px); /* Scales font if text length grows */
   font-weight: 900;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
   width: fit-content;
+  max-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  word-break: break-word; /* Forces long unbroken words to split nicely */
 }
 
-.origin-pill img { width: 18px; }
-.status-pill { background: #FFCF00; color: #000000; border: 2px solid #000000; }
+.origin-pill span {
+  white-space: normal; /* Prevents text from forcing horizontal overflows */
+}
+
+.origin-pill img { 
+  width: 18px; 
+  height: auto;
+  flex-shrink: 0;
+}
+
+.status-pill { 
+  background: #FFCF00; 
+  color: #000000; 
+  border: 2px solid #000000; 
+}
 
 .brand-metadata {
   display: flex;
@@ -71,6 +99,7 @@
   padding-top: 20px;
   border-top: 2px solid #000000;
   width: 100%;
+  flex-shrink: 0;
 }
 
 .meta-item {
@@ -79,64 +108,85 @@
 }
 
 .meta-label {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 950;
   color: #999999;
   letter-spacing: 1px;
 }
 
 .meta-val {
-  font-size: 18px;
+  font-size: clamp(15px, 1.8vw, 18px); /* Fluidly scales metadata value text */
   font-weight: 900;
   text-transform: uppercase;
   color: #000000;
+  word-break: break-word;
+}
+
+/* Force specific alignment styles for Right-to-Left Arabic display instances */
+[dir="rtl"] .meta-label,
+[dir="rtl"] .meta-val {
+  text-align: right;
 }
 
 .panel-footer {
-  margin-top: auto;
+  margin-top: auto; 
+  padding-top: 20px;
   font-size: 10px;
   font-weight: 900;
   color: #cccccc;
+  flex-shrink: 0;
 }
 
 /* Right Panel Content */
 .content-panel {
   background: #fafafa;
   color: #000000;
-  padding: 80px 8%;
+  padding: 80px 6%;
 }
 
+/* FIXED TEXT OVERFLOW: Adjusted line-height to 1.2 to give multi-row headers space */
 .main-heading {
-  font-size: clamp(38px, 5vw, 60px);
-  line-height: 0.95;
-  letter-spacing: -2.5px;
+  font-size: clamp(28px, 4.2vw, 52px); /* Balanced viewport typography scaling */
+  line-height: 1.2; /* Prevents text from colliding vertically when long */
+  letter-spacing: -1px;
   margin-bottom: 25px;
   font-weight: 950;
   text-transform: uppercase;
+  word-wrap: break-word;
 }
 
-.highlight { background-color: #FFCF00; padding: 0 10px; }
+/* Ensures highlight container adapts to multiple lines safely */
+.highlight { 
+  background-color: #FFCF00; 
+  padding: 2px 8px; 
+  display: inline; /* Changed to inline to handle clean line wrapping split points safely */
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
 
 .lead-text {
-  font-size: 19px;
-  line-height: 1.5;
+  font-size: clamp(16px, 1.8vw, 19px);
+  line-height: 1.6;
   margin-bottom: 50px;
-  max-width: 650px;
+  max-width: 700px;
   font-weight: 500;
 }
 
-/* Feature Grid with Fixed Colors */
+/* Feature Grid Layout */
 .feature-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 25px;
   margin-bottom: 60px;
 }
 
 .f-box {
-  padding: 40px; /* Increased padding */
+  padding: 35px;
   border: 4px solid #000000;
   background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   transition: transform 0.1s steps(4), box-shadow 0.1s steps(4);
 }
 
@@ -146,22 +196,35 @@
 }
 
 /* Fixed Card Colors */
-.f-box.purple { background: #A061FF; color: #ffffff; } /* Innovation Purple */
-.f-box.blue { background: #3B82F6; color: #ffffff; }  /* Trust Blue */
+.f-box.purple { background: #A061FF; color: #ffffff; } 
+.f-box.blue { background: #3B82F6; color: #ffffff; }  
 
 /* Emoji Styling */
 .box-emoji {
   display: block;
-  font-size: 3.2rem; /* Big impact emojis */
+  font-size: 2.8rem; 
   margin-bottom: 1.5rem;
   line-height: 1;
 }
 
-.f-box h3 { font-size: 22px; margin-bottom: 12px; font-weight: 900; letter-spacing: -0.5px;}
-.f-box p { font-size: 14px; line-height: 1.6; font-weight: 600; }
+/* FIXED TEXT OVERFLOW: Enforced fluid clamping for titles inside the boxes */
+.f-box h3 { 
+  font-size: clamp(18px, 2vw, 22px); 
+  margin-bottom: 12px; 
+  font-weight: 900; 
+  letter-spacing: -0.5px;
+  word-break: break-word;
+  line-height: 1.2;
+}
+
+.f-box p { 
+  font-size: 14px; 
+  line-height: 1.6; 
+  font-weight: 600; 
+}
 
 .manifesto-section h2 {
-  font-size: 28px;
+  font-size: clamp(22px, 2.5vw, 28px);
   font-weight: 900;
   margin-bottom: 15px;
   border-bottom: 4px solid #FFCF00;
@@ -177,15 +240,56 @@
   font-weight: 500;
 }
 
-.sub-p { color: #888888 !important; font-style: italic; font-size: 14px; font-weight: 500; }
+.sub-p { 
+  color: #888888 !important; 
+  font-style: italic; 
+  font-size: 14px; 
+  font-weight: 500; 
+}
 
 /* Responsive Adjustments */
 @media (max-width: 1024px) {
-  .about-master-grid { grid-template-columns: 1fr; }
-  .brand-panel { border-right: none; border-bottom: 4px solid #000000; padding: 40px 20px;}
-  .sticky-content { position: static; height: auto; align-items: center; text-align: center;}
-  .badge-row { align-items: center; margin-bottom: 20px; }
-  .brand-metadata { align-items: center; text-align: center; }
-  .about-main-logo { max-width: 220px; margin: 0 auto 20px; }
-  .feature-grid { grid-template-columns: 1fr; gap: 20px; }
+  .about-master-grid { 
+    grid-template-columns: 1fr; 
+  }
+  .brand-panel { 
+    border-right: none; 
+    border-bottom: 4px solid #000000; 
+    padding: 40px 24px;
+  }
+  [dir="rtl"] .brand-panel {
+    border-left: none;
+    border-bottom: 4px solid #000000;
+  }
+  .sticky-content { 
+    position: static; 
+    height: auto; 
+    align-items: center; 
+    text-align: center;
+    gap: 20px;
+  }
+  .badge-row { 
+    align-items: center; 
+    margin-bottom: 0px; 
+  }
+  .brand-metadata { 
+    align-items: center; 
+    text-align: center; 
+  }
+  .about-main-logo { 
+    max-width: 220px; 
+    margin: 0 auto 0; 
+  }
+}
+
+@media (max-width: 480px) {
+  .content-panel {
+    padding: 40px 16px;
+  }
+  .f-box {
+    padding: 24px;
+  }
+  .origin-pill, .status-pill {
+    width: 100%;
+  }
 }

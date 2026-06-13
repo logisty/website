@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import './EcosystemPage.css';
+import { useTranslation } from '@hooks/useTranslations'; 
 
 // PNG Assets
 import appLogo from '@assets/logisty_app.png';
@@ -10,7 +11,11 @@ import appleBadge from '@assets/apple.png';
 import playBadge from '@assets/play-store.png';
 
 const EcosystemPage: React.FC = () => {
-  useEffect(() => { window.scrollTo(0, 0); }, []);
+  const { t } = useTranslation();
+
+  useEffect(() => { 
+    window.scrollTo(0, 0); 
+  }, []);
 
   return (
     <main className="eco-minimal-page">
@@ -18,12 +23,12 @@ const EcosystemPage: React.FC = () => {
       
       <div className="eco-content-wrap">
         <header className="eco-header-main">
-          <div className="eco-tag">Ecosystem</div>
+          <div className="eco-tag">{t('eco.header.tag')}</div>
           <h1 className="eco-hero-text">
-            A synchronized <span className="text-highlight">logistics</span> network.
+            {t('eco.header.title_prefix')} <span className="text-highlight">{t('eco.header.title_highlight')}</span> {t('eco.header.title_suffix')}
           </h1>
           <p className="eco-hero-sub">
-            The infrastructure connecting Tunisian commerce through four specialized layers.
+            {t('eco.header.subtitle')}
           </p>
         </header>
 
@@ -40,8 +45,8 @@ const EcosystemPage: React.FC = () => {
                 </div>
               </div>
               <div className="eco-info">
-                <h2 className="eco-node-name">Logisty app & business</h2>
-                <p>Demand gateway for individuals and high-volume merchants.</p>
+                <h2 className="eco-node-name">{t('eco.tier1.title')}</h2>
+                <p>{t('eco.tier1.desc')}</p>
                 <div className="eco-platforms">
                   <div className="plat-item"><img src={playBadge} alt="Play" /> Google Play</div>
                   <div className="plat-item"><img src={appleBadge} alt="Apple" /> App Store</div>
@@ -63,8 +68,8 @@ const EcosystemPage: React.FC = () => {
                 </div>
               </div>
               <div className="eco-info">
-                <h2 className="eco-node-name">Logisty core</h2>
-                <p>The central matching engine hosted on Google Cloud.</p>
+                <h2 className="eco-node-name">{t('eco.tier2.title')}</h2>
+                <p>{t('eco.tier2.desc')}</p>
                 <div className="eco-platforms">
                   <div className="plat-item"><img src={gcpBadge} alt="GCP" /> Google Cloud</div>
                 </div>
@@ -81,8 +86,8 @@ const EcosystemPage: React.FC = () => {
                 <img src={partnerLogo} alt="Partner" className="single-asset" />
               </div>
               <div className="eco-info">
-                <h2 className="eco-node-name">Logisty partner</h2>
-                <p>OS for the verified fleet with real-time geo-tracking.</p>
+                <h2 className="eco-node-name">{t('eco.tier3.title')}</h2>
+                <p>{t('eco.tier3.desc')}</p>
                 <div className="eco-platforms">
                   <div className="plat-item"><img src={playBadge} alt="Play" /> Google Play</div>
                 </div>
@@ -103,10 +108,10 @@ const EcosystemPage: React.FC = () => {
                 </div>
               </div>
               <div className="eco-info">
-                <h2 className="eco-node-name">Overseer</h2>
-                <p>Administrative terminal for security and network health.</p>
+                <h2 className="eco-node-name">{t('eco.tier4.title')}</h2>
+                <p>{t('eco.tier4.desc')}</p>
                 <div className="eco-platforms">
-                  <div className="plat-item">Web Terminal</div>
+                  <div className="plat-item">{t('eco.tier4.platform')}</div>
                 </div>
               </div>
               <div className="hover-line"></div>

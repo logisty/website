@@ -1,9 +1,14 @@
 import React, { useEffect } from 'react';
 import './InvestorsPage.css';
 import logo from '@assets/logisty-full-logo.png';
+import { useTranslation } from '@hooks/useTranslations'; 
 
 const InvestorsPage: React.FC = () => {
-  useEffect(() => { window.scrollTo(0, 0); }, []);
+  const { t } = useTranslation();
+
+  useEffect(() => { 
+    window.scrollTo(0, 0); 
+  }, []);
 
   return (
     <main className="investors-page">
@@ -12,14 +17,13 @@ const InvestorsPage: React.FC = () => {
         {/* HEADER SECTION */}
         <header className="investors-header">
           <div className="header-top-bar">
-            <span>REGISTRY: TUNISIA</span>
-            <span>FUNDING STATUS: OPEN</span>
+            <span>{t('investors.registry')}</span>
+            <span>{t('investors.funding_status')}</span>
           </div>
           <img src={logo} alt="Logisty" className="investors-logo" />
-          <h1 className="investors-title">Capital & Growth</h1>
+          <h1 className="investors-title">{t('investors.title')}</h1>
           <p className="investors-subtitle">
-            Logisty is currently open to strategic partnerships with investors who 
-            believe in the modernization of North African logistics infrastructure.
+            {t('investors.subtitle')}
           </p>
         </header>
 
@@ -29,43 +33,43 @@ const InvestorsPage: React.FC = () => {
           <section className="legal-visual-section">
             <div className="safe-document">
               <div className="doc-header">
-                <span className="doc-label">Y COMBINATOR STANDARD</span>
-                <span className="doc-type">SAFE</span>
+                <span className="doc-label">{t('investors.safe.yc_standard')}</span>
+                <span className="doc-type">{t('investors.safe.type')}</span>
               </div>
-              <div className="doc-title">Simple Agreement for Future Equity</div>
+              <div className="doc-title">{t('investors.safe.title')}</div>
               <div className="doc-lines">
                 <div className="line long"></div>
                 <div className="line med"></div>
                 <div className="line short"></div>
                 <div className="line long"></div>
                 <div className="line med"></div>
+                <div className="line short"></div>
               </div>
               <div className="doc-footer">
                 <div className="stamp">LOGISTY TN</div>
-                <div className="sig-line">FOUNDER SIGNATURE</div>
+                <div className="sig-line">{t('investors.safe.signature')}</div>
               </div>
             </div>
             <p className="legal-caption">
-              Our investment framework utilizes the **Standard YC SAFE**, 
-              localized for the Tunisian ecosystem to ensure transparency and speed.
+              {t('investors.safe.caption')}
             </p>
           </section>
 
           {/* RIGHT: ACTIONS & CONTACT */}
           <section className="investor-actions">
             <div className="action-card">
-              <h3>INQUIRY HUB</h3>
-              <p>Request data rooms, financial projections, or cap table details via our dedicated terminal.</p>
+              <h3>{t('investors.hub.title')}</h3>
+              <p>{t('investors.hub.description')}</p>
               <a href="mailto:investment@logisty.tn" className="investor-link-btn">
                 investment@logisty.tn
               </a>
             </div>
 
             <div className="action-card yellow-card">
-              <h3>FOUNDER MEETING</h3>
-              <p>Schedule a 30-minute briefing with the management team via Calendly.</p>
+              <h3>{t('investors.meeting.title')}</h3>
+              <p>{t('investors.meeting.description')}</p>
               <a href="https://calendly.com/nasserallah-hourichi-logisty/30min" target="_blank" rel="noreferrer" className="investor-link-btn black-btn">
-                BOOK VIA CALENDLY
+                {t('investors.meeting.btn')}
               </a>
             </div>
 
@@ -73,15 +77,15 @@ const InvestorsPage: React.FC = () => {
               <div className="bullet">
                 <span className="b-icon">✓</span>
                 <div>
-                  <strong>Equity Method</strong>
-                  <span>Post-Money SAFE (Standard Cap)</span>
+                  <strong>{t('investors.bullets.equity.title')}</strong>
+                  <span>{t('investors.bullets.equity.desc')}</span>
                 </div>
               </div>
               <div className="bullet">
                 <span className="b-icon">✓</span>
                 <div>
-                  <strong>Jurisdiction</strong>
-                  <span>Tunisia (Startup Act Framework)</span>
+                  <strong>{t('investors.bullets.jurisdiction.title')}</strong>
+                  <span>{t('investors.bullets.jurisdiction.desc')}</span>
                 </div>
               </div>
             </div>

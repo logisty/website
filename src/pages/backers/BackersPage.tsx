@@ -1,16 +1,21 @@
 import React, { useEffect } from 'react';
 import './BackersPage.css';
 import logo from '@assets/logo.png';
+import { useTranslation } from '@hooks/useTranslations';
 
 const BackersPage: React.FC = () => {
-  useEffect(() => { window.scrollTo(0, 0); }, []);
+  const { t } = useTranslation();
+
+  useEffect(() => { 
+    window.scrollTo(0, 0); 
+  }, []);
 
   const backers = [
-    { name: "Sami Ben Hassine", role: "Early Adopter" },
-    { name: "Fatma Mansour", role: "Logistics Advisor" },
-    { name: "The Bizerte Innovation Lab", role: "Foundational Supporter" },
-    { name: "Yassine Kallel", role: "Beta Tester" },
-    { name: "Zied Aloui", role: "Individual Backer" },
+    { name: "Sami Ben Hassine", roleKey: "backers.roles.early_adopter" },
+    { name: "Fatma Mansour", roleKey: "backers.roles.logistics_advisor" },
+    { name: "The Bizerte Innovation Lab", roleKey: "backers.roles.foundational_supporter" },
+    { name: "Yassine Kallel", roleKey: "backers.roles.beta_tester" },
+    { name: "Zied Aloui", roleKey: "backers.roles.individual_backer" },
   ];
 
   return (
@@ -26,11 +31,12 @@ const BackersPage: React.FC = () => {
         
         {/* HEADER SECTION */}
         <header className="backers-header">
-          <div className="header-label">COMMUNITY SUPPORT</div>
-          <h1 className="backers-title">Early <span className="text-highlight">Backers</span></h1>
+          <div className="header-label">{t('backers.header_label')}</div>
+          <h1 className="backers-title">
+            {t('backers.title_prefix')} <span className="text-highlight">{t('backers.title_highlight')}</span>
+          </h1>
           <p className="backers-subtitle">
-            The laboratory experiment is made possible by those who believe in 
-            modernizing Tunisian trade from day zero.
+            {t('backers.subtitle')}
           </p>
         </header>
 
@@ -39,32 +45,32 @@ const BackersPage: React.FC = () => {
           {/* LEFT: THE FOUNDER CARD ILLUSTRATION */}
           <section className="card-promo-section">
             <div className="founder-card">
-              {/* Amazon Signature: Full logo watermark in the background */}
+              {/* Full logo watermark in the background */}
               <img src={logo} alt="" className="card-bg-watermark" />
               
               <div className="card-top">
                 <img src={logo} alt="Logisty" className="card-mini-logo" />
-                <span className="card-edition">EARLY ACCESS</span>
+                <span className="card-edition">{t('backers.card.edition')}</span>
               </div>
               
               <div className="card-middle">
-                <div className="card-label">FOUNDER CARD</div>
-                <div className="card-value">50 DT</div>
+                <div className="card-label">{t('backers.card.label')}</div>
+                <div className="card-value">{t('backers.card.value')}</div>
               </div>
               
               <div className="card-bottom">
                 <span className="card-serial">LOG-BETA-2026</span>
-                <span className="card-credit">FUTURE APP CREDIT</span>
+                <span className="card-credit">{t('backers.card.credit')}</span>
               </div>
               <div className="card-shimmer"></div>
             </div>
             
             <div className="promo-details">
-              <h3>Secure your status.</h3>
-              <p>Purchase the **50 DT Founder Card** today. Get immediate recognition on this page and 50 DT pre-loaded credit when the official app launches.</p>
+              <h3>{t('backers.promo.title')}</h3>
+              <p>{t('backers.promo.description')}</p>
               <div className="promo-actions">
                 <a href="mailto:sales@logisty.tn" className="backer-btn-primary">
-                  INQUIRE VIA SALES@LOGISTY.TN
+                  {t('backers.promo.btn')}
                 </a>
               </div>
             </div>
@@ -72,18 +78,18 @@ const BackersPage: React.FC = () => {
 
           {/* RIGHT: THE WALL OF NAMES */}
           <section className="backers-list-section">
-            <h2 className="list-title">The Honor Roll</h2>
+            <h2 className="list-title">{t('backers.list_title')}</h2>
             <div className="names-grid">
               {backers.map((backer, index) => (
                 <div key={index} className="backer-item">
                   <span className="backer-name">{backer.name}</span>
-                  <span className="backer-role">{backer.role}</span>
+                  <span className="backer-role">{t(backer.roleKey)}</span>
                 </div>
               ))}
               {/* Dynamic Placeholder for the next person */}
               <div className="backer-item placeholder">
-                <span className="backer-name">Your Name Here?</span>
-                <span className="backer-role">Become a Backer</span>
+                <span className="backer-name">{t('backers.placeholder.name')}</span>
+                <span className="backer-role">{t('backers.placeholder.role')}</span>
               </div>
             </div>
           </section>

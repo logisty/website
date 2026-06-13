@@ -1,9 +1,14 @@
 import React, { useEffect } from 'react';
 import './RoadmapPage.css';
 import logo from '@assets/logisty-full-logo.png'; 
+import { useTranslation } from '@hooks/useTranslations';
 
 const RoadmapPage: React.FC = () => {
-  useEffect(() => { window.scrollTo(0, 0); }, []);
+  const { t } = useTranslation();
+
+  useEffect(() => { 
+    window.scrollTo(0, 0); 
+  }, []);
 
   return (
     <main className="roadmap-page">
@@ -13,13 +18,12 @@ const RoadmapPage: React.FC = () => {
         <header className="roadmap-header">
           <div className="brand-meta-top">
             <span className="serial-no">LOG-2026-BETA</span>
-            <span className="loc-tag">TUNIS / GABES</span>
+            <span className="loc-tag">{t('roadmap.location_tag')}</span>
           </div>
           <img src={logo} alt="Logisty" className="roadmap-hero-logo" />
-          <h1 className="roadmap-main-title">Development Roadmap</h1>
+          <h1 className="roadmap-main-title">{t('roadmap.main_title')}</h1>
           <p className="roadmap-intro">
-            A strategic timeline of our laboratory phase, from conceptual validation 
-            to infrastructure scaling.
+            {t('roadmap.intro')}
           </p>
         </header>
 
@@ -34,14 +38,14 @@ const RoadmapPage: React.FC = () => {
             </div>
             <div className="milestone-body">
               <div className="m-header">
-                <span className="m-date">JAN 2026</span>
+                <span className="m-date">{t('roadmap.step1.date')}</span>
                 <div className="m-tags">
-                  <span className="tag poc">POC</span>
-                  <span className="tag-status">CLOSED</span>
+                  <span className="tag poc">{t('roadmap.tags.poc')}</span>
+                  <span className="tag-status">{t('roadmap.status.closed')}</span>
                 </div>
               </div>
-              <h3>Alpha Architecture</h3>
-              <p>Proof of Concept phase. Validation of real-time tracking logic and encrypted delivery receipts in a controlled environment.</p>
+              <h3>{t('roadmap.step1.title')}</h3>
+              <p>{t('roadmap.step1.description')}</p>
             </div>
           </div>
 
@@ -53,14 +57,14 @@ const RoadmapPage: React.FC = () => {
             </div>
             <div className="milestone-body">
               <div className="m-header">
-                <span className="m-date">FEB — MAR 2026</span>
+                <span className="m-date">{t('roadmap.step2.date')}</span>
                 <div className="m-tags">
-                  <span className="tag mvp">MVP</span>
-                  <span className="tag-status">ACTIVE</span>
+                  <span className="tag mvp">{t('roadmap.tags.mvp')}</span>
+                  <span className="tag-status">{t('roadmap.status.active')}</span>
                 </div>
               </div>
-              <h3>Experimental Beta</h3>
-              <p>Minimum Viable Product deployment. Live testing with 10 select partners to monitor logistics friction and API stability.</p>
+              <h3>{t('roadmap.step2.title')}</h3>
+              <p>{t('roadmap.step2.description')}</p>
             </div>
           </div>
 
@@ -72,14 +76,14 @@ const RoadmapPage: React.FC = () => {
             </div>
             <div className="milestone-body">
               <div className="m-header">
-                <span className="m-date">APR — JUN 2026</span>
+                <span className="m-date">{t('roadmap.step3.date')}</span>
                 <div className="m-tags">
-                  <span className="tag beta">BETA</span>
-                  <span className="tag-status">UPCOMING</span>
+                  <span className="tag beta">{t('roadmap.tags.beta')}</span>
+                  <span className="tag-status">{t('roadmap.status.upcoming')}</span>
                 </div>
               </div>
-              <h3>Official Beta</h3>
-              <p>Scaling test. Opening the platform to authorized carriers to evaluate mass data handling and regional coverage.</p>
+              <h3>{t('roadmap.step3.title')}</h3>
+              <p>{t('roadmap.step3.description')}</p>
             </div>
           </div>
 
@@ -87,16 +91,15 @@ const RoadmapPage: React.FC = () => {
           <div className="final-gate">
             <div className="gate-content">
               <div className="gate-header">
-                <span className="gate-warning">CRITICAL DECISION POINT</span>
-                <span className="gate-time">JUNE 2026</span>
+                <span className="gate-warning">{t('roadmap.gate.warning')}</span>
+                <span className="gate-time">{t('roadmap.gate.date')}</span>
               </div>
-              <h2>Legal Incorporation Gate</h2>
+              <h2>{t('roadmap.gate.title')}</h2>
               <p>
-                Performance review of the MVP and Beta phases. Success triggers the transition 
-                from a tech lab to an **Officially Incorporated Entity**.
+                {t('roadmap.gate.description')}
               </p>
               <div className="gate-footer">
-                STATUS: PENDING PERFORMANCE METRICS
+                {t('roadmap.gate.status')}
               </div>
             </div>
           </div>
